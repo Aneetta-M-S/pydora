@@ -1,0 +1,156 @@
+/* Level Overlay */
+.level_overlay {
+    width: 800px;
+    height: 450px;
+    border-radius: 10px;
+    padding: 15px;
+    background: #07263f;
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  .level_overlay_left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    width: 250px;
+    height: 100%;
+  }
+  
+  .level_overlay_left .close_btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  
+    color: #07263f;
+    background: #12abfd;
+  }
+  
+  .level_overlay_left img {
+    width: 90%;
+  }
+  
+  .level_overlay_right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 550px;
+    height: 80%;
+  }
+  
+  .level_overlay_right img {
+    position: absolute;
+    width: 95%;
+    z-index: 0;
+  }
+  
+  .lor_title {
+    z-index: 1;
+    color: #6d5830;
+    font-weight: 700;
+    font-family: "Feather";
+    font-size: 2rem;
+  }
+  
+  .lor_description {
+    z-index: 1;
+    color: #6d5830;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 85%;
+  }
+  
+  .lor_levels {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+  }
+  
+  .lor_levels .item {
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 0;
+    box-shadow: 0 0 0 8px;
+  
+    color: #a6a6a6;
+    background: #828282;
+  }
+  .lor_levels .item.active {
+    cursor: pointer;
+    color: #b9a378;
+    background: #6d5830;
+  }
+  
+  /* Project button begins */
+  .level_overlay_right .common_btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 160px;
+  
+    z-index: 1;
+  }
+  .level_overlay_right .common_btn_text {
+    background: #6d5830;
+    color: #fff;
+    height: 50px;
+    width: 160px;
+    border-radius: 8px;
+  
+    font-size: 1.2rem;
+    font-weight: 600;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    cursor: pointer;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .level_overlay_right .common_btn_shadow {
+    position: absolute;
+    height: 50px;
+    width: 160px;
+    border-radius: 8px;
+    background: #6d5830;
+    opacity: 0.5;
+    z-index: -1;
+  
+    transform: translateY(5px);
+  }
+  
+  .level_overlay_right .common_btn_text:hover {
+    transform: translateY(5px);
+  }
+  
+  /* Project button ends */
+  

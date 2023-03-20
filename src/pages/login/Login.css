@@ -1,89 +1,131 @@
 .login_page {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.login_mobile {
+  display: none;
 }
 
 .login_logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    height: 80px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 80px;
 }
 
 .login_logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .login_illustration {
-    width: 400px;
+  width: 400px;
 }
 
 .login_illustration img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .login_btn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 300px;
-  
-    z-index: 1;
-  }
-  .login_btn_text {
-    background: var(--primary);
-    color: #fff;
-    height: 50px;
-    width: 100%;
-    border-radius: 10px;
-  
-    font-size: 1.05rem;
-    font-weight: 600;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  
-    cursor: pointer;
-  
-    transition: all 0.2s ease;
-  }
-  .login_btn_text i{
-    background: #fff;
-    font-size: 1.8rem;
-    padding: 3px;
-    border-radius: 50% 5px 50% 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 300px;
 
+  z-index: 1;
+}
+
+.login_btn_text {
+  background: var(--primary);
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.login_btn_text i {
+  background: #fff;
+  font-size: 1.8rem;
+  padding: 3px;
+  border-radius: 50% 5px 50% 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_btn_shadow {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--primary);
+  opacity: 0.5;
+  z-index: -1;
+
+  transform: translateY(5px);
+}
+
+.login_btn_text:hover {
+  transform: translateY(5px);
+}
+
+#Mobile {
+  display: none;
+}
+
+/* Mobile View */
+
+@media (max-width: 700px) {
+  .login_page {
+    gap: 2rem;
+  }
+
+  .login_btn {
+    display: none;
+  }
+
+  .login_logo {
+    height: 70px;
+  }
+
+  .login_illustration {
+    width: 300px;
+  }
+
+  #Mobile {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
+    width: 300px;
+    text-align: center;
+
+    font-size: 1.2rem;
+    font-weight: 600;
   }
-  
-  .login_btn_shadow {
-    position: absolute;
-    height: 50px;
-    width: 100%;
-    border-radius: 10px;
-    background: var(--primary);
-    opacity: 0.5;
-    z-index: -1;
-  
-    transform: translateY(5px);
-  }
-  
-  .login_btn_text:hover {
-    transform: translateY(5px);
-  }
+}

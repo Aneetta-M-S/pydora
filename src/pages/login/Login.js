@@ -14,12 +14,15 @@ export const Login = () => {
             </div>
             <div className="login_btn">
                 <div className="login_btn_text">
-                <i>
-                    <FcGoogle />
-                </i>
-                <span>Continue with Google</span>
+                    <i>
+                        <FcGoogle />
+                    </i>
+                    <span>Continue with Google</span>
                 </div>
                 <div className="login_btn_shadow"></div>
+            </div>
+            <div id="Mobile">
+                This app is only available in computer devices.
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+import { LeaderboardStats } from "../../components/LeaderboardStats/Leaderboard_Stats"
 import "./Dashboard.css"
 
 export const Dashboard = () => {
@@ -15,7 +16,7 @@ export const Dashboard = () => {
             </div>
             <div class="right_container">
                 <div class="info"></div>
-                <div class="leaderboard_stats"></div>
+                <LeaderboardStats />
                 <div class="chart"></div>
             </div>
         </>

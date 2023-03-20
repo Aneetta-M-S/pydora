@@ -5,16 +5,33 @@
   src: url('/src/assets/font/feather_bold.ttf') format('truetype');
 }
 
-body {
-  --bg: #141823;
-  --primary: #2B70C9;
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  --bg: #141823;
+  --primary: #12ABFD;
+  --dark-primary: #486FCF;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+/* Custom Scrollbar */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
   background-color: var(--bg);
-  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--primary);
 }

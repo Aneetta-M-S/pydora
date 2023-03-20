@@ -1,7 +1,10 @@
+import { Overlay } from "../../components/overlay/Overlay"
 import "./Profile.css"
 
 export const Profile = () => {
     return (
-        <div>Profile</div>
+        <div className="profile_page">
+            <Overlay />
+        </div>
     )
 }

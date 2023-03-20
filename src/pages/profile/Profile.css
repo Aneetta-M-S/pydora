@@ -1,0 +1,14 @@
+.profile_page {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: #000; */
+}
+
+@media (max-width: 700px) {
+    .profile_page {
+        display: none;
+    }
+}

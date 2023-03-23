@@ -14,51 +14,51 @@ import Girl6 from "../../assets/images/avatars/girl6.png"
 export const Toppers = 
 [
     {
-        "position": 1,
-        "dp": Boy5,
-        "name": "dragonpylee",
-        "xp": 1354        
+        position: 1,
+        dp: Boy5,
+        name: "dragonpylee",
+        xp: 1354        
     },
     {
-        "position": 2,
-        "dp": Girl4,
-        "name": "ann maria",
-        "xp": 1206        
+        position: 2,
+        dp: Girl4,
+        name: "ann maria",
+        xp: 1206        
     },
     {
-        "position": 3,
-        "dp": Boy4,
-        "name": "jacob chacko",
-        "xp": 1000        
+        position: 3,
+        dp: Boy4,
+        name: "jacob chacko",
+        xp: 1000        
     },
     {
-        "position": 4,
-        "dp": Girl5,
-        "name": "elizabeth",
-        "xp": 789        
+        position: 4,
+        dp: Girl5,
+        name: "elizabeth",
+        xp: 789        
     },
     {
-        "position": 5,
-        "dp": Girl5,
-        "name": "pyleeee",
-        "xp": 600        
+        position: 5,
+        dp: Girl5,
+        name: "pyleeee",
+        xp: 600        
     },
     {
-        "position": 6,
-        "dp": Girl3,
-        "name": "pyleeee",
-        "xp": 600        
+        position: 6,
+        dp: Girl3,
+        name: "pyleeee",
+        xp: 600        
     },
     {
-        "position": 7,
-        "dp": Boy1,
-        "name": "pyleeee",
-        "xp": 600        
+        position: 7,
+        dp: Boy1,
+        name: "pyleeee",
+        xp: 600        
     },
     {
-        "position": 8,
-        "dp": Boy2,
-        "name": "pyleeee",
-        "xp": 600        
+        position: 8,
+        dp: Boy2,
+        name: "pyleeee",
+        xp: 600        
     },
 ]

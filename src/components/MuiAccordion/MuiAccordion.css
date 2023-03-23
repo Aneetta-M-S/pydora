@@ -1,0 +1,111 @@
+.accordion_container {
+    flex-shrink: 0;
+    flex: 1;
+    margin-bottom: 0rem;
+    /*   background: #000; */
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+
+    /* overflow-y: scroll; */
+}
+
+.Mui-expanded.mui_accordion{
+    margin: 0 !important;
+}
+.mui_accordion{
+    background: #07263F !important;
+    color: var(--primary) !important;
+    width: 700px;
+    border-radius: 15px !important;
+}
+.Mui-disabled.mui_accordion{
+    background: #999 !important;
+    color: #333 !important;
+}
+
+.mui_accordion_summary{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.mui_accordion_summary h1{
+    font-size: 1.5rem;
+}
+.mui_accordion_summary h2{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.MuiAccordionSummary-expandIconWrapper{
+    font-size: 2.5rem;
+    color: var(--primary) !important;
+}
+.Mui-disabled.mui_accordion .MuiAccordionSummary-expandIconWrapper{
+    color: #333 !important;
+}
+
+.mui_accordion_details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+}
+.mui_accordion_details img{
+    width: 200px;
+}
+.mui_accordion_details h2{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.explore_btn {
+    margin-top: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+  width: 150px;
+
+  z-index: 1;
+}
+.explore_btn_text {
+    background: var(--primary);
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  border-radius: 8px;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.explore_btn_shadow {
+  position: absolute;
+  height: 40px;
+  width: 150px;
+  border-radius: 8px;
+  background: var(--primary);
+  opacity: 0.5;
+  z-index: -1;
+
+  transform: translateY(5px);
+}
+
+.explore_btn_text:hover {
+  transform: translateY(5px);
+}

@@ -6,28 +6,28 @@ import { Toppers } from './toppers'
 
 export const LeaderboardStats = () => {
     return (
-        <div class="leaderboard_stats">
-            <div class="leaderboard_stats_top">
-                <div class="title">Leaderboard</div>
-                <div class="view_btn">View all</div>
+        <div className="leaderboard_stats">
+            <div className="leaderboard_stats_top">
+                <div className="title">Leaderboard</div>
+                <div className="view_btn">View all</div>
             </div>
-            <div class="leaderboard_stats_bottom">
+            <div className="leaderboard_stats_bottom">
                 {
                     // need to sort by position
                     Toppers.map( user => {
                         return (
-                            <div class="leaderboard_stats_card">
-                                <div class="pos">
+                            <div className="leaderboard_stats_card">
+                                <div className="pos">
                                     { (user.position > 3) ? user.position : 
                                         (user.position === 1) ? <img src={First} alt="" /> :
                                             (user.position === 2) ? <img src={Second} alt="" /> : <img src={Third} alt="" />
                                     }
                                 </div>
-                                <div class="dp">
+                                <div className="dp">
                                     <img src={ user.dp } alt="" />
                                 </div>
-                                <div class="name">{ user.name }</div>
-                                <div class="xp">{ user.xp } XP</div>
+                                <div className="name">{ user.name }</div>
+                                <div className="xp">{ user.xp } XP</div>
                             </div>
                         )
                     }

@@ -60,7 +60,7 @@ export function MuiAccordion() {
                     let num = lesson.id
 
                     // disabled from level 3 onwards
-                    let isOpen = num > 4
+                    let isOpen = num > 10
                     return (
                         <Accordion key={lid} sx={accRoot} disableGutters disabled={isOpen ? true : false} className="mui_accordion" expanded={expanded === `panel${num}`} onChange={handleChange(`panel${num}`)}>
                             <AccordionSummary

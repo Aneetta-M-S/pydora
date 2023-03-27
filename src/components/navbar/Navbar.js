@@ -27,9 +27,9 @@ export const Navbar = () => {
                         <span>Profile</span>
                     </NavLink>
                 </div>
-                <div class="logout_btn">
-                    <div class="logout_btn_text">Logout</div>
-                    <div class="logout_btn_shadow"></div>
+                <div className="logout_btn">
+                    <div className="logout_btn_text">Logout</div>
+                    <div className="logout_btn_shadow"></div>
                 </div>
             </div>
 

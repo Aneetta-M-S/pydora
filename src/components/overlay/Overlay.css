@@ -1,4 +1,8 @@
 /* Level Overlay */
+.MuiDialog-paperFullScreen{
+  background: rgba(0,0,0,0.1) !important;
+  backdrop-filter: blur(1px);
+}
 .level_overlay {
     width: 800px;
     height: 450px;
@@ -21,24 +25,20 @@
     height: 100%;
   }
   
-  .level_overlay_left .close_btn {
+  .level_overlay_left i {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    top: 10px;
+    left: 10px;
   
     display: flex;
     align-items: center;
     justify-content: center;
   
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 700;
     cursor: pointer;
   
-    color: #07263f;
-    background: #12abfd;
+    color: #12abfd;
   }
   
   .level_overlay_left img {

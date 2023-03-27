@@ -16,7 +16,7 @@ export const LeaderboardStats = () => {
                     // need to sort by position
                     Toppers.map( user => {
                         return (
-                            <div className="leaderboard_stats_card">
+                            <div className="leaderboard_stats_card" key={user.position}>
                                 <div className="pos">
                                     { (user.position > 3) ? user.position : 
                                         (user.position === 1) ? <img src={First} alt="" /> :

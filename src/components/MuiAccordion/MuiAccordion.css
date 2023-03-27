@@ -12,15 +12,6 @@
     /* overflow-y: scroll; */
 }
 
-.Mui-expanded.mui_accordion{
-    margin: 0 !important;
-}
-.mui_accordion{
-    background: #07263F !important;
-    color: var(--primary) !important;
-    width: 700px;
-    border-radius: 15px !important;
-}
 .Mui-disabled.mui_accordion{
     background: #999 !important;
     color: #333 !important;

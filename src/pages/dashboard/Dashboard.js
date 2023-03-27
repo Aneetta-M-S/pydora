@@ -5,16 +5,16 @@ import "./Dashboard.css"
 export const Dashboard = () => {
     return (
         <>
-            <div class="main_container">
-                <div class="top"></div>
-                <div class="content">
+            <div className="main_container">
+                <div className="top"></div>
+                <div className="content">
                     <MuiAccordion />
                 </div>
             </div>
-            <div class="right_container">
-                <div class="info"></div>
+            <div className="right_container">
+                <div className="info"></div>
                 <LeaderboardStats />
-                <div class="chart"></div>
+                <div className="chart"></div>
             </div>
         </>
     )

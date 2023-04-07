@@ -6,6 +6,7 @@ import { Dashboard } from './pages/dashboard/Dashboard'
 import { Forum } from './pages/forum/Forum'
 import { Leaderboard } from './pages/leaderboard/Leaderboard'
 import { Profile } from './pages/profile/Profile'
+import { Level1 } from './pages/quiz/level1/Level1'
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
             <Route path="/forum" element={<Forum />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
+          <Route path="/quiz" element={<Level1 />} />
+
         </Routes>
       </Router>
     </div>

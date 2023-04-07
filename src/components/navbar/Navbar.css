@@ -24,6 +24,7 @@
     align-items: center;
     font-size: 2rem;
     font-weight: 700;
+    font-family: "Feather";
     color: var(--primary);
 }
 

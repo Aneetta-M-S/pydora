@@ -1,4 +1,6 @@
 import './App.css';
+import { useState } from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/navbar/Navbar';
 import { Login } from './pages/login/Login';
@@ -8,14 +10,29 @@ import { Leaderboard } from './pages/leaderboard/Leaderboard'
 import { Profile } from './pages/profile/Profile'
 import { Level1 } from './pages/quiz/level1/Level1'
 
+import { auth } from "./firebaseconfig"
+import { signOut } from 'firebase/auth';
+
+
 
 function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      window.location.pathname = "/";
+    });
+  };
+
+
   return (
     <div id="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route element={<Navbar />} >
+          <Route path="/" element={<Login setIsAuth={setIsAuth} />} />
+          <Route element={<Navbar isAuth={isAuth} signUserOut={signUserOut} />} >
             <Route path="/learn" element={<Dashboard />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/forum" element={<Forum />} />

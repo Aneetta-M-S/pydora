@@ -18,7 +18,7 @@ export const Lessons =
         image: Level1,
         description: "You have been transported back in time to Ancient Egypt. You are approached by Pharaoh Akhenaten who needs your help to recover a stolen artifact, the Jade Scarab. Jade Scarab is a powerful tool that was used by the ancient Egyptians to write programs that could automate tasks in their daily lives. Are you in for the quest?",
         sublevels: 4,
-        current_sl: 2
+        current_sl: 1
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ export const Lessons =
         image: Level2,
         description: "You are participating in the Poptropolis Games as a skilled athlete. However, some of the other competitors are cheating, and it's up to you to catch them. By using your knowledge of Python and data types, you will learn how to identify cheaters. Get ready to use your programming skills to maintain fairness and integrity in the competition!",
         sublevels: 3,
-        current_sl: 1
+        current_sl: 0
     },
     {
         id: 3,

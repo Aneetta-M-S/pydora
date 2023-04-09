@@ -1,5 +1,6 @@
 import { MuiAccordion } from "../../components/MuiAccordion/MuiAccordion"
 import { LeaderboardStats } from "../../components/LeaderboardStats/Leaderboard_Stats"
+import TempXP from "../../assets/images/temp_xp.png"
 import "./Dashboard.css"
 
 export const Dashboard = () => {
@@ -14,7 +15,9 @@ export const Dashboard = () => {
             <div className="right_container">
                 <div className="info"></div>
                 <LeaderboardStats />
-                <div className="chart"></div>
+                <div className="chart">
+                    <img src={TempXP} alt=""/>
+                </div>
             </div>
         </>
     )

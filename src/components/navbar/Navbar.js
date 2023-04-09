@@ -4,7 +4,7 @@ import { MdForum } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import './Navbar.css'
 
-export const Navbar = () => {
+export const Navbar = ({signUserOut}) => {
     return (
         <>
             <div className="navbar">
@@ -27,7 +27,7 @@ export const Navbar = () => {
                         <span>Profile</span>
                     </NavLink>
                 </div>
-                <div className="logout_btn">
+                <div className="logout_btn" onClick={signUserOut}>
                     <div className="logout_btn_text">Logout</div>
                     <div className="logout_btn_shadow"></div>
                 </div>

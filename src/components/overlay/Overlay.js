@@ -1,12 +1,22 @@
 import "./Overlay.css"
 import Scroll from '../../assets/images/scroll.png'
 import { IoIosCloseCircle } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 export const Overlay = (props) => {
 
+    const navigate = useNavigate();
+
+    function handleClick(i, current_sl) {
+        if(i<=current_sl)
+            navigate("/quiz");
+    } 
+
     const items = []
     for (let i = 1; i <= props.sublevels; i++) {
-        items.push(<div key={`sl_item${i}`} className={i<=props.current_sl ? "item active" : "item"}>{i}</div>);
+        items.push(<div key={`sl_item${i}`} 
+                    className={i<=props.current_sl ? "item active" : "item"}
+                    onClick={() => handleClick(i, props.current_sl)}>{i}</div>);
     }
 
     return (

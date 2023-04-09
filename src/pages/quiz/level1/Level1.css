@@ -152,11 +152,8 @@
 .quiz_ide_content p input {
     border: none;
     line-height: 1.5;
-    width: 50px;
-    resize: horizontal;
 
     margin-right: 5px;
-    text-align: center;
 
     font-size: 0.9rem;
     font-weight: 500;

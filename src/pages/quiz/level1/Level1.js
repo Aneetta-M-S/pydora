@@ -35,8 +35,7 @@ export const Level1 = () => {
                     <div className="quiz_ide_content">
                         <p>location = "Temple of Karnak"</p>
                         <p>
-                            <input />
-                            <input />
+                            <input style={{width:"60px"}}/>
                         </p>
                     </div>
                 </div>

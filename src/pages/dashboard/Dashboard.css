@@ -57,7 +57,7 @@
   width: 100%;
 }
 
-.right_container .chart {
+/* .right_container .chart {
   width: 350px;
   height: 335px;
 
@@ -68,6 +68,22 @@
   border-radius: 20px;
 
   overflow: hidden;
+} */
+
+/* TEMP */
+
+.right_container .chart {
+  width: 350px;
+  height: 335px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right_container .chart img{
+  height: 100%;
+  width: 100%;
 }
 
 

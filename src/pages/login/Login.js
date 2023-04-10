@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './Login.css'
 import { FcGoogle } from "react-icons/fc";
 import Logo from "../../assets/images/logo.png"

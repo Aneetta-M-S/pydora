@@ -12,6 +12,13 @@ export const Login = ({setIsAuth}) => {
 
     function handleOnClick() {
         signInWithPopup(auth, provider).then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = provider.credentialFromResult(result);
+    const token = credential.accessToken;
+    console.log(token)
+    const user = result.user;
+    console.log(user)
+    // IdP data available using getAdditionalUserInfo(result)
             localStorage.setItem("isAuth", true);
             localStorage.setItem("user", result.user);
             setIsAuth(true);

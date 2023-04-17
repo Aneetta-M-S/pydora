@@ -87,6 +87,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 9rem;
   }
   
   .profile_edit_right_container .info {
@@ -97,6 +98,7 @@
   /* TEMP */
   
   .profile_edit_right_container .dp_option {
+    margin-top: 4rem;
     width: 350px;
     height: 350px;
     border: 3px solid rgba(102, 102, 102, 0.3);
@@ -116,8 +118,8 @@
   }
 
   .profile_edit_right_container .current_dp {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -144,6 +146,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: all 0.3s;
   }
   .profile_edit_right_container .dp_option_item.selected_dp {
     box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--primary);
@@ -153,6 +156,52 @@
     width: 100%;
     object-fit: cover;
   }
+
+  .save_change_btn {
+    margin-top: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  width: 350px;
+
+  z-index: 1;
+}
+.save_change_btn_text {
+    background: var(--primary);
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.save_change_btn_shadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: var(--primary);
+  opacity: 0.5;
+  z-index: -1;
+
+  transform: translateY(5px);
+}
+
+.save_change_btn_text:hover {
+  transform: translateY(5px);
+}
+
   
   
   @media (max-width: 700px) {

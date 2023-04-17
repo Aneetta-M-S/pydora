@@ -1,7 +1,16 @@
 import "./Profile.css"
-import Avatar from "../../assets/images/avatars/girl4.png"
+import { useState } from "react"
+import { dpArray } from "./avatars"
+
 
 export const Profile = () => {
+    const [dp, setDp] = useState(dpArray[9])
+
+    function changeDp(avatar){
+        setDp(avatar)
+    }
+
+
     return (
         <>
             <div className="profile_edit_main_container">
@@ -33,46 +42,22 @@ export const Profile = () => {
                 <div className="dp_option">
                     <div className="dp_option_title">Set your profile pic</div>
                     <div className="current_dp">
-                        <img src={Avatar} alt="" />
+                        <img src={dp} alt="" />
                     </div>
                     <div className="dp_option_set">
-                        <div className="dp_option_item selected_dp">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                            </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
+                        {dpArray.map((avatar, index) => {
+                            return (
+                                <div className={dp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => changeDp(avatar)}>
+                                    <img src={avatar} alt="" />
+                                </div>
+                            )
+                        }
+                        )}
                     </div>
+                </div>
+                <div className="save_change_btn">
+                    <div className="save_change_btn_text">Save Changes</div>
+                    <div className="save_change_btn_shadow"></div>
                 </div>
             </div>
         </>

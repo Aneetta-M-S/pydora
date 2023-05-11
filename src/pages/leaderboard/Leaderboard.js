@@ -1,12 +1,23 @@
 import "./Leaderboard.css"
 import { Toppers } from '../../components/LeaderboardStats/toppers'
 
-// import { useState, useEffect } from "react"
+import { useEffect, useContext } from "react"
+import { AuthContext } from '../../contexts/DetailsContext';
+import { useNavigate } from "react-router"
+
 // import { db } from "../../firebaseconfig"
 // import { collection, getDocs } from "firebase/firestore"
 
 export const Leaderboard = () => {
 
+    const {user} = useContext(AuthContext)
+    let navigate = useNavigate();
+    
+    useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
     
     return (
         <>

@@ -1,3 +1,5 @@
+import { dpArray } from "../profile/avatars"
+
 import './Login.css'
 import { FcGoogle } from "react-icons/fc";
 import Logo from "../../assets/images/logo.png"
@@ -8,35 +10,52 @@ import { signInWithPopup } from 'firebase/auth';
 import {doc, getDoc} from 'firebase/firestore';
 import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router-dom";
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 
 export const Login = () => {
-    const {setUser, setAuthname, setAuthusername, setAuthage, setAuthabout, setAuthdp} = useContext(AuthContext);
+    const {user, userinfo, updateUser, updateUserinfo} = useContext(AuthContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(user) {
+            navigate("/profile/edit");
+        }
+    }, [user, navigate]);
 
     async function redirectLogin(res){
         const docRef = doc(db, "users", res.uid)
         const documentSnapshot = await getDoc(docRef);
         if(documentSnapshot.exists()){
             const userData = documentSnapshot.data()
-            setAuthname(userData.name)
-            setAuthusername(userData.username)
-            setAuthage(userData.age)
-            setAuthdp(userData.dp)
-            setAuthabout(userData.about)
+            updateUserinfo({
+                name : userData.name,
+                username : userData.username,
+                age : userData.age,
+                dp : userData.dp,
+                about : userData.about,
+                email : res.email
+            })
+            console.log("after saving to local: ", userinfo)
+            console.log("after saving to local: ", localStorage.getItem("userinfo"))
             navigate('/learn')
         }
         else{
+            updateUserinfo({
+                name : "",
+                username : "",
+                age : 0,
+                dp : dpArray[9],
+                about : "",
+                email : res.email
+            })
             navigate('/profile/edit')
         }
     }
 
     function handleOnClick() {
         signInWithPopup(auth, provider).then((result) => {
-            localStorage.setItem("user", JSON.stringify(result.user));
-            setUser(result.user);
+            updateUser(result.user);
             redirectLogin(result.user)
-            
         })
         .catch((err) => {
             console.log(err);

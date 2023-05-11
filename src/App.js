@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/navbar/Navbar';
@@ -14,15 +14,20 @@ import { Level1 } from './pages/quiz/level1/Level1'
 import { auth } from "./firebaseconfig"
 import { signOut } from 'firebase/auth';
 
-
+import { useEffect, useContext } from 'react';
+import { AuthContext } from './contexts/DetailsContext';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+
+  const {user, setUser} = useContext(AuthContext)
+  useEffect(() => {
+    console.log(user)
+  }, [user])
 
   const signUserOut = () => {
     signOut(auth).then(() => {
+      setUser(null);
       localStorage.clear();
-      setIsAuth(false);
       window.location.pathname = "/";
     });
   };
@@ -32,8 +37,8 @@ function App() {
     <div id="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Login setIsAuth={setIsAuth} />} />
-          <Route element={<Navbar isAuth={isAuth} signUserOut={signUserOut} />} >
+          <Route path="/" element={<Login />} />
+          <Route element={<Navbar signUserOut={signUserOut} />} >
             <Route path="/learn" element={<Dashboard />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/forum" element={<Forum />} />

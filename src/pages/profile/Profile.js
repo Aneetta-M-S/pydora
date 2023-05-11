@@ -1,78 +1,52 @@
 import "./Profile.css"
-import Avatar from "../../assets/images/avatars/girl4.png"
+import { useContext } from "react"
+
+import { AuthContext } from '../../contexts/DetailsContext';
+import { useNavigate } from "react-router-dom";
+
+
 
 export const Profile = () => {
+
+    const {user, authname, authusername, authage, authabout, authdp} = useContext(AuthContext)
+   
+    const navigate = useNavigate();
+
+    function updateData(){
+        navigate('/profile/edit')
+    }
+
+
     return (
         <>
-            <div className="profile_edit_main_container">
+            <div className="profile_main_container">
                 <div className="top"></div>
+                <div className="profile_title">My Profile</div>
                 <div className="content">
-                    <div className="profile_edit_title">Edit Profile</div>
-                    <div className="profile_edit_container">
-                        <div className="profile_edit_input">
-                            <span>Username</span>
-                            <input />
+                    <div className="profile_image">
+                        <div className="dp">
+                            <img src={authdp} alt=""/>
                         </div>
-                        <div className="profile_edit_input">
-                            <span>Name</span>
-                            <input />
+                        <div className="username">{authusername}</div>
+                    </div>
+                    <div className="profile_details">
+                        <div className="name">{authname}</div>
+                        <div className="other">
+                            <div className="info">
+                                <div className="key">Email</div>
+                                <div className="value">{user.email}</div>
+                            </div>
+                            <div className="info">
+                                <div className="key">Age</div>
+                                <div className="value">{authage}</div>
+                            </div>
                         </div>
-                        <div className="profile_edit_input">
-                            <span>Age</span>
-                            <input />
-                        </div>
-                        <div className="profile_edit_input">
-                            <span>About</span>
-                            <textarea />
-                        </div>
+                        <div className="about">{authabout}</div>
                     </div>
                 </div>
-            </div>
-            <div className="profile_edit_right_container">
-                <div className="info"></div>
-                <div className="dp_option">
-                    <div className="dp_option_title">Set your profile pic</div>
-                    <div className="current_dp">
-                        <img src={Avatar} alt="" />
-                    </div>
-                    <div className="dp_option_set">
-                        <div className="dp_option_item selected_dp">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                            </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                        <div className="dp_option_item">
-                            <img src={Avatar} alt="" />
-                        </div>
-                    </div>
+                <div className="make_change_btn" onClick={updateData}>
+                    <div className="make_change_btn_text">Edit Profile</div>
+                    <div className="make_change_btn_shadow"></div>
                 </div>
             </div>
         </>

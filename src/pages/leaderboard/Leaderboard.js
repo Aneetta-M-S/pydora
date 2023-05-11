@@ -1,11 +1,18 @@
 import "./Leaderboard.css"
 import { Toppers } from '../../components/LeaderboardStats/toppers'
 
+// import { useState, useEffect } from "react"
+// import { db } from "../../firebaseconfig"
+// import { collection, getDocs } from "firebase/firestore"
+
 export const Leaderboard = () => {
+
+    
     return (
         <>
             <div className="main_container">
-                <div className="top"></div>
+                <div className="top">
+                </div>
                 <div className="content leaderboard_content">
                     <div className="leaderboard_container_title">
                         Leaderboard
@@ -15,12 +22,14 @@ export const Leaderboard = () => {
                             // need to sort by position
                             Toppers.map(user => {
                                 return (
-                                    <div 
-                                    className={user.position > 3 ? "leaderboard_main_card" : "leaderboard_main_card leaderboard_main_card_toppers"}
-                                    key={user.position} 
-                                    style={{backgroundColor: user.position > 3 ? "var(--remain)" : 
-                                                                user.position === 3 ? "var(--third)" :
-                                                                    user.position === 2 ? "var(--second)" : "var(--first)" }}>
+                                    <div
+                                        className={user.position > 3 ? "leaderboard_main_card" : "leaderboard_main_card leaderboard_main_card_toppers"}
+                                        key={user.position}
+                                        style={{
+                                            backgroundColor: user.position > 3 ? "var(--remain)" :
+                                                user.position === 3 ? "var(--third)" :
+                                                    user.position === 2 ? "var(--second)" : "var(--first)"
+                                        }}>
                                         <div className="pos">
                                             {user.position}
                                         </div>

@@ -4,10 +4,26 @@ import TempXP from "../../assets/images/temp_xp.png"
 import PyLogo from "../../assets/images/pylogo.png"
 import Streak from "../../assets/images/streak.png"
 import Gem from "../../assets/images/gem.png"
-import Avatar from "../../assets/images/avatars/girl4.png"
 import "./Dashboard.css"
 
+import { useContext } from "react"
+import { AuthContext } from '../../contexts/DetailsContext';
+import { useNavigate } from "react-router"
+
 export const Dashboard = () => {
+    const {authdp} = useContext(AuthContext)
+    let navigate = useNavigate();
+    
+    // useEffect(() => {
+    //     if (!user) {
+    //       navigate("/");
+    //     }
+    //   }, []);
+
+    function goToProfile(){
+        navigate('/profile')
+    }
+
     return (
         <>
             <div className="main_container">
@@ -29,8 +45,8 @@ export const Dashboard = () => {
                         <img src={Gem} alt="" />
                         <span>0</span>
                     </div>
-                    <div className="dp_item">
-                        <img src={Avatar} alt="" />
+                    <div className="dp_item" onClick={goToProfile}>
+                        <img src={authdp} alt="" />
                     </div>
                 </div>
                 <LeaderboardStats />

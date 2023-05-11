@@ -1,66 +1,20 @@
-import React, { createContext, useState, useEffect } from "react";
+import { dpArray } from "../pages/profile/avatars"
+import { createContext, useState } from "react";
 
-export const DetailsContext = createContext()
+export const AuthContext = createContext(null)
 
-function DetailsContextProvider(props) {
+export default function Context({children}) {
+    const [user, setUser] = useState(null)
 
-    const [resume, setResume] = useState(
-        JSON.parse(localStorage.getItem("resumeLocal")) || {
-        templateId: '1', 
-        image: '',
-        header: {},
-        education: {},
-        skills: [],
-        interests: [],
-        contact: {},
-        theme: {}
-    })
-
-    function updateTemplate(data) {
-        setResume({ ...resume,  templateId: data})
-    }
-
-    function updateImage(data) {
-        setResume({ ...resume,  image: data})
-    }
-
-    function updateHeader(data) {
-        setResume({ ...resume,  header: data})
-    }
-
-    function updateEducation(data) {
-        setResume({ ...resume,  education: data})
-    }
-
-
-    function updateSkills(data) {
-        setResume({ ...resume,  skills: data})
-    }
-
-    function updateInterests(data) {
-        setResume({ ...resume,  interests: data})
-    }
-
-    function updateContact(data) {
-        setResume({ ...resume,  contact: data})
-    }
-
-    function updateTheme(data) {
-        setResume({ ...resume,  theme: data})
-    }
-
-    useEffect(() => {
-        localStorage.setItem("resumeLocal", JSON.stringify(resume));
-      }, [resume]);
-
-    const value = { resume, updateHeader, updateEducation, updateSkills, updateInterests, updateContact, updateTemplate, updateImage, updateTheme }
+    const [authname, setAuthname] = useState("")
+    const [authusername, setAuthusername] = useState("")
+    const [authage, setAuthage] = useState(0)
+    const [authabout, setAuthabout] = useState("")
+    const [authdp, setAuthdp] = useState(dpArray[9])
 
     return (
-        <DetailsContext.Provider value={value}>
-            {props.children}
-        </DetailsContext.Provider>
+        <AuthContext.Provider value={{user, setUser, authname, authusername, authage, authabout, authdp, setAuthname, setAuthusername, setAuthage, setAuthabout, setAuthdp}}>
+            {children}
+        </AuthContext.Provider>
     )
 }
-
-
-export default DetailsContextProvider;

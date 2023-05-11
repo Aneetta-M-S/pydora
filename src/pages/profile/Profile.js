@@ -1,5 +1,5 @@
 import "./Profile.css"
-import { useContext } from "react"
+import { useEffect, useContext } from "react"
 
 import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router-dom";
@@ -8,9 +8,14 @@ import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
 
-    const {user, authname, authusername, authage, authabout, authdp} = useContext(AuthContext)
-   
+    const {user, userinfo} = useContext(AuthContext)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
 
     function updateData(){
         navigate('/profile/edit')
@@ -25,23 +30,23 @@ export const Profile = () => {
                 <div className="content">
                     <div className="profile_image">
                         <div className="dp">
-                            <img src={authdp} alt=""/>
+                            <img src={userinfo.dp} alt=""/>
                         </div>
-                        <div className="username">{authusername}</div>
+                        <div className="username">{userinfo.username}</div>
                     </div>
                     <div className="profile_details">
-                        <div className="name">{authname}</div>
+                        <div className="name">{userinfo.name}</div>
                         <div className="other">
                             <div className="info">
                                 <div className="key">Email</div>
-                                <div className="value">{user.email}</div>
+                                <div className="value">{userinfo.email}</div>
                             </div>
                             <div className="info">
                                 <div className="key">Age</div>
-                                <div className="value">{authage}</div>
+                                <div className="value">{userinfo.age}</div>
                             </div>
                         </div>
-                        <div className="about">{authabout}</div>
+                        <div className="about">{userinfo.about}</div>
                     </div>
                 </div>
                 <div className="make_change_btn" onClick={updateData}>

@@ -1,5 +1,5 @@
 import "./EditProfile.css"
-import { useContext } from "react"
+import { useEffect, useContext } from "react"
 import { dpArray } from "./avatars"
 import {db} from "../../firebaseconfig"
 // import {collection, addDoc} from 'firebase/firestore';
@@ -13,21 +13,28 @@ import { useNavigate } from "react-router-dom";
 export const EditProfile = () => {
 
     const navigate = useNavigate();
-    const {user, authname, setAuthname, authusername, setAuthusername, authage, setAuthage, authabout, setAuthabout, authdp, setAuthdp} = useContext(AuthContext)
+    const {user, userinfo, updateUserinfo} = useContext(AuthContext)
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
 
     function changeDp(avatar){
-        setAuthdp(avatar)
+        updateUserinfo({...userinfo, dp:avatar})
     }
 
     async function setData(){
         try{
             const docRef = doc(db, "users", user.uid)
             await setDoc(docRef,{
-                username : authusername,
-                name : authname,
-                dp : authdp,
-                age : authage,
-                about : authabout
+                username : userinfo.username,
+                name : userinfo.name,
+                dp : userinfo.dp,
+                age : userinfo.age,
+                about : userinfo.about,
+                email: user.email
             });
             console.log("Success")
             navigate('/learn')
@@ -49,31 +56,31 @@ export const EditProfile = () => {
                             <span>Username</span>
                             <input 
                                 type="text"
-                                value={authusername}
-                                onChange={(e) => setAuthusername(e.target.value)}
-                            />
+                                value={userinfo.username}
+                                onChange={(e) => updateUserinfo({...userinfo, username:e.target.value})}
+                                />
                         </div>
                         <div className="profile_edit_input">
                             <span>Name</span>
                             <input 
                                 type="text"
-                                value={authname}
-                                onChange={(e) => setAuthname(e.target.value)}
-                            />
+                                value={userinfo.name}
+                                onChange={(e) => updateUserinfo({...userinfo, name:e.target.value})}
+                                />
                         </div>
                         <div className="profile_edit_input">
                             <span>Age</span>
                             <input 
                                 type="text"
-                                value={authage}
-                                onChange={(e) => setAuthage(Number(e.target.value))}
-                            />
+                                value={userinfo.age}
+                                onChange={(e) => updateUserinfo({...userinfo, age:Number(e.target.value)})}
+                                />
                         </div>
                         <div className="profile_edit_input">
                             <span>About</span>
                             <textarea
-                                value={authabout}
-                                onChange={(e) => setAuthabout(e.target.value)}
+                                value={userinfo.about}
+                                onChange={(e) => updateUserinfo({...userinfo, about:e.target.value})}
                             />
                         </div>
                     </div>
@@ -84,12 +91,12 @@ export const EditProfile = () => {
                 <div className="dp_option">
                     <div className="dp_option_title">Set your profile pic</div>
                     <div className="current_dp">
-                        <img src={authdp} alt="" />
+                        <img src={userinfo.dp} alt="" />
                     </div>
                     <div className="dp_option_set">
                         {dpArray.map((avatar, index) => {
                             return (
-                                <div className={authdp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => changeDp(avatar)}>
+                                <div className={userinfo.dp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => changeDp(avatar)}>
                                     <img src={avatar} alt="" />
                                 </div>
                             )

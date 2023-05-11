@@ -19,15 +19,14 @@ import { AuthContext } from './contexts/DetailsContext';
 
 function App() {
 
-  const {user, setUser} = useContext(AuthContext)
+  const {user, logoutUser} = useContext(AuthContext)
   useEffect(() => {
     console.log(user)
   }, [user])
 
   const signUserOut = () => {
     signOut(auth).then(() => {
-      setUser(null);
-      localStorage.clear();
+      logoutUser();
       window.location.pathname = "/";
     });
   };

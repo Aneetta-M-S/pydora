@@ -46,7 +46,7 @@ export const Dashboard = () => {
                         <span>0</span>
                     </div>
                     <div className="dp_item" onClick={goToProfile}>
-                        <img src={userinfo.dp} alt="" />
+                        <img src={userinfo && userinfo.dp} alt="" />
                     </div>
                 </div>
                 <LeaderboardStats />

@@ -1,5 +1,5 @@
 import "./EditProfile.css"
-import { useEffect, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { dpArray } from "./avatars"
 import {db} from "../../firebaseconfig"
 // import {collection, addDoc} from 'firebase/firestore';
@@ -14,6 +14,7 @@ export const EditProfile = () => {
 
     const navigate = useNavigate();
     const {user, userinfo, updateUserinfo} = useContext(AuthContext)
+    const [tempdp, setTempdp] = useState(userinfo ? userinfo.dp : dpArray[9])
 
     useEffect(() => {
         if (!user) {
@@ -22,6 +23,7 @@ export const EditProfile = () => {
     }, [user, navigate]);
 
     function changeDp(avatar){
+        setTempdp(avatar)
         updateUserinfo({...userinfo, dp:avatar})
     }
 
@@ -57,7 +59,7 @@ export const EditProfile = () => {
                             <span>Username</span>
                             <input 
                                 type="text"
-                                value={userinfo.username}
+                                value={userinfo ? userinfo.username : ""}
                                 onChange={(e) => updateUserinfo({...userinfo, username:e.target.value})}
                                 />
                         </div>
@@ -65,7 +67,7 @@ export const EditProfile = () => {
                             <span>Name</span>
                             <input 
                                 type="text"
-                                value={userinfo.name}
+                                value={userinfo ? userinfo.name : ""}
                                 onChange={(e) => updateUserinfo({...userinfo, name:e.target.value})}
                                 />
                         </div>
@@ -73,14 +75,14 @@ export const EditProfile = () => {
                             <span>Age</span>
                             <input 
                                 type="text"
-                                value={userinfo.age}
+                                value={userinfo ? userinfo.age : 0}
                                 onChange={(e) => updateUserinfo({...userinfo, age:Number(e.target.value)})}
                                 />
                         </div>
                         <div className="profile_edit_input">
                             <span>About</span>
                             <textarea
-                                value={userinfo.about}
+                                value={userinfo ? userinfo.about : ""}
                                 onChange={(e) => updateUserinfo({...userinfo, about:e.target.value})}
                             />
                         </div>
@@ -92,12 +94,12 @@ export const EditProfile = () => {
                 <div className="dp_option">
                     <div className="dp_option_title">Set your profile pic</div>
                     <div className="current_dp">
-                        <img src={userinfo.dp} alt="" />
+                        <img src={tempdp} alt="" />
                     </div>
                     <div className="dp_option_set">
                         {dpArray.map((avatar, index) => {
                             return (
-                                <div className={userinfo.dp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => changeDp(avatar)}>
+                                <div className={tempdp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => changeDp(avatar)}>
                                     <img src={avatar} alt="" />
                                 </div>
                             )

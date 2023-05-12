@@ -33,7 +33,8 @@ export const Login = () => {
                 age : userData.age,
                 dp : userData.dp,
                 about : userData.about,
-                email : res.email
+                email : res.email,
+                xp: userData.xp
             })
             console.log("after saving to local: ", userinfo)
             console.log("after saving to local: ", localStorage.getItem("userinfo"))
@@ -46,7 +47,8 @@ export const Login = () => {
                 age : 0,
                 dp : dpArray[9],
                 about : "",
-                email : res.email
+                email : res.email,
+                xp: 0
             })
             navigate('/profile/edit')
         }

@@ -34,7 +34,8 @@ export const EditProfile = () => {
                 dp : userinfo.dp,
                 age : userinfo.age,
                 about : userinfo.about,
-                email: user.email
+                email: user.email,
+                xp: userinfo.xp
             });
             console.log("Success")
             navigate('/learn')

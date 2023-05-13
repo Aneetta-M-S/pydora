@@ -159,8 +159,9 @@ export const Quiz1 = () => {
         <div className="quiz_page">
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                style={{width: "500px"}}
                 open={alertinfo.open} autoHideDuration={1500} onClose={handleClose}>
-                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%' }}>
+                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px"}}>
                     {alertinfo.msg}
                 </Alert>
             </Snackbar>

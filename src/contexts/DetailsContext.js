@@ -22,8 +22,7 @@ export default function Context({children}) {
     }
 
     const logoutUser = () => {
-        localStorage.removeItem("user")
-        localStorage.removeItem("userinfo")
+        localStorage.clear()
         // window.location.reload()
         setUser(null)
         setUserinfo(null)

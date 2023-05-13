@@ -1,5 +1,4 @@
 import "./Leaderboard.css"
-import { Toppers } from '../../components/LeaderboardStats/toppers'
 
 import { useState, useEffect, useContext } from "react"
 import { AuthContext } from '../../contexts/DetailsContext';

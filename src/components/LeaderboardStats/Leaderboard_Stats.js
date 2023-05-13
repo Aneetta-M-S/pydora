@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Leaderboard_Stats.css'
 import First from "../../assets/images/prize/first.png"
 import Second from "../../assets/images/prize/second.png"
 import Third from "../../assets/images/prize/third.png"
-import { Toppers } from './toppers'
+
 import { db } from '../../firebaseconfig'
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 
 export const LeaderboardStats = () => {
 
     let position = 1;
+    const navigate = useNavigate();
     const [leaderboardData, setLeaderboardData] = useState(false);
 
     useEffect(() => {
@@ -21,11 +23,15 @@ export const LeaderboardStats = () => {
         fetchData();
     }, []);
 
+    const handleClick = () => {
+        navigate('/leaderboard')
+    }
+
     return (
         <div className="leaderboard_stats">
             <div className="leaderboard_stats_top">
                 <div className="title">Leaderboard</div>
-                <div className="view_btn">View all</div>
+                <div className="view_btn" onClick={handleClick}>View all</div>
             </div>
             <div className="leaderboard_stats_bottom">
                 {

@@ -18,9 +18,17 @@ export const Login = () => {
 
     useEffect(() => {
         if(user) {
-            navigate("/profile/edit");
+            console.log("info updated: ", userinfo)
+            if(userinfo && userinfo.age === 0)
+                navigate('/profile/edit')
+            if(userinfo && userinfo.age !== 0)
+                navigate('/learn')
         }
-    }, [user, navigate]);
+    }, [user, userinfo, navigate]);
+
+    useEffect(() => {
+        
+    }, [userinfo, navigate]);
 
     async function redirectLogin(res){
         const docRef = doc(db, "users", res.uid)
@@ -36,9 +44,8 @@ export const Login = () => {
                 email : res.email,
                 xp: userData.xp
             })
-            console.log("after saving to local: ", userinfo)
             console.log("after saving to local: ", localStorage.getItem("userinfo"))
-            navigate('/learn')
+            // navigate('/learn')
         }
         else{
             updateUserinfo({
@@ -50,7 +57,7 @@ export const Login = () => {
                 email : res.email,
                 xp: 0
             })
-            navigate('/profile/edit')
+            // navigate('/profile/edit')
         }
     }
 

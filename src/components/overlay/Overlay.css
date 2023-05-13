@@ -105,6 +105,8 @@
     border-radius: 50%;
     margin: 10px 0;
     box-shadow: 0 0 0 8px;
+
+    cursor: not-allowed;
   
     color: #a6a6a6;
     background: #828282;

@@ -100,6 +100,7 @@ export function MuiAccordion() {
                     <Overlay
                         name={popupLevelData.name}
                         image={popupLevelData.image}
+                        level={popupLevel+1}
                         sublevels={popupLevelData.sublevels}
                         current_sl={popupLevelData.current_sl}
                         desc={popupLevelData.description}

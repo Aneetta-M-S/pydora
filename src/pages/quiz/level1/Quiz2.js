@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
 
-import Pharoah from "../../../assets/images/level1/pharoah.png"
-import HeadText from "../../../assets/images/level1/text.png"
+import Athena from "../../../assets/images/level5/athena.png"
+import HeadText from "../../../assets/images/level5/text.png"
 
 import Congrats from "../../../assets/images/prize/congrats.png"
 import Fail from "../../../assets/images/prize/tryagain.png"
@@ -24,7 +24,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz1 = () => {
+export const Quiz2 = () => {
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -192,14 +192,14 @@ export const Quiz1 = () => {
 
                 {/* Question 1 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* Pharoah Message */}
+                    {/* Athena Message */}
                     <div className="quiz_content_theory_only">
                         {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
                         <div className="pharoah_message">
                             <b>Python</b> is a fantastic programming language for beginners and experts alike.
                         </div>
                         <div className="pharoah_illus">
-                            <img src={Pharoah} alt="" />
+                            <img src={Athena} alt="" />
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
@@ -210,7 +210,7 @@ export const Quiz1 = () => {
 
                 {/* Question 2 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* Pharoah Message */}
+                    {/* Athena Message */}
                     <div className="quiz_content_theory_only">
                         {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
                         <div className="pharoah_message">
@@ -219,7 +219,7 @@ export const Quiz1 = () => {
                             You can use it for automating tasks,getting ahead in work with data analysis, machine learning and much more.
                         </div>
                         <div className="pharoah_illus">
-                            <img src={Pharoah} alt="" />
+                            <img src={Athena} alt="" />
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
@@ -230,7 +230,7 @@ export const Quiz1 = () => {
 
                 {/* Question 3 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* Pharoah Message */}
+                    {/* Athena Message */}
                     <div className="quiz_content_theory_only">
                         {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
                         <div className="pharoah_message">
@@ -239,7 +239,7 @@ export const Quiz1 = () => {
                             Program use variables to <b>remember information</b>. Like moving boxes, variable have content and names that tell us what’s inside.
                         </div>
                         <div className="pharoah_illus">
-                            <img src={Pharoah} alt="" />
+                            <img src={Athena} alt="" />
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
@@ -564,7 +564,7 @@ export const Quiz1 = () => {
 
                 {/* Question 13 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* Pharoah Message */}
+                    {/* Athena Message */}
                     <div className="quiz_content_theory_only">
                         {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
                         <div className="pharoah_message">
@@ -573,7 +573,7 @@ export const Quiz1 = () => {
                             When we run code,we tell the computer to follow the instructions we put together.
                         </div>
                         <div className="pharoah_illus">
-                            <img src={Pharoah} alt="" />
+                            <img src={Athena} alt="" />
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>

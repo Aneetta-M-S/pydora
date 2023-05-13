@@ -9,7 +9,7 @@ import { Forum } from './pages/forum/Forum'
 import { Leaderboard } from './pages/leaderboard/Leaderboard'
 import { Profile } from './pages/profile/Profile'
 import { EditProfile } from './pages/profile/EditProfile'
-import { Level1 } from './pages/quiz/level1/Level1'
+import { Quiz1 } from './pages/quiz/level1/Quiz1'
 
 import { auth } from "./firebaseconfig"
 import { signOut } from 'firebase/auth';
@@ -46,7 +46,7 @@ function App() {
               <Route path="/profile/edit" element={<EditProfile />} />
             </Route>
           </Route>
-          <Route path="/quiz" element={<Level1 />} />
+          <Route path="/quiz/level1/1" element={<Quiz1 />} />
 
         </Routes>
       </Router>

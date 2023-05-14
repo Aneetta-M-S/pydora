@@ -26,6 +26,23 @@
 
 }
 
+.quiz_island_text{
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    transform: translate(-10%, 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 150px;
+}
+.quiz_island_text img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 .quiz_header_left {
     padding: 5px 10px 5px 7px;
     border-radius: 5px;
@@ -151,7 +168,7 @@
 }
 
 .quiz_content_theory_only .pharoah_illus img {
-    height: 120px;
+    /* height: 130px; */
 }
 
 /* IDE Content */

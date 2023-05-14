@@ -23,7 +23,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz2 = () => {
+export const Quiz3 = () => {
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -43,9 +43,9 @@ export const Quiz2 = () => {
     const [xp, setXp] = useState(0)
 
     // total questions in sublevel(17 questions and 1 result section)
-    const total_ques = 17
+    const total_ques = 16
     //  and total xp
-    const total_xp = 230
+    const total_xp = 210
 
     // result to dash
     const closeQuiz = () => {
@@ -179,20 +179,39 @@ export const Quiz2 = () => {
                 </div>
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
-                    <span>Using Variables</span>
+                    <span>True and False</span>
                 </div>
 
             </div>
 
             <div className="quiz_section">
 
-                {/* Question 1*/}
+                {/* Question 1 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* Pharoah Message */}
+                    <div className="quiz_content_theory_only">
+                        {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
+                        <div className="pharoah_message">
+                            <p>There’s a special value that’s neither a string nor a number. <span>True</span>.</p>
+                            <p>There are no quotes around it, and it’s not a numeric value.</p>
+                        </div>
+                        <div className="pharoah_illus">
+                            <img src={Pharoah} alt="" />
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+
+                {/* Question 2 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                            <p>Variables are called variables because the values they store can change. We can update <span>status</span> by using <span>=</span> and giving it a new value.</p>
+                           <p><span>True</span> is great for situations like checking if a feature is on or if data is available. We can see it here when we set <span>powered_on</span> to <span>True</span>.</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -203,17 +222,14 @@ export const Quiz2 = () => {
                             {/* Adjust the width to suit the size of the answer word */}
                             {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
                             <div className="quiz_ide_content">
-
-                                <p><span>status = “Watching the night sky”</span></p>
                                 <p>
-                                    <span>status</span>
+                                    <span>powered_on</span>
                                     <input style={{ width: "40px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    <span>"Relaxing at the beach"</span>
+                                    <input style={{ width: "70px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
                                 </p>
-                                <p><span>print(status)</span></p>
                             </div>
                             {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["=", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                            <div className="run" onClick={() => checkAnswer(["=", "True", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
@@ -223,13 +239,14 @@ export const Quiz2 = () => {
                 </div>
 
 
-                 {/* Question 2*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+
+                {/* Question  3*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                           <p>We can also give variables the values of other variables. Here, we can give the <span>new_status</span> variable the value of <span>default_option</span>.</p>
+                            <p>We can store <span>True</span>in a variable just like a string or a number. Displaying it also works the same, like when we display <span>correct</span>here.</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -240,54 +257,72 @@ export const Quiz2 = () => {
                             {/* Adjust the width to suit the size of the answer word */}
                             {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
                             <div className="quiz_ide_content">
-
-                                <p><span>default_option = “upload”</span></p>
-                                <p><span>new_status = “download”</span></p>
-                                <p>
-                                    <span>new_status = </span>
-                                    <input style={{ width: "150px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                </p>
-                                <p><span>print(new_status)</span></p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["default_option", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-                 {/* Question 3*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                            <p>When we update a variable, it forgets its previous value.Here, we van display the <span>status</span> variable twice and see how its value updates.</p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-                                <p><span>status = "Playing Footbal"</span></p>
+                                <p><span>correct = True</span></p>
                                 <p>
                                     <span>print(</span>
-                                    <input style={{ width: "70px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+                                    <input style={{ width: "80px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
                                     <span>)</span>
                                 </p>
-                              <p><span>status = "Walking the dog"</span></p>
-                              <p><span>print(status)</span></p>
                             </div>
                             {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["status", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                            <div className="run" onClick={() => checkAnswer(["correct", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+
+                {/* Question 4 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* Pharoah Message */}
+                    <div className="quiz_content_theory_only">
+                        {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
+                        <div className="pharoah_message">
+                           <p><span>False</span>  is another special value and the opposite of <span>True</span>.</p>
+                        </div>
+                        <div className="pharoah_illus">
+                            <img src={Pharoah} alt="" />
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+                
+
+                {/* Question  5*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
+                    <div className="quiz_content_ide">
+                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_content_ide_theory">
+                            <p>We can save <span>False</span> in the variable <span>status</span> and display <span>status</span>in the console.</p>
+                        </div>
+                        <div className="quiz_ide">
+                            <div className="quiz_ide_header">
+                                <img src={PyLogo} alt="" />
+                                <span>script.py</span>
+                            </div>
+                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
+                            {/* Adjust the width to suit the size of the answer word */}
+                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
+                            <div className="quiz_ide_content">
+                                <p><span>print("Load data")</span></p>
+                                <p>
+                                    <span>status = </span>
+                                    <input style={{ width: "80px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+                                </p>
+                                <p>
+                                    <span>print( </span>
+                                    <input style={{ width: "80px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
+                                    <span>)</span>
+                                </p>
+                            </div>
+                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
+                            <div className="run" onClick={() => checkAnswer(["False", "status", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
@@ -297,15 +332,48 @@ export const Quiz2 = () => {
                 </div>
 
 
+                {/* Question 6 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* This consists of a paragraph and an IDE below and two options to choose from */}
+                    <div className="quiz_content_ide_mcq">
+                        {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_mcq_question">
+                            <p>What’s a good use for the values <span>True</span> and <span>False</span>?</p>
+                        </div>
 
-                 {/* Question 4 */}
+                        {/* Add the mcq options here */}
+                        <div className="quiz_mcq_options">
+                            {/* selectOption(option, answer, array):
+                             option is the value in the <span></span>
+                             answer is the correct option
+                             array would be [1,0] for the first option and [0,1] for the second option */}
+                            <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 1, [1, 0])}>
+                                <span>1</span>
+                                Showing if a feature is switched on or off.
+                            </p>
+                            <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 1, [0, 1])}>
+                                <span>2</span>
+                                Storing values from one to five.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+
+
+                 {/* Question 7 */}
                  <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below and two options to choose from */}
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_mcq_question">
-                            <p>Which of these lines of code updates the <span>status</span> variable?</p>
+                           <p>Pick the one that’s best for showing a user unsubscribed from a service.</p>
                         </div>
+
                         {/* Add the mcq options here */}
                         <div className="quiz_mcq_options">
                             {/* selectOption(option, answer, array):
@@ -314,51 +382,14 @@ export const Quiz2 = () => {
                              array would be [1,0] for the first option and [0,1] for the second option */}
                             <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 2, [1, 0])}>
                                 <span>1</span>
-                                status == "Working out"
+                                subscribed = True
                             </p>
                             <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 2, [0, 1])}>
                                 <span>2</span>
-                                status = "Working out"
+                                subscribed = False
                             </p>
                         </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-               
 
-
-
-                 {/* Question 5*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                            <p>Change the value in the <span>temperature</span> variable to <span>"100 degrees"</span>.</p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-                                <p><span>temperature = "0 degree"</span></p>
-                                <p>
-                                    <input style={{ width: "150px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    <span>= "100 degrees"</span>
-                                </p>
-                              <p><span>print(temperature)</span></p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["temperature", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
                         <div className="next_q_btn_text">Next</div>
@@ -367,33 +398,31 @@ export const Quiz2 = () => {
                 </div>
 
 
-                {/* Question 6*/}
+                {/* Question 8 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                             <p>We can add string values together with a <span>+</span> sign.</p>
+                    {/* This consists of a paragraph and an IDE below and two options to choose from */}
+                    <div className="quiz_content_ide_mcq">
+                        {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_mcq_question">
+                           <p>Why is <span>"False"</span> not the same as <span>False</span>?</p>
                         </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
 
-                                <p>
-                                    <span>"Followers:" </span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    <span>"55"</span>
-                                </p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["+", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                        {/* Add the mcq options here */}
+                        <div className="quiz_mcq_options">
+                            {/* selectOption(option, answer, array):
+                             option is the value in the <span></span>
+                             answer is the correct option
+                             array would be [1,0] for the first option and [0,1] for the second option */}
+                            <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 2, [1, 0])}>
+                                <span>1</span>
+                                "False" and False are the same
+                            </p>
+                            <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 2, [0, 1])}>
+                                <span>2</span>
+                                There are quotes around it,so “False” is a string
+                            </p>
                         </div>
+
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
                         <div className="next_q_btn_text">Next</div>
@@ -401,100 +430,142 @@ export const Quiz2 = () => {
                     </div>
                 </div>
 
-
-
-                {/* Question 7*/}
-                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                             <p>We call adding string values an <b>expression</b>  as it creates a single value. One string displays when we add <span>"55"</span> inside <span>print()</span>.</p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-                                <p>
-                                    <span>print("Followers:" </span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />   
-                                    <span>)</span>                                
-                                </p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["+", "\"55\"", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-                {/* Question 8*/}
-                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                             <p>When expressions contain variables, they use the values in the variables, which we can see when dding <span>"Followers:"</span> to <span>followers.</span></p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-                                <p><span>followers = "55"</span></p>
-
-                                <p>
-                                    <span>print("Followers:" </span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    <input style={{ width: "100px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />   
-                                    <span>)</span>                                
-                                </p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["+", "followers", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-
-                
                 {/* Question 9 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below and two options to choose from */}
-                    <div className="quiz_content_ide_mcq">
-                        {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_mcq_question">
-                            <p>What does this code display in the console?</p>
+                    {/* Pharoah Message */}
+                    <div className="quiz_content_theory_only">
+                        {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
+                        <div className="pharoah_message">
+                          <p> The code <span>not</span> in front of <span>True</span> makes the expression result in <span>False</span>. If something is not true, it has to be false.</p>
+                          <br></br>
+                          <p><span>not</span> is the <b>negation operator</b>.It turns values into their <b>opposite.</b></p>
                         </div>
+                        <div className="pharoah_illus">
+                            <img src={Pharoah} alt="" />
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+                
 
+                {/* Question  10*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
+                    <div className="quiz_content_ide">
+                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_content_ide_theory">
+                           <p>When we change a value to its opposite with <span>not</span>, we negate it, like here with <span>not True</span>.</p>
+                        </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
                                 <img src={PyLogo} alt="" />
                                 <span>script.py</span>
                             </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line */}
+                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
+                            {/* Adjust the width to suit the size of the answer word */}
+                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
                             <div className="quiz_ide_content">
-                                <p> <span>print("Jon" + "athan")</span> </p>
+                                <p>
+                                    <span>print( </span>
+                                    <input style={{ width: "40px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+                                    <input style={{ width: "80px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
+
+                                    <span>)</span>
+                                </p>
                             </div>
+                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
+                            <div className="run" onClick={() => checkAnswer(["not", "True", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+
+                {/* Question  11*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
+                    <div className="quiz_content_ide">
+                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_content_ide_theory">
+                           <p>The <span>not</span> operator before <span>False</span> changes its value. If a value is not <span>False</span>, it has to be <span>True</span>. We can see it here by displaying <span> not False</span> .</p>
+                        </div>
+                        <div className="quiz_ide">
+                            <div className="quiz_ide_header">
+                                <img src={PyLogo} alt="" />
+                                <span>script.py</span>
+                            </div>
+                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
+                            {/* Adjust the width to suit the size of the answer word */}
+                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
+                            <div className="quiz_ide_content">
+                                <p>
+                                    <span>print( </span>
+                                    <input style={{ width: "40px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+                                    <input style={{ width: "80px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
+
+                                    <span>)</span>
+                                </p>
+                            </div>
+                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
+                            <div className="run" onClick={() => checkAnswer(["not", "False", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+
+
+                {/* Question  12*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
+                    <div className="quiz_content_ide">
+                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_content_ide_theory">
+                          <p>We can save a whole negation in another variable. Like here <span>is_evening</span> should store the value of <span>not morning</span>.</p>
+                        </div>
+                        <div className="quiz_ide">
+                            <div className="quiz_ide_header">
+                                <img src={PyLogo} alt="" />
+                                <span>script.py</span>
+                            </div>
+                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
+                            {/* Adjust the width to suit the size of the answer word */}
+                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
+                            <div className="quiz_ide_content">
+                                <p><span>morning = True</span></p>
+                                <p>
+                                    <input style={{ width: "100px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+                                    <input style={{ width: "40px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
+                                    <input style={{ width: "40px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 2)} />
+                                    <input style={{ width: "100px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 3)} />
+                                </p>
+                                <p>print(is_evening)</p>
+                            </div>
+                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
+                            <div className="run" onClick={() => checkAnswer(["is_evening", "=", "not", "morning", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                        </div>
+                    </div>
+                    <div className="next_q_btn" onClick={nextQuestion}>
+                        <div className="next_q_btn_text">Next</div>
+                        <div className="next_q_btn_shadow"></div>
+                    </div>
+                </div>
+                
+
+                 {/* Question 13 */}
+                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                    {/* This consists of a paragraph and an IDE below and two options to choose from */}
+                    <div className="quiz_content_ide_mcq">
+                        {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
+                        <div className="quiz_mcq_question">
+                           <p>What does the <span>not</span> operator do?</p>
                         </div>
 
                         {/* Add the mcq options here */}
@@ -505,12 +576,12 @@ export const Quiz2 = () => {
                              array would be [1,0] for the first option and [0,1] for the second option */}
                             <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 2, [1, 0])}>
                                 <span>1</span>
-                                Nothing, because there’s no print() instruction.
-
+                                It checks if values are equal.
                             </p>
                             <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 2, [0, 1])}>
                                 <span>2</span>
-                                Jonathan
+                                It turns <span>True</span> or <span>False</span> values into their opposite.
+
                             </p>
                         </div>
 
@@ -520,161 +591,6 @@ export const Quiz2 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-
-
-                {/* Question 10*/}
-                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                             <p>We’ll encounter many other kinds of values in Python, too. Like <b>numbers</b>, which have no double quotes  around them.</p>
-                             <p> <span>5</span> or <span>"5"</span></p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-
-                                <p>
-                                    <span>active_user =  </span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />                                
-                                </p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["5", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-                
-
-
-                {/* Question 11*/}
-                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                             <p>Numbers make it easier to keep track of <b>numeric data</b> . Like here, <span>active_users</span> stores the number <span>5</span>.</p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-
-                                <p>
-                                    <input style={{ width: "150px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />                                
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />                                
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 2)} />                                
-
-                                </p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["active_users", "=", "5", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-                
-
-                 {/* Question 12*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                            <p>We can create expression with numbers,too. Here, we can add numbers together with <span>+ 1 </span>.</p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-
-                                <p>
-                                    <span>number_of_applications = 5 </span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />                                
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />                                
-
-                                </p>
-                                <p><span>print(number_of_applications)</span></p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["+", "1", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-
-                {/* Question 13*/}
-                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_ide">
-                        {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_content_ide_theory">
-                            <p>We use the <span>*</span> sign to multiply numbers and the <span>/</span> sign to divide numbers. We'll turn <span>0.5</span> into its percent values 
-                            by multiplying it by <span>100</span>.</p>
-                        </div>
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line along with 'input' */}
-                            {/* Adjust the width to suit the size of the answer word */}
-                            {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
-                            <div className="quiz_ide_content">
-
-                                <p>
-                                    <span>percent = 0.5</span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />                                
-                                    <span>100</span>
-                                </p>
-                                <p><span>print(percent)</span></p>
-                            </div>
-                            {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["*", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
-                        </div>
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-                
-
-
 
                 {/* Question 14 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
@@ -682,7 +598,7 @@ export const Quiz2 = () => {
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_mcq_question">
-                            <p>What's the value of <span>speed</span>?</p>
+                            <p>Which value does <span>result</span> store ?</p>
                         </div>
 
                         <div className="quiz_ide">
@@ -692,7 +608,7 @@ export const Quiz2 = () => {
                             </div>
                             {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line */}
                             <div className="quiz_ide_content">
-                                <p> <span>speed = 300 + 5</span> </p>
+                                <p> <span>result = not True</span> </p>
                             </div>
                         </div>
 
@@ -702,14 +618,13 @@ export const Quiz2 = () => {
                              option is the value in the <span></span>
                              answer is the correct option
                              array would be [1,0] for the first option and [0,1] for the second option */}
-                            <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 1, [1, 0])}>
+                            <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 2, [1, 0])}>
                                 <span>1</span>
-                                305
-
+                                True
                             </p>
-                            <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 1, [0, 1])}>
+                            <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 2, [0, 1])}>
                                 <span>2</span>
-                                300
+                                False
                             </p>
                         </div>
 
@@ -719,65 +634,16 @@ export const Quiz2 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-
 
                 
 
-
-                {/* Question 15 */}
+                {/* Question  15*/}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below and two options to choose from */}
-                    <div className="quiz_content_ide_mcq">
-                        {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
-                        <div className="quiz_mcq_question">
-                            <p>What does this code display in the console?</p>
-                        </div>
-
-                        <div className="quiz_ide">
-                            <div className="quiz_ide_header">
-                                <img src={PyLogo} alt="" />
-                                <span>script.py</span>
-                            </div>
-                            {/* The content inside IDE. Use 'p' tags for newlines and 'span' for texts on the same line */}
-                            <div className="quiz_ide_content">
-                                <p><span>area = "3 * 5"</span></p>
-                                <p><span>print(area)</span></p>
-                            </div>
-                        </div>
-
-                        {/* Add the mcq options here */}
-                        <div className="quiz_mcq_options">
-                            {/* selectOption(option, answer, array):
-                             option is the value in the <span></span>
-                             answer is the correct option
-                             array would be [1,0] for the first option and [0,1] for the second option */}
-                            <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 1, [1, 0])}>
-                                <span>1</span>
-                                3 * 5
-
-                            </p>
-                            <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 1, [0, 1])}>
-                                <span>2</span>
-                                15
-                            </p>
-                        </div>
-
-                    </div>
-                    <div className="next_q_btn" onClick={nextQuestion}>
-                        <div className="next_q_btn_text">Next</div>
-                        <div className="next_q_btn_shadow"></div>
-                    </div>
-                </div>
-
-
-
-                 {/* Question 16*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                             <p>Divide <span>sum_of_grades</span> by <span>students</span> to get average grade of a class.</p>
+                            <p> Create a variable <span>is_Available</span>and save the negated value in it.</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -788,20 +654,16 @@ export const Quiz2 = () => {
                             {/* Adjust the width to suit the size of the answer word */}
                             {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
                             <div className="quiz_ide_content">
-
-                                <p><span>sum_of_grades = 460</span></p>
-                                <p><span>students = 5</span></p>
+                                <p><span>open_slot = True</span></p>
                                 <p>
-                                    <span>print(</span>
-                                    <input style={{ width: "150px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />                                
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />                                
-                                    <input style={{ width: "100px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 2)} />   
-                                    <span>)</span>                             
-
+                                    <input style={{ width: "100px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+                                    <input style={{ width: "40px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
+                                    <span>not</span>
+                                    <input style={{ width: "100px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 2)} />
                                 </p>
                             </div>
                             {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
-                            <div className="run" onClick={() => checkAnswer(["sum_of_grades", "/", "students", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
+                            <div className="run" onClick={() => checkAnswer(["is_Available", "=", "open_slot", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
                         </div>
                     </div>
                     <div className="next_q_btn" onClick={nextQuestion}>
@@ -809,6 +671,9 @@ export const Quiz2 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
+                
+
+
 
 
                 {/* RESULT */}

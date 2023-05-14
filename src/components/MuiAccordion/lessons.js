@@ -18,7 +18,7 @@ export const Lessons =
         image: Level1,
         description: "You have been transported back in time to Ancient Egypt. You are approached by Pharaoh Akhenaten who needs your help to recover a stolen artifact, the Jade Scarab. Jade Scarab is a powerful tool that was used by the ancient Egyptians to write programs that could automate tasks in their daily lives. Are you in for the quest?",
         sublevels: 4,
-        current_sl: 2
+        current_sl: 4
     },
     {
         id: 2,

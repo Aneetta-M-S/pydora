@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import PyLogo from "../../../assets/images/pylogo.png"
 
 import Pharoah from "../../../assets/images/level1/pharoah.png"
+import HeadText from "../../../assets/images/level1/text.png"
 
 import Congrats from "../../../assets/images/prize/congrats.png"
 import Fail from "../../../assets/images/prize/tryagain.png"
@@ -180,6 +181,9 @@ export const Quiz4= () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     <span>Checking Number Equality</span>
+                </div>
+                <div className="quiz_island_text">
+                    <img src={HeadText} alt=""/>
                 </div>
 
             </div>

@@ -9,7 +9,7 @@ export const Overlay = (props) => {
 
     function handleClick(i, current_sl) {
         if(i<=current_sl)
-            navigate("/quiz/level1/1");
+            navigate(`/quiz/level1/${i}`);
     } 
 
     const items = []

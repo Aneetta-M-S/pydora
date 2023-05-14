@@ -35,7 +35,7 @@ export function MuiAccordion() {
         setOpen(true);
     };
     const handleClickClose = () => {
-        setOpen(false);
+        setOpen(false); 
     };
 
     //useStyles

@@ -1,5 +1,5 @@
 import "./Level1.css"
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
@@ -9,6 +9,8 @@ import HeadText from "../../../assets/images/level1/text.png"
 
 import Congrats from "../../../assets/images/prize/congrats.png"
 import Fail from "../../../assets/images/prize/tryagain.png"
+
+import { AuthContext } from '../../../contexts/DetailsContext';
 
 import { FaArrowLeft } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
@@ -26,6 +28,10 @@ const Alert = forwardRef(function Alert(props, ref) {
 
 export const Quiz3 = () => {
 
+    const navigate = useNavigate()
+    const { userinfo, updateUserinfo } = useContext(AuthContext)
+
+
     const [alertinfo, setAlertinfo] = useState({
         open: false,
         msg: "Correct answer",
@@ -39,7 +45,6 @@ export const Quiz3 = () => {
         setAlertinfo({ ...alertinfo, open: false });
     };
 
-    const navigate = useNavigate();
     const [currQuestion, setCurrQuestion] = useState(1)
     const [xp, setXp] = useState(0)
 
@@ -49,7 +54,11 @@ export const Quiz3 = () => {
     const total_xp = 210
 
     // result to dash
-    const closeQuiz = () => {
+    const closeQuiz = (val) => {
+        val = val + userinfo.xp
+        setTimeout(() => {
+            updateUserinfo({ ...userinfo, xp: val })
+        }, 0);
         navigate('/learn')
     }
 
@@ -85,7 +94,6 @@ export const Quiz3 = () => {
     }
 
     const [inputvalue, setInputvalue] = useState(["", "", "", "", "", "", ""])
-    // const [answer, setAnswer] = useState(["", "", "", "", "", "", ""])
     let answer = ["", "", "", "", "", "", ""]
 
     const updateInputValue = (val, i) => {
@@ -152,17 +160,14 @@ export const Quiz3 = () => {
         console.log("Current xp: ", xp)
     }
 
-    // useEffect(() => {
-    //     console.log("Answer updated to: ", answer)
-    // }, [answer]);
 
     return (
         <div className="quiz_page">
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                style={{width: "500px"}}
+                style={{ width: "500px" }}
                 open={alertinfo.open} autoHideDuration={1500} onClose={handleClose}>
-                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px"}}>
+                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px" }}>
                     {alertinfo.msg}
                 </Alert>
             </Snackbar>
@@ -180,15 +185,16 @@ export const Quiz3 = () => {
                 </div>
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
-                    <span>True and False</span>
+                    <span>Using Variables</span>
                 </div>
                 <div className="quiz_island_text">
-                    <img src={HeadText} alt=""/>
+                    <img src={HeadText} alt="" />
                 </div>
 
             </div>
 
             <div className="quiz_section">
+
 
                 {/* Question 1 */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
@@ -215,7 +221,7 @@ export const Quiz3 = () => {
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                           <p><span>True</span> is great for situations like checking if a feature is on or if data is available. We can see it here when we set <span>powered_on</span> to <span>True</span>.</p>
+                            <p><span>True</span> is great for situations like checking if a feature is on or if data is available. We can see it here when we set <span>powered_on</span> to <span>True</span>.</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -284,7 +290,7 @@ export const Quiz3 = () => {
                     <div className="quiz_content_theory_only">
                         {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
                         <div className="pharoah_message">
-                           <p><span>False</span>  is another special value and the opposite of <span>True</span>.</p>
+                            <p><span>False</span>  is another special value and the opposite of <span>True</span>.</p>
                         </div>
                         <div className="pharoah_illus">
                             <img src={Pharoah} alt="" />
@@ -295,7 +301,7 @@ export const Quiz3 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
+
 
                 {/* Question  5*/}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
@@ -369,13 +375,13 @@ export const Quiz3 = () => {
                 </div>
 
 
-                 {/* Question 7 */}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 7 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below and two options to choose from */}
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_mcq_question">
-                           <p>Pick the one that’s best for showing a user unsubscribed from a service.</p>
+                            <p>Pick the one that’s best for showing a user unsubscribed from a service.</p>
                         </div>
 
                         {/* Add the mcq options here */}
@@ -408,7 +414,7 @@ export const Quiz3 = () => {
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_mcq_question">
-                           <p>Why is <span>"False"</span> not the same as <span>False</span>?</p>
+                            <p>Why is <span>"False"</span> not the same as <span>False</span>?</p>
                         </div>
 
                         {/* Add the mcq options here */}
@@ -440,9 +446,9 @@ export const Quiz3 = () => {
                     <div className="quiz_content_theory_only">
                         {/* Type in the message, enclose bold texts in '<b></b>' and if line break is required add '<br/><br/>' */}
                         <div className="pharoah_message">
-                          <p> The code <span>not</span> in front of <span>True</span> makes the expression result in <span>False</span>. If something is not true, it has to be false.</p>
-                          <br></br>
-                          <p><span>not</span> is the <b>negation operator</b>.It turns values into their <b>opposite.</b></p>
+                            <p> The code <span>not</span> in front of <span>True</span> makes the expression result in <span>False</span>. If something is not true, it has to be false.</p>
+                            <br></br>
+                            <p><span>not</span> is the <b>negation operator</b>.It turns values into their <b>opposite.</b></p>
                         </div>
                         <div className="pharoah_illus">
                             <img src={Pharoah} alt="" />
@@ -453,7 +459,7 @@ export const Quiz3 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
+
 
                 {/* Question  10*/}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
@@ -461,7 +467,7 @@ export const Quiz3 = () => {
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                           <p>When we change a value to its opposite with <span>not</span>, we negate it, like here with <span>not True</span>.</p>
+                            <p>When we change a value to its opposite with <span>not</span>, we negate it, like here with <span>not True</span>.</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -496,7 +502,7 @@ export const Quiz3 = () => {
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                           <p>The <span>not</span> operator before <span>False</span> changes its value. If a value is not <span>False</span>, it has to be <span>True</span>. We can see it here by displaying <span> not False</span> .</p>
+                            <p>The <span>not</span> operator before <span>False</span> changes its value. If a value is not <span>False</span>, it has to be <span>True</span>. We can see it here by displaying <span> not False</span> .</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -532,7 +538,7 @@ export const Quiz3 = () => {
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                          <p>We can save a whole negation in another variable. Like here <span>is_evening</span> should store the value of <span>not morning</span>.</p>
+                            <p>We can save a whole negation in another variable. Like here <span>is_evening</span> should store the value of <span>not morning</span>.</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -561,15 +567,15 @@ export const Quiz3 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
 
-                 {/* Question 13 */}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+
+                {/* Question 13 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below and two options to choose from */}
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_mcq_question">
-                           <p>What does the <span>not</span> operator do?</p>
+                            <p>What does the <span>not</span> operator do?</p>
                         </div>
 
                         {/* Add the mcq options here */}
@@ -639,7 +645,7 @@ export const Quiz3 = () => {
                     </div>
                 </div>
 
-                
+
 
                 {/* Question  15*/}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
@@ -675,8 +681,6 @@ export const Quiz3 = () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
-
 
 
 
@@ -684,13 +688,16 @@ export const Quiz3 = () => {
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
-                        <img src={xp < (total_xp / 2) ? Fail : Congrats} alt=""/>
+                        {/* Divded by 2 is to show that the cutoff is 50% */}
+                        <img src={xp < (total_xp / 2) ? Fail : Congrats} alt="" />
                         <div className="quiz_content_result_title">{xp < (total_xp / 2) ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < (total_xp / 2) ? " only " : " "} earned {xp} XP !</p>
-                        <div className="result_btn" onClick={closeQuiz}>
-                        <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
-                        <div className="result_btn_shadow"></div>
-                    </div>
+
+                        {/* On clicking the continue button, xp is updated and we return to home */}
+                        <div className="result_btn" onClick={() => closeQuiz(xp)}>
+                            <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
+                            <div className="result_btn_shadow"></div>
+                        </div>
                     </div>
                 </div>
 

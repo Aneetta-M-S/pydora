@@ -1,5 +1,5 @@
 import "./Level1.css"
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
@@ -8,6 +8,8 @@ import HeadText from "../../../assets/images/level1/text.png"
 
 import Congrats from "../../../assets/images/prize/congrats.png"
 import Fail from "../../../assets/images/prize/tryagain.png"
+
+import { AuthContext } from '../../../contexts/DetailsContext';
 
 import { FaArrowLeft } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
@@ -24,6 +26,10 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 export const Quiz2 = () => {
+    
+    const navigate = useNavigate()
+    const {userinfo, updateUserinfo} = useContext(AuthContext)
+
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -38,7 +44,6 @@ export const Quiz2 = () => {
         setAlertinfo({ ...alertinfo, open: false });
     };
 
-    const navigate = useNavigate();
     const [currQuestion, setCurrQuestion] = useState(1)
     const [xp, setXp] = useState(0)
 
@@ -48,7 +53,11 @@ export const Quiz2 = () => {
     const total_xp = 230
 
     // result to dash
-    const closeQuiz = () => {
+    const closeQuiz = (val) => {
+        val = val + userinfo.xp
+        setTimeout(() => {
+            updateUserinfo({ ...userinfo, xp: val })
+        }, 0);
         navigate('/learn')
     }
 
@@ -84,7 +93,6 @@ export const Quiz2 = () => {
     }
 
     const [inputvalue, setInputvalue] = useState(["", "", "", "", "", "", ""])
-    // const [answer, setAnswer] = useState(["", "", "", "", "", "", ""])
     let answer = ["", "", "", "", "", "", ""]
 
     const updateInputValue = (val, i) => {
@@ -151,9 +159,6 @@ export const Quiz2 = () => {
         console.log("Current xp: ", xp)
     }
 
-    // useEffect(() => {
-    //     console.log("Answer updated to: ", answer)
-    // }, [answer]);
 
     return (
         <div className="quiz_page">
@@ -818,10 +823,13 @@ export const Quiz2 = () => {
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
+                        {/* Divded by 2 is to show that the cutoff is 50% */}
                         <img src={xp < (total_xp / 2) ? Fail : Congrats} alt=""/>
                         <div className="quiz_content_result_title">{xp < (total_xp / 2) ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < (total_xp / 2) ? " only " : " "} earned {xp} XP !</p>
-                        <div className="result_btn" onClick={closeQuiz}>
+
+                        {/* On clicking the continue button, xp is updated and we return to home */}
+                        <div className="result_btn" onClick={() => closeQuiz(xp)}>
                         <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
                         <div className="result_btn_shadow"></div>
                     </div>

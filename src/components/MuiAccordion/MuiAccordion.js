@@ -64,10 +64,11 @@ export function MuiAccordion() {
                 popupLevelData &&  popupLevelData.map((lesson, lid) => {
 
                     let num = lesson.id
+                    let curr_level = 1
 
                     // disabled from level 3 onwards if num > 2
                     // userinfo.current_level
-                    let isUnlocked = num > 10
+                    let isUnlocked = num > curr_level
                     return (
                         <Accordion key={lid} sx={accRoot} disableGutters disabled={isUnlocked} className="mui_accordion" expanded={expanded === `panel${num}`} onChange={handleChange(`panel${num}`)}>
                             <AccordionSummary

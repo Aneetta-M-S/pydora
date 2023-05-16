@@ -1,5 +1,5 @@
 import "./Level1.css"
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
@@ -9,6 +9,8 @@ import HeadText from "../../../assets/images/level1/text.png"
 
 import Congrats from "../../../assets/images/prize/congrats.png"
 import Fail from "../../../assets/images/prize/tryagain.png"
+
+import { AuthContext } from '../../../contexts/DetailsContext';
 
 import { FaArrowLeft } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
@@ -24,7 +26,11 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz4= () => {
+export const Quiz4 = () => {
+
+    const navigate = useNavigate()
+    const { userinfo, updateUserinfo } = useContext(AuthContext)
+
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -39,7 +45,6 @@ export const Quiz4= () => {
         setAlertinfo({ ...alertinfo, open: false });
     };
 
-    const navigate = useNavigate();
     const [currQuestion, setCurrQuestion] = useState(1)
     const [xp, setXp] = useState(0)
 
@@ -49,7 +54,11 @@ export const Quiz4= () => {
     const total_xp = 210
 
     // result to dash
-    const closeQuiz = () => {
+    const closeQuiz = (val) => {
+        val = val + userinfo.xp
+        setTimeout(() => {
+            updateUserinfo({ ...userinfo, xp: val })
+        }, 0);
         navigate('/learn')
     }
 
@@ -85,7 +94,6 @@ export const Quiz4= () => {
     }
 
     const [inputvalue, setInputvalue] = useState(["", "", "", "", "", "", ""])
-    // const [answer, setAnswer] = useState(["", "", "", "", "", "", ""])
     let answer = ["", "", "", "", "", "", ""]
 
     const updateInputValue = (val, i) => {
@@ -152,17 +160,14 @@ export const Quiz4= () => {
         console.log("Current xp: ", xp)
     }
 
-    // useEffect(() => {
-    //     console.log("Answer updated to: ", answer)
-    // }, [answer]);
 
     return (
         <div className="quiz_page">
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                style={{width: "500px"}}
+                style={{ width: "500px" }}
                 open={alertinfo.open} autoHideDuration={1500} onClose={handleClose}>
-                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px"}}>
+                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px" }}>
                     {alertinfo.msg}
                 </Alert>
             </Snackbar>
@@ -180,10 +185,10 @@ export const Quiz4= () => {
                 </div>
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
-                    <span>Checking Number Equality</span>
+                    <span>Using Variables</span>
                 </div>
                 <div className="quiz_island_text">
-                    <img src={HeadText} alt=""/>
+                    <img src={HeadText} alt="" />
                 </div>
 
             </div>
@@ -196,8 +201,8 @@ export const Quiz4= () => {
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_mcq_question">
-                        <p>We learned how to crete and store values, but how do we compare them?</p>
-                        <p>Like checking if a user’s entered PIN matched their saved PIN</p>
+                            <p>We learned how to crete and store values, but how do we compare them?</p>
+                            <p>Like checking if a user’s entered PIN matched their saved PIN</p>
                         </div>
 
                         <div className="quiz_ide">
@@ -271,13 +276,13 @@ export const Quiz4= () => {
                     </div>
                 </div>
 
-                 {/* Question 4*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 4*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                         <p>When we compare the same numbers with the equality operator, the result is <span>True</span> .</p>
+                            <p>When we compare the same numbers with the equality operator, the result is <span>True</span> .</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -292,7 +297,7 @@ export const Quiz4= () => {
                                     <span>print( 10 </span>
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
-                                    
+
                                     <span>)</span>
 
                                 </p>
@@ -313,8 +318,8 @@ export const Quiz4= () => {
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                         <p>When we compare the different numbers with the equality operator, the result is <span>False</span>. Like here with the <span>9</span> to <span>10</span> comparison.</p>
-                         <p><span>9=10</span> or <span>9==10</span>  </p>
+                            <p>When we compare the different numbers with the equality operator, the result is <span>False</span>. Like here with the <span>9</span> to <span>10</span> comparison.</p>
+                            <p><span>9=10</span> or <span>9==10</span>  </p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -328,7 +333,7 @@ export const Quiz4= () => {
                                 <p>
                                     <span>print( </span>
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    
+
                                     <span>)</span>
 
                                 </p>
@@ -397,7 +402,7 @@ export const Quiz4= () => {
                             <p>When might we need to check if two numbers are equal?</p>
                         </div>
 
-                       
+
                         {/* Add the mcq options here */}
                         <div className="quiz_mcq_options">
                             {/* selectOption(option, answer, array):
@@ -424,8 +429,8 @@ export const Quiz4= () => {
                 </div>
 
 
-                   {/* Question 8 */}
-                   <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 8 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below and two options to choose from */}
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
@@ -469,13 +474,13 @@ export const Quiz4= () => {
                 </div>
 
 
-                 {/* Question 9*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 9*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                             <p>To check if a number isn’t equal to another number, we use the <b>inequality operator</b>,<span>!=</span> .</p>
+                            <p>To check if a number isn’t equal to another number, we use the <b>inequality operator</b>,<span>!=</span> .</p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -489,7 +494,7 @@ export const Quiz4= () => {
                                 <p>
                                     <span>print( 1 </span>
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
-                                    
+
                                     <span> 10 )</span>
 
                                 </p>
@@ -504,13 +509,13 @@ export const Quiz4= () => {
                     </div>
                 </div>
 
-                 {/* Question 10*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 10*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                         <p>We can store the result of a comparison with the inequality operator in a variable like here where we’ll store the comparison <span> 1 != 2</span></p>
+                            <p>We can store the result of a comparison with the inequality operator in a variable like here where we’ll store the comparison <span> 1 != 2</span></p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -540,13 +545,13 @@ export const Quiz4= () => {
                     </div>
                 </div>
 
-                 {/* Question 11*/}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 11*/}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                             <p>Variables can store the result of equality comparison too, such as <span>result = 1 == 2</span></p>
+                            <p>Variables can store the result of equality comparison too, such as <span>result = 1 == 2</span></p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -558,7 +563,7 @@ export const Quiz4= () => {
                             {/* Inside the updateInputValue function the second value is the index which would be 0 for the first input, 1 for the 2nd and so on */}
                             <div className="quiz_ide_content">
                                 <p>
-                                    <input style={{ width: "90px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />   
+                                    <input style={{ width: "90px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
                                     <span>1</span>
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 2)} />
@@ -575,11 +580,11 @@ export const Quiz4= () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
 
 
-                 {/* Question 12 */}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+
+                {/* Question 12 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below and two options to choose from */}
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
@@ -624,8 +629,8 @@ export const Quiz4= () => {
                 </div>
 
 
-                 {/* Question 13 */}
-                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                {/* Question 13 */}
+                <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below and two options to choose from */}
                     <div className="quiz_content_ide_mcq">
                         {/* Type each question in '<p></p>' and contain highlighted texts within '<span></span>' */}
@@ -698,7 +703,7 @@ export const Quiz4= () => {
                              array would be [1,0] for the first option and [0,1] for the second option */}
                             <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, 1, [1, 0])}>
                                 <span>1</span>
-                                Nothing is wrong 
+                                Nothing is wrong
                             </p>
                             <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, 1, [0, 1])}>
                                 <span>2</span>
@@ -721,7 +726,7 @@ export const Quiz4= () => {
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                             <p>Check if <span>answer</span>equals <span>13</span></p>
+                            <p>Check if <span>answer</span>equals <span>13</span></p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -735,13 +740,13 @@ export const Quiz4= () => {
                                 <p><span>answer = 16</span></p>
                                 <p>
                                     <span>correct_answer</span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />   
+                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
                                     <span>answer</span>
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 1)} />
                                     <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 2)} />
-                                  
+
                                 </p>
-                              
+
                             </div>
                             {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
                             <div className="run" onClick={() => checkAnswer(["=", "==", "13", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
@@ -752,14 +757,14 @@ export const Quiz4= () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
+
                 {/* Question 16*/}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_ide">
                         {/* Type each paragraphs in '<p></p>' and contain highlighted texts within '<span></span>' */}
                         <div className="quiz_content_ide_theory">
-                             <p>Check if the answer submitted by the user isn't zero letters with <span>!=</span></p>
+                            <p>Check if the answer submitted by the user isn't zero letters with <span>!=</span></p>
                         </div>
                         <div className="quiz_ide">
                             <div className="quiz_ide_header">
@@ -773,12 +778,12 @@ export const Quiz4= () => {
                                 <p><span>letter = 12</span></p>
                                 <p>
                                     <span>valid_answer = letter</span>
-                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />   
-                                  
+                                    <input style={{ width: "50px" }} type="text" onChange={(e) => updateInputValue(e.target.value, 0)} />
+
                                     <span>0</span>
-                                   
+
                                 </p>
-                              
+
                             </div>
                             {/* The answer array consists of an array of strings. The one below has only one string since there is only one input*/}
                             <div className="run" onClick={() => checkAnswer(["!=", "", "", "", "", "", ""])}> <i><BsFillPlayFill /></i> RUN</div>
@@ -789,20 +794,25 @@ export const Quiz4= () => {
                         <div className="next_q_btn_shadow"></div>
                     </div>
                 </div>
-                
+
+
+
 
 
                 {/* RESULT */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
-                        <img src={xp < (total_xp / 2) ? Fail : Congrats} alt=""/>
+                        {/* Divded by 2 is to show that the cutoff is 50% */}
+                        <img src={xp < (total_xp / 2) ? Fail : Congrats} alt="" />
                         <div className="quiz_content_result_title">{xp < (total_xp / 2) ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < (total_xp / 2) ? " only " : " "} earned {xp} XP !</p>
-                        <div className="result_btn" onClick={closeQuiz}>
-                        <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
-                        <div className="result_btn_shadow"></div>
-                    </div>
+
+                        {/* On clicking the continue button, xp is updated and we return to home */}
+                        <div className="result_btn" onClick={() => closeQuiz(xp)}>
+                            <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
+                            <div className="result_btn_shadow"></div>
+                        </div>
                     </div>
                 </div>
 

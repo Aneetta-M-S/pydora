@@ -55,8 +55,9 @@ export const Quiz1 = () => {
 
     // result to dash
     const closeQuiz = (val) => {
+        val = val + userinfo.xp
         setTimeout(() => {
-            updateUserinfo({...userinfo, xp:val})
+            updateUserinfo({ ...userinfo, xp: val })
         }, 0);
         navigate('/learn')
     }

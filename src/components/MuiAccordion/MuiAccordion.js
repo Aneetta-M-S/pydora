@@ -8,7 +8,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import { MdLock, MdExpandCircleDown } from "react-icons/md";
 
-// import { Lessons } from "./lessons";
 import { db } from '../../firebaseconfig'
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
@@ -32,8 +31,6 @@ export function MuiAccordion() {
             const querySnapshot = await getDocs(query(collection(db, "lessons"), orderBy("id")));
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
             setPopupLevelData(newData);
-            console.log("Hello")
-            console.log(newData)
         }
         fetchData();
     }, []);

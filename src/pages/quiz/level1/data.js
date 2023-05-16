@@ -1,10 +1,10 @@
 
-export const Level1_1 = 
+export const Level1 = 
 [
     {
         id: 1,
         type: "theory",
-        content: "Welcome to the Jade Scarab Island, young coder. I am Pharaoh Akhenaten, ruler of Ancient Egypt. Today, I shall introduce you to the world of Python, a powerful programming language that can automate tasks in your daily life, just like the Jade Scarab."
+        content: "<b>Python</b> is a fantastic programming language for beginners and experts alike."
     },
     {
         id: 2,

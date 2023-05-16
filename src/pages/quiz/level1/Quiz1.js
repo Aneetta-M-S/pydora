@@ -28,6 +28,8 @@ const Alert = forwardRef(function Alert(props, ref) {
 
 export const Quiz1 = () => {
 
+    const navigate = useNavigate()
+
     const [alertinfo, setAlertinfo] = useState({
         open: false,
         msg: "Correct answer",
@@ -43,7 +45,6 @@ export const Quiz1 = () => {
 
     const {userinfo, updateUserinfo} = useContext(AuthContext)
 
-    const navigate = useNavigate();
     const [currQuestion, setCurrQuestion] = useState(1)
     const [xp, setXp] = useState(0)
 
@@ -53,7 +54,10 @@ export const Quiz1 = () => {
     const total_xp = 200
 
     // result to dash
-    const closeQuiz = () => {
+    const closeQuiz = (val) => {
+        setTimeout(() => {
+            updateUserinfo({...userinfo, xp:val})
+        }, 0);
         navigate('/learn')
     }
 
@@ -89,7 +93,6 @@ export const Quiz1 = () => {
     }
 
     const [inputvalue, setInputvalue] = useState(["", "", "", "", "", "", ""])
-    // const [answer, setAnswer] = useState(["", "", "", "", "", "", ""])
     let answer = ["", "", "", "", "", "", ""]
 
     const updateInputValue = (val, i) => {
@@ -156,14 +159,6 @@ export const Quiz1 = () => {
         console.log("Current xp: ", xp)
     }
 
-    // add XP
-    function changeXP(val){
-        updateUserinfo({...userinfo, xp:val})
-    }
-
-    // useEffect(() => {
-    //     console.log("Answer updated to: ", answer)
-    // }, [answer]);
 
     return (
         <div className="quiz_page">
@@ -742,11 +737,13 @@ export const Quiz1 = () => {
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
-                        {xp < (total_xp / 2) ? changeXP(0) : changeXP(xp)}
+                        {/* Divded by 2 is to show that the cutoff is 50% */}
                         <img src={xp < (total_xp / 2) ? Fail : Congrats} alt=""/>
                         <div className="quiz_content_result_title">{xp < (total_xp / 2) ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < (total_xp / 2) ? " only " : " "} earned {xp} XP !</p>
-                        <div className="result_btn" onClick={closeQuiz}>
+
+                        {/* On clicking the continue button, xp is updated and we return to home */}
+                        <div className="result_btn" onClick={() => closeQuiz(xp)}>
                         <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
                         <div className="result_btn_shadow"></div>
                     </div>

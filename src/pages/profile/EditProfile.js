@@ -1,9 +1,9 @@
 import "./EditProfile.css"
 import { useState, useEffect, useContext } from "react"
 import { dpArray } from "./avatars"
-import {db} from "../../firebaseconfig"
+// import { db } from "../../firebaseconfig"
 // import {collection, addDoc} from 'firebase/firestore';
-import {doc, setDoc} from 'firebase/firestore';
+// import { doc, setDoc } from 'firebase/firestore';
 
 import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router-dom";
@@ -13,8 +13,14 @@ import { useNavigate } from "react-router-dom";
 export const EditProfile = () => {
 
     const navigate = useNavigate();
-    const {user, userinfo, updateUserinfo} = useContext(AuthContext)
-    const [tempdp, setTempdp] = useState(userinfo ? userinfo.dp : dpArray[9])
+    const { user, userinfo, updateUserinfo } = useContext(AuthContext)
+
+    const [ username, setUsername ] = useState(userinfo ? userinfo.username : "")
+    const [ name, setName ] = useState(userinfo ? userinfo.name : "")
+    const [ age, setAge ] = useState(userinfo ? userinfo.age : 0)
+    const [ dp, setDp ] = useState(userinfo ? userinfo.dp : dpArray[9])
+    const [ about, setAbout ] = useState(userinfo ? userinfo.about : "")
+
 
     useEffect(() => {
         if (!user) {
@@ -22,29 +28,16 @@ export const EditProfile = () => {
         }
     }, [user, navigate]);
 
-    function changeDp(avatar){
-        setTempdp(avatar)
-        updateUserinfo({...userinfo, dp:avatar})
-    }
-
-    async function setData(){
-        try{
-            const docRef = doc(db, "users", user.uid)
-            await setDoc(docRef,{
-                username : userinfo.username,
-                name : userinfo.name,
-                dp : userinfo.dp,
-                age : userinfo.age,
-                about : userinfo.about,
-                email: user.email,
-                xp: userinfo.xp
-            });
-            console.log("Success")
-            navigate('/learn')
-        }
-        catch(err){
-            console.log(err)
-        }
+    function setData() {
+        updateUserinfo({
+            ...userinfo,
+            username,
+            name,
+            age,
+            about,
+            dp
+        });
+        navigate('/learn')
     }
 
 
@@ -57,33 +50,33 @@ export const EditProfile = () => {
                     <div className="profile_edit_container">
                         <div className="profile_edit_input">
                             <span>Username</span>
-                            <input 
+                            <input
                                 type="text"
-                                value={userinfo ? userinfo.username : ""}
-                                onChange={(e) => updateUserinfo({...userinfo, username:e.target.value})}
-                                />
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
                         </div>
                         <div className="profile_edit_input">
                             <span>Name</span>
-                            <input 
+                            <input
                                 type="text"
-                                value={userinfo ? userinfo.name : ""}
-                                onChange={(e) => updateUserinfo({...userinfo, name:e.target.value})}
-                                />
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
                         </div>
                         <div className="profile_edit_input">
                             <span>Age</span>
-                            <input 
+                            <input
                                 type="text"
-                                value={userinfo ? userinfo.age : 0}
-                                onChange={(e) => updateUserinfo({...userinfo, age:Number(e.target.value)})}
-                                />
+                                value={age}
+                                onChange={(e) => setAge(Number(e.target.value))}
+                            />
                         </div>
                         <div className="profile_edit_input">
                             <span>About</span>
                             <textarea
-                                value={userinfo ? userinfo.about : ""}
-                                onChange={(e) => updateUserinfo({...userinfo, about:e.target.value})}
+                                value={about}
+                                onChange={(e) => setAbout(e.target.value)}
                             />
                         </div>
                     </div>
@@ -94,12 +87,12 @@ export const EditProfile = () => {
                 <div className="dp_option">
                     <div className="dp_option_title">Set your profile pic</div>
                     <div className="current_dp">
-                        <img src={tempdp} alt="" />
+                        <img src={dp} alt="" />
                     </div>
                     <div className="dp_option_set">
                         {dpArray.map((avatar, index) => {
                             return (
-                                <div className={tempdp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => changeDp(avatar)}>
+                                <div className={dp === avatar ? "dp_option_item selected_dp" : "dp_option_item"} key={index} onClick={() => setDp(avatar)}>
                                     <img src={avatar} alt="" />
                                 </div>
                             )

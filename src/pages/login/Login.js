@@ -42,7 +42,10 @@ export const Login = () => {
                 dp : userData.dp,
                 about : userData.about,
                 email : res.email,
-                xp: userData.xp
+                xp: userData.xp,
+                // adding temporarily
+                curr_level: 1,
+                curr_sl: [1,0,0,0,0,0,0,0,0,0]
             })
             console.log("after saving to local: ", localStorage.getItem("userinfo"))
             // navigate('/learn')
@@ -55,7 +58,9 @@ export const Login = () => {
                 dp : dpArray[9],
                 about : "",
                 email : res.email,
-                xp: 0
+                xp: 0,
+                curr_level: 1,
+                curr_sl: [1,0,0,0,0,0,0,0,0,0]
             })
             // navigate('/profile/edit')
         }

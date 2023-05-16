@@ -7,14 +7,18 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import { MdLock, MdExpandCircleDown } from "react-icons/md";
-import { Lessons } from "./lessons";
+
+// import { Lessons } from "./lessons";
+import { db } from '../../firebaseconfig'
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+
 
 import { Overlay } from "../overlay/Overlay";
 
 export function MuiAccordion() {
     const [expanded, setExpanded] = useState('panel1');
     const [popupLevel, setPopupLevel] = useState(0)
-    const [popupLevelData, setPopupLevelData] = useState(Lessons[0])
+    const [popupLevelData, setPopupLevelData] = useState(null)
 
 
     const handleChange = (panel) => (event, newExpanded) => {
@@ -24,10 +28,15 @@ export function MuiAccordion() {
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
-    //   console.log("Changed")
-    //   console.log(popupLevel)
-    setPopupLevelData(Lessons[popupLevel])
-    }, [popupLevel])
+        async function fetchData() {
+            const querySnapshot = await getDocs(query(collection(db, "lessons"), orderBy("id")));
+            const newData = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
+            setPopupLevelData(newData);
+            console.log("Hello")
+            console.log(newData)
+        }
+        fetchData();
+    }, []);
     
 
     const handleClickOpen = (no) => {
@@ -55,16 +64,17 @@ export function MuiAccordion() {
     return (
         <div className="accordion_container">
             {
-                Lessons.map((lesson, lid) => {
+                popupLevelData &&  popupLevelData.map((lesson, lid) => {
 
                     let num = lesson.id
 
                     // disabled from level 3 onwards if num > 2
-                    let isOpen = num > 10
+                    // userinfo.current_level
+                    let isUnlocked = num > 10
                     return (
-                        <Accordion key={lid} sx={accRoot} disableGutters disabled={isOpen ? true : false} className="mui_accordion" expanded={expanded === `panel${num}`} onChange={handleChange(`panel${num}`)}>
+                        <Accordion key={lid} sx={accRoot} disableGutters disabled={isUnlocked} className="mui_accordion" expanded={expanded === `panel${num}`} onChange={handleChange(`panel${num}`)}>
                             <AccordionSummary
-                                expandIcon={isOpen ? <MdLock /> : <MdExpandCircleDown />}
+                                expandIcon={isUnlocked ? <MdLock /> : <MdExpandCircleDown />}
                                 aria-controls={`panel${num}a-content`}
                                 id={`panel${num}a-header`}
                             >
@@ -98,12 +108,13 @@ export function MuiAccordion() {
 
                 <DialogContent sx={dialogRoot}>
                     <Overlay
-                        name={popupLevelData.name}
-                        image={popupLevelData.image}
+                        name={popupLevelData && popupLevelData[popupLevel].name}
+                        image={popupLevelData && popupLevelData[popupLevel].image}
                         level={popupLevel+1}
-                        sublevels={popupLevelData.sublevels}
-                        current_sl={popupLevelData.current_sl}
-                        desc={popupLevelData.description}
+                        sublevels={popupLevelData && popupLevelData[popupLevel].sublevels}
+                        current_sl={5}
+                        // current_sl={popupLevelData && popupLevelData[popupLevel].current_sl}
+                        desc={popupLevelData && popupLevelData[popupLevel].description}
                         handleClickClose={handleClickClose} />
 
                 </DialogContent>

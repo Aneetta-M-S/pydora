@@ -1,5 +1,5 @@
 import "./Level1.css"
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
@@ -9,6 +9,8 @@ import HeadText from "../../../assets/images/level1/text.png"
 
 import Congrats from "../../../assets/images/prize/congrats.png"
 import Fail from "../../../assets/images/prize/tryagain.png"
+
+import { AuthContext } from '../../../contexts/DetailsContext';
 
 import { FaArrowLeft } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
@@ -38,6 +40,8 @@ export const Quiz1 = () => {
         }
         setAlertinfo({ ...alertinfo, open: false });
     };
+
+    const {userinfo, updateUserinfo} = useContext(AuthContext)
 
     const navigate = useNavigate();
     const [currQuestion, setCurrQuestion] = useState(1)
@@ -150,6 +154,11 @@ export const Quiz1 = () => {
         setInputvalue(["", "", "", "", "", "", ""])
         setMcq([0, 0])
         console.log("Current xp: ", xp)
+    }
+
+    // add XP
+    function changeXP(val){
+        updateUserinfo({...userinfo, xp:val})
     }
 
     // useEffect(() => {
@@ -733,6 +742,7 @@ export const Quiz1 = () => {
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
+                        {xp < (total_xp / 2) ? changeXP(0) : changeXP(xp)}
                         <img src={xp < (total_xp / 2) ? Fail : Congrats} alt=""/>
                         <div className="quiz_content_result_title">{xp < (total_xp / 2) ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < (total_xp / 2) ? " only " : " "} earned {xp} XP !</p>

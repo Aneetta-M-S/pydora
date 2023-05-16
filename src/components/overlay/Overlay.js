@@ -7,6 +7,7 @@ export const Overlay = (props) => {
 
     const navigate = useNavigate();
 
+    // function handleClick(i, current_sl) {
     function handleClick(i, current_sl) {
         if(i<=current_sl)
             navigate(`/quiz/level${props.level}/${i}`);

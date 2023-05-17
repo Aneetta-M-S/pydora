@@ -1,5 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 
+import {db} from "../firebaseconfig"
+import {doc, setDoc} from 'firebase/firestore';
+
 export const AuthContext = createContext(null)
 
 export default function Context({children}) {
@@ -11,19 +14,31 @@ export default function Context({children}) {
         localStorage.setItem("userinfo", (JSON.stringify(userinfo)));
     }, [user, userinfo]);
 
+
+    // adds user logged in info
     const updateUser = (u) => {
         setUser(u)
         localStorage.setItem("user", JSON.stringify(u))
     }
 
-    const updateUserinfo = (i) => {
-        setUserinfo(i)
-        localStorage.setItem("userinfo", JSON.stringify(i))
+    // updates info from profile edit, levels etc.
+    const updateUserinfo = async (i) => {
+        try{
+            setUserinfo(i)
+            localStorage.setItem("userinfo", JSON.stringify(i))
+            const docRef = doc(db, "users", user.uid)
+            await setDoc(docRef, i)
+            console.log("Success")
+            
+        }
+        catch(err){
+            console.log(err)
+        }
     }
-
+    
+    // Logout user from dashboard
     const logoutUser = () => {
         localStorage.clear()
-        // window.location.reload()
         setUser(null)
         setUserinfo(null)
     }

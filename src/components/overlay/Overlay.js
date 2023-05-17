@@ -9,8 +9,8 @@ export const Overlay = (props) => {
 
     function handleClick(i, current_sl) {
         if(i<=current_sl)
-            navigate(`/quiz/level1/${i}`);
-    } 
+            navigate(`/quiz/level${props.level}/${i}`);
+    }
 
     const items = []
     for (let i = 1; i <= props.sublevels; i++) {

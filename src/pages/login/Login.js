@@ -7,55 +7,60 @@ import LoginIllustration from "../../assets/images/login.png"
 
 import { db, auth, provider } from "../../firebaseconfig"
 import { signInWithPopup } from 'firebase/auth';
-import {doc, getDoc} from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useContext } from 'react';
 
 export const Login = () => {
-    const {user, userinfo, updateUser, updateUserinfo} = useContext(AuthContext);
+    const { user, userinfo, updateUser, updateUserinfo } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(user) {
+        if (user) {
             console.log("info updated: ", userinfo)
-            if(userinfo && userinfo.age === 0)
+            if (userinfo && userinfo.age === 0)
                 navigate('/profile/edit')
-            if(userinfo && userinfo.age !== 0)
+            if (userinfo && userinfo.age !== 0)
                 navigate('/learn')
         }
     }, [user, userinfo, navigate]);
 
     useEffect(() => {
-        
+
     }, [userinfo, navigate]);
 
-    async function redirectLogin(res){
+    async function redirectLogin(res) {
         const docRef = doc(db, "users", res.uid)
         const documentSnapshot = await getDoc(docRef);
-        if(documentSnapshot.exists()){
+        if (documentSnapshot.exists()) {
             const userData = documentSnapshot.data()
             updateUserinfo({
-                name : userData.name,
-                username : userData.username,
-                age : userData.age,
-                dp : userData.dp,
-                about : userData.about,
-                email : res.email,
-                xp: userData.xp
+                ...userinfo,
+                name: userData.name,
+                username: userData.username,
+                age: userData.age,
+                dp: userData.dp,
+                about: userData.about,
+                email: res.email,
+                xp: userData.xp,
+                curr_level: userData.curr_level,
+                curr_sl: userData.curr_sl
             })
             console.log("after saving to local: ", localStorage.getItem("userinfo"))
-            // navigate('/learn')
+            navigate('/learn')
         }
-        else{
+        else {
             updateUserinfo({
-                name : "",
-                username : "",
-                age : 0,
-                dp : dpArray[9],
-                about : "",
-                email : res.email,
-                xp: 0
+                name: "",
+                username: "",
+                age: 0,
+                dp: dpArray[9],
+                about: "",
+                email: res.email,
+                xp: 0,
+                curr_level: 1,
+                curr_sl: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             })
             // navigate('/profile/edit')
         }
@@ -66,9 +71,9 @@ export const Login = () => {
             updateUser(result.user);
             redirectLogin(result.user)
         })
-        .catch((err) => {
-            console.log(err);
-        })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     return (

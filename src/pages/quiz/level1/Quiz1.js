@@ -29,6 +29,7 @@ const Alert = forwardRef(function Alert(props, ref) {
 export const Quiz1 = () => {
 
     const navigate = useNavigate()
+    const { userinfo, updateUserinfo } = useContext(AuthContext)
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -43,21 +44,39 @@ export const Quiz1 = () => {
         setAlertinfo({ ...alertinfo, open: false });
     };
 
-    const {userinfo, updateUserinfo} = useContext(AuthContext)
-
-    const [currQuestion, setCurrQuestion] = useState(1)
-    const [xp, setXp] = useState(0)
 
     // total questions in sublevel(17 questions and 1 result section)
     const total_ques = 18
     //  and total xp
-    const total_xp = 200
+    // const total_xp = 200
+    const cutoff = 120
+    const [currQuestion, setCurrQuestion] = useState(1)
+    // keeps track of questions already done
+    const [done, setDone] = useState(Array(total_ques).fill(0))
+    const [xp, setXp] = useState(0)
+
 
     // result to dash
     const closeQuiz = (val) => {
+        let level = userinfo.curr_level
+        let sublevel = userinfo.curr_sl
+        // it must be in the sublevel 1 in order to update 
+        if (val >= cutoff && sublevel[level - 1] === 1) {
+            // 4 because this level has maximum 4 sublevels
+            if (sublevel[level - 1] === 4) {
+                level = 2
+                if (level <= 10) {
+                    sublevel[level - 1] = 1
+                }
+            }
+            else {
+                sublevel[level - 1] = 2
+            }
+        }
         val = val + userinfo.xp
+
         setTimeout(() => {
-            updateUserinfo({ ...userinfo, xp: val })
+            updateUserinfo({ ...userinfo, xp: val, curr_level: level, curr_sl: sublevel })
         }, 0);
         navigate('/learn')
     }
@@ -67,30 +86,31 @@ export const Quiz1 = () => {
     const selectOption = (opt, ans, arr) => {
         setMcq(arr);
 
-        // calculate score for each problem
         let score = 10
 
-        if (opt === ans) {
-            console.log("Correct");
-            updateXp(xp + score);
-            setAlertinfo({
-                open: true,
-                msg: "Correct answer",
-                severity: "success"
-            })
+        if (done[currQuestion - 1] === 0) {
+            if (opt === ans) {
+                updateXp(xp + score);
+                setAlertinfo({
+                    open: true,
+                    msg: "Correct answer",
+                    severity: "success"
+                })
+            }
+            else {
+                updateXp(xp + 0);
+                setAlertinfo({
+                    open: true,
+                    msg: "Incorrect answer",
+                    severity: "error"
+                })
+            }
+            const temp = [...done]
+            temp[currQuestion - 1] += 1
+            setDone(temp)
+            console.log(temp)
+            setTimeout(nextQuestion, 1600);
         }
-        else {
-            console.log("Incorrect");
-            updateXp(xp + 0);
-            setAlertinfo({
-                open: true,
-                msg: "Incorrect answer",
-                severity: "error"
-            })
-        }
-        setTimeout(nextQuestion, 1600);
-
-
     }
 
     const [inputvalue, setInputvalue] = useState(["", "", "", "", "", "", ""])
@@ -104,14 +124,11 @@ export const Quiz1 = () => {
 
     const updateXp = (val) => {
         setXp(val)
-        console.log("Current XP: ", xp)
     }
 
     const checkAnswer = (ans) => {
         let check = true
         answer = ans
-        console.log(inputvalue)
-        console.log(answer)
 
         // calculate score for each problem
         let score = 0
@@ -123,7 +140,6 @@ export const Quiz1 = () => {
                 break
             }
         }
-        console.log(score)
 
         // checking if the answer is right
         for (let i = 0; i < inputvalue.length; i++) {
@@ -132,32 +148,35 @@ export const Quiz1 = () => {
                 break
             }
         }
-        if (check) {
-            console.log("Correct");
-            updateXp(xp + score);
-            setAlertinfo({
-                open: true,
-                msg: "Correct answer",
-                severity: "success"
-            })
+        if (done[currQuestion - 1] === 0) {
+            if (check) {
+                updateXp(xp + score);
+                setAlertinfo({
+                    open: true,
+                    msg: "Correct answer",
+                    severity: "success"
+                })
+            }
+            else {
+                updateXp(xp + 0);
+                setAlertinfo({
+                    open: true,
+                    msg: "Incorrect answer",
+                    severity: "error"
+                })
+            }
+            const temp = [...done]
+            temp[currQuestion - 1] += 1
+            setDone(temp)
+            console.log(temp)
+            setTimeout(nextQuestion, 1600);
         }
-        else {
-            console.log("Incorrect");
-            updateXp(xp + 0);
-            setAlertinfo({
-                open: true,
-                msg: "Incorrect answer",
-                severity: "error"
-            })
-        }
-        setTimeout(nextQuestion, 1600);
     }
 
     const nextQuestion = () => {
         setCurrQuestion(currQuestion + 1)
         setInputvalue(["", "", "", "", "", "", ""])
         setMcq([0, 0])
-        console.log("Current xp: ", xp)
     }
 
 
@@ -165,12 +184,13 @@ export const Quiz1 = () => {
         <div className="quiz_page">
             <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                style={{width: "500px"}}
+                style={{ width: "500px" }}
                 open={alertinfo.open} autoHideDuration={1500} onClose={handleClose}>
-                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px"}}>
+                <Alert onClose={handleClose} severity={alertinfo.severity} sx={{ width: '100%', fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, borderRadius: "10px" }}>
                     {alertinfo.msg}
                 </Alert>
             </Snackbar>
+
             <div className="quiz_header">
                 <div className="quiz_header_left">
                     <Link to="/learn">
@@ -188,7 +208,7 @@ export const Quiz1 = () => {
                     <span>Creating Variables</span>
                 </div>
                 <div className="quiz_island_text">
-                    <img src={HeadText} alt=""/>
+                    <img src={HeadText} alt="" />
                 </div>
 
             </div>
@@ -738,16 +758,15 @@ export const Quiz1 = () => {
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
-                        {/* Divded by 2 is to show that the cutoff is 50% */}
-                        <img src={xp < (total_xp / 2) ? Fail : Congrats} alt=""/>
-                        <div className="quiz_content_result_title">{xp < (total_xp / 2) ? "Almost there" : "Congratulations"}</div>
-                        <p>You have {xp < (total_xp / 2) ? " only " : " "} earned {xp} XP !</p>
+                        <img src={xp < cutoff ? Fail : Congrats} alt="" />
+                        <div className="quiz_content_result_title">{xp < cutoff ? "Almost there" : "Congratulations"}</div>
+                        <p>You have {xp < cutoff ? " only " : " "} earned {xp} XP !</p>
 
                         {/* On clicking the continue button, xp is updated and we return to home */}
                         <div className="result_btn" onClick={() => closeQuiz(xp)}>
-                        <div className="result_btn_text">{xp < (total_xp / 2) ? "Try Again" : "Continue"}</div>
-                        <div className="result_btn_shadow"></div>
-                    </div>
+                            <div className="result_btn_text">{xp < cutoff ? "Try Again" : "Continue"}</div>
+                            <div className="result_btn_shadow"></div>
+                        </div>
                     </div>
                 </div>
 

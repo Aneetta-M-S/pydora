@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 
 import {db} from "../firebaseconfig"
 import {doc, setDoc} from 'firebase/firestore';
@@ -10,18 +9,19 @@ export default function Context({children}) {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
     const [userinfo, setUserinfo] = useState(JSON.parse(localStorage.getItem("userinfo")))
 
-    // const navigate = useNavigate()
-
     useEffect(() => {
         localStorage.setItem("user", (JSON.stringify(user)));
         localStorage.setItem("userinfo", (JSON.stringify(userinfo)));
     }, [user, userinfo]);
 
+
+    // adds user logged in info
     const updateUser = (u) => {
         setUser(u)
         localStorage.setItem("user", JSON.stringify(u))
     }
 
+    // updates info from profile edit, levels etc.
     const updateUserinfo = async (i) => {
         try{
             setUserinfo(i)
@@ -36,10 +36,9 @@ export default function Context({children}) {
         }
     }
     
-
+    // Logout user from dashboard
     const logoutUser = () => {
         localStorage.clear()
-        // window.location.reload()
         setUser(null)
         setUserinfo(null)
     }

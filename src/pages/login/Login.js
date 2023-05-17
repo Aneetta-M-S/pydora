@@ -43,7 +43,9 @@ export const Login = () => {
                 dp: userData.dp,
                 about: userData.about,
                 email: res.email,
-                xp: userData.xp
+                xp: userData.xp,
+                curr_level: userData.curr_level,
+                curr_sl: userData.curr_sl
             })
             console.log("after saving to local: ", localStorage.getItem("userinfo"))
             navigate('/learn')

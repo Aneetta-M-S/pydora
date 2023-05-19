@@ -61,16 +61,12 @@ export const Quiz4 = () => {
         let sublevel = userinfo.curr_sl
         if (val >= cutoff && sublevel[level - 1] === 4) {
             // 4 because this level has maximum 4 sublevels
-            if (sublevel[level - 1] === 4) {
                 level = 2
                 if (level <= 10) {
                     sublevel[level - 1] = 1
                 }
             }
-            else {
-                sublevel[level - 1] = 2
-            }
-        }
+     
         val = val + userinfo.xp
 
         setTimeout(() => {

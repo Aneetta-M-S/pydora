@@ -70,7 +70,7 @@ export const Quiz3 = () => {
                 }
             }
             else {
-                sublevel[level - 1] += 1
+                sublevel[level - 1] += 4
             }
         }
         val = val + userinfo.xp

@@ -68,7 +68,7 @@ export const Quiz2 = () => {
                 }
             }
             else {
-                sublevel[level - 1] = 2
+                sublevel[level - 1] = 3
             }
         }
         val = val + userinfo.xp

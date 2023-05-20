@@ -4,6 +4,7 @@
 import "./Level1.css"
 import questions from './data1'
 
+import "./Level1.css"
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +28,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz1 = () => {
+export const Quiz3 = () => {
 
     const divRefs = useRef([])
 
@@ -51,9 +52,9 @@ export const Quiz1 = () => {
     };
 
 
-    // total questions in sublevel(17 questions and 1 result section)
-    const total_ques = 18
-    // const total_xp = 200 (store this value just for reference)
+    // total questions in sublevel(15 questions and 1 result section)
+    const total_ques = 16
+    // const total_xp = 210 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
     const cutoff = 120
     const [currQuestion, setCurrQuestion] = useState(1)
@@ -215,7 +216,7 @@ export const Quiz1 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Creating Variables</span>
+                    <span>True and False</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />

@@ -35,6 +35,7 @@ export function MuiAccordion() {
         async function fetchData() {
             const querySnapshot = await getDocs(query(collection(db, "lessons"), orderBy("id")));
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
+            localStorage.setItem("lessons", (JSON.stringify(newData)));
             setPopupLevelData(newData);
         }
         fetchData()

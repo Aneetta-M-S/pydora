@@ -224,6 +224,9 @@ export const Quiz1 = () => {
             </div>
 
             <div className="quiz_section">
+                <div className="quiz-bg">
+                    <img src="https://pop-drupal.s3.amazonaws.com/blog_images/poptropolis-games-wallpaper.jpg" alt=""/>
+                </div>
                 {
                     questions.map((ques) => {
                         return (

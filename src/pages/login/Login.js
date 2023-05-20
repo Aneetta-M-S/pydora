@@ -36,6 +36,7 @@ export const Login = () => {
         if (documentSnapshot.exists()) {
             const userData = documentSnapshot.data()
             updateUserinfo({
+                ...userinfo,
                 name: userData.name,
                 username: userData.username,
                 age: userData.age,

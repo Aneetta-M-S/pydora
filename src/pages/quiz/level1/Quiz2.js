@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz1 = () => {
+export const Quiz2 = () => {
 
     const divRefs = useRef([])
 
@@ -51,11 +51,11 @@ export const Quiz1 = () => {
     };
 
 
-    // total questions in sublevel(17 questions and 1 result section)
-    const total_ques = 18
-    // const total_xp = 200 (store this value just for reference)
+    // total questions in sublevel(16 questions and 1 result section)
+    const total_ques = 17
+    // const total_xp = 230 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 120
+    const cutoff = 140
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -66,7 +66,7 @@ export const Quiz1 = () => {
     const closeQuiz = (val) => {
         // type in the current quiz level, current sublevel and max number of sublevels of the level
         let level = 1
-        let current_sublevel = 1
+        let current_sublevel = 2
         let max_sublevel = 4
         let sublevel = userinfo.curr_sl
         if (val >= cutoff && userinfo.curr_level === level && sublevel[level - 1] === current_sublevel) {
@@ -215,7 +215,7 @@ export const Quiz1 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Creating Variables</span>
+                    <span>Using Variables</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />

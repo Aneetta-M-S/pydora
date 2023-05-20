@@ -168,9 +168,6 @@
     height: 10px;
 }
 
-.quiz_content_theory_only .pharoah_illus img {
-    /* height: 130px; */
-}
 
 /* IDE Content */
 
@@ -408,8 +405,10 @@
 }
 
 .quiz_content_result img{
-    width: 250px;
     margin-bottom: 2rem;
+}
+.quiz_content_result img.cong{
+    width: 250px;
 }
 
 .quiz_content_result p{

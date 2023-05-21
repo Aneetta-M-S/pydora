@@ -18,325 +18,427 @@ import React from "react";
 const questions = [
     {
         id: 1,
-        type: "theory",
-        message: (
+        type: "code",
+        theory: (
             <>
-                <b>Python</b> is a fantastic programming language for beginners and experts alike.
+                <p>To create a list like <span>halved</span> based on another like <span>prices</span>, we need to first create an empty list, then fill it inside a loop.</p>
+                <p>Hints: <span>halved.append(half_price)</span>&ensp;<span>halved = [ ]</span></p>
             </>
         ),
+        code_num: 1,
+        ide_content: (
+            <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
+                <p><input style={{ width: "90px" }} type="text" /></p>
+                <p>for price in prices:</p>
+                <p>&emsp;half_price = price/2</p>
+                <p>&emsp;<input style={{ width: "200px" }} type="text" /></p>
+                <br />
+                <p>print(halved)</p>
+            </>
+        ),
+        answer: ['halved = [ ]', 'halved.append(half_price)']
     },
     {
         id: 2,
-        type: "theory",
-        message: (
+        type: "code",
+        theory: (
             <>
-                It’s the language of choice for many companies and a popular pick for personal projects.
-                <br /><br />
-                You can use it for automating tasks,getting ahead in work with data analysis, machine learning and much more.
+                <p>We can build the same <span>halved</span> list as before, but in one line, using <b>list comprehensions</b>.</p>
             </>
-        )
+        ),
+        code_num: 2,
+        ide_content: (
+            <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
+                <p>
+                    <input style={{ width: "60px" }} type="text" />
+                    <span> = [ price/2 for price in prices ]</span>
+                </p>
+                <p>print(halved)</p>
+            </>
+        ),
+        answer: ['halved']
     },
     {
         id: 3,
-        type: "theory",
-        message: (
+        type: "code",
+        theory: (
             <>
-                No matter how complex a program is, it begins with a single line of code. This first line is usually a <b>variable</b>.
-                <br /><br />
-                Program use variables to <b>remember information</b>. Like moving boxes, variable have content and names that tell us what’s inside.
+                <p>The list comprehension creating <span>halved_lc</span> is an equivalent, but more compact version of the code creating <span>halved_loop</span>.</p>
+                <p>Hints: <span>halved_loop</span>&ensp;<span>halved_lc</span></p>
             </>
-        )
+        ),
+        code_num: 3,
+        ide_content: (
+            <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
+                <p>
+                    <input style={{ width: "90px" }} type="text" />
+                    <span> = [ price/2 for price in prices ]</span>
+                </p>
+                <p>print(halved_lc)</p>
+                <br />
+                <p>
+                    <input style={{ width: "100px" }} type="text" />
+                    <span> = [ ]</span>
+                </p>
+                <p>for price in prices:</p>
+                <p>&emsp;half_price = price/2</p>
+                <p>&emsp;halved_loop.append(half_price)</p>
+                <p>print(halved_loop)</p>
+
+            </>
+        ),
+        answer: ['halved_lc', 'halved_loop']
     },
     {
         id: 4,
         type: "code",
         theory: (
             <>
-                <p>To create a variable, we need to give it a name. Variable names need to be single words and, therefore, have no spaces.</p>
-                <p>Type the variable name <span>city</span> to get started.</p>
+                <p>List comprehensions use <span>for</span> loops to iterate through each element of the original list, like here with <span>for price in prices</span>.</p>
             </>
         ),
-        // keep a count of the number of code questions
-        code_num: 1,
+        code_num: 4,
         ide_content: (
             <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
                 <p>
-                    <input style={{ width: "40px" }} type="text" />
+                    <span> halved = [ price/2 </span>
+                    <input style={{ width: "150px" }} type="text" />
+                    <span> ]</span>
                 </p>
+                <p>print(halved)</p>
+
             </>
         ),
-        answer: ['city']
+        answer: ['for price in prices']
     },
     {
         id: 5,
         type: "code",
         theory: (
             <>
-                <p>If we want a variable name with multiple words, we use <b>snake case</b>. Snake case means using <span>_</span> to connect the additional words.</p>
+                <p>Like with any for-loop, <span>price</span> is the variable that holds the list elements one by one, while <span>prices</span> is the list we're looping over.</p>
             </>
         ),
-        // keep a count of the number of code questions
-        code_num: 2,
+        code_num: 5,
         ide_content: (
             <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
                 <p>
-                    <span>home</span>
-                    <input style={{ width: "20px" }} type="text" />
-                    <span>city</span>
+                    <span> halved = [ price/2 for </span>
+                    <input style={{ width: "60px" }} type="text" />
+                    <span> in </span>
+                    <input style={{ width: "60px" }} type="text" />
+                    <span> ]</span>
                 </p>
+                <p>print(halved)</p>
+
             </>
         ),
-        answer: ['_']
+        answer: ['price', 'prices']
     },
     {
         id: 6,
         type: "code",
         theory: (
             <>
-                <p>To help us understand what’s inside a variable we pick descriptive names.</p>
-                <p><span>hcp</span> , <span>home_city_province</span></p>
+                <p>At the beginning of the list comprehension, we write an expression to apply on each element, like halving each price with <span>price/2</span>.</p>
             </>
         ),
-        // keep a count of the number of code questions
-        code_num: 3,
-        ide_content: (
-            <>
-                <p>
-                    <input style={{ width: "160px" }} type="text" />
-                </p>
-            </>
-        ),
-        answer: ['home_city_province']
-    },
-    {
-        id: 7,
-        type: "code",
-        theory: (
-            <>
-                <p>Variable names can contain <b>numbers</b>, too. Adding numbers is useful for multiple similar variables.
-                    We’ll create the variable <span>car_1</span> here.</p>
-            </>
-        ),
-        // keep a count of the number of code questions
-        code_num: 4,
-        ide_content: (
-            <>
-                <p>
-                    <input style={{ width: "50px" }} type="text" />
-                </p>
-            </>
-        ),
-        answer: ['car_1']
-    },
-    {
-        id: 8,
-        type: "code",
-        theory: (
-            <>
-                <p>After creating and naming a variable, we use the <span>=</span> sign to store a value inside it,like with <span>city = “Miami”</span>.</p>
-            </>
-        ),
-        // keep a count of the number of code questions
-        code_num: 5,
-        ide_content: (
-            <>
-                <p>
-                    <input style={{ width: "40px" }} type="text" />
-                    <input style={{ width: "20px" }} type="text" />
-                    <input style={{ width: "70px" }} type="text" />
-                </p>
-            </>
-        ),
-        answer: ['city', '=', '"Miami"']
-    },
-    {
-        id: 9,
-        type: "code",
-        theory: (
-            <>
-                <p>The values we've been storing, like <span>"Miami"</span> are <b>strings</b>. Strings are words in double quotes.</p>
-            </>
-        ),
-        // keep a count of the number of code questions
         code_num: 6,
         ide_content: (
             <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
                 <p>
-                    <input style={{ width: "15px" }} type="text" />
-                    <span>Miami</span>
-                    <input style={{ width: "15px" }} type="text" />
+                    <span> halved = [ </span>
+                    <input style={{ width: "65px" }} type="text" />
+                    <span> for price in prices ] </span>
                 </p>
+                <p>print(halved)</p>
+
             </>
         ),
-        answer: ['"', '"']
+        answer: ['price/2']
     },
     {
-        id: 10,
-        type: "code",
-        theory: (
-            <>
-                <p>Strings can contain all sorts of letters and symbols,including spaces like <span>“Winter is coming.”</span>.</p>
-            </>
-        ),
-        // keep a count of the number of code questions
-        code_num: 7,
-        ide_content: (
-            <>
-                <p>
-                    <input style={{ width: "15px" }} />
-                    <input style={{ width: "140px" }} />
-                    <input style={{ width: "15px" }} />
-                </p>
-            </>
-        ),
-        answer: ['"', 'Winter is coming.', '"']
-    },
-    {
-        id: 11,
+        id: 7,
         type: "mcq",
         question: (
             <>
-                <p>What’s the value of this variable?</p>
+                <p>What’s the difference between the list stored in <span>codes_a</span> and <span>codes_b</span>?</p>
             </>
         ),
-        // keep a count of the number of code questions
         ide: true,
         ide_content: (
             <>
-                <p> <span>name = "Karin"</span> </p>
+                <p> flights = [ "1122", "5788", "0044" ] </p>
+                <br />
+                <p>codes_a = [ "BA" + flight for flight in flights ]</p>
+                <p>print(codes_a)</p>
+                <br />
+                <p>codes_b = [ ]</p>
+                <p>for flight in flights:</p>
+                <p>&emsp;code = "BA" + flight</p>
+                <p>&emsp;codes_b.append(code)</p>
+                <br />
+                <p>print(codes_b)</p>
             </>
         ),
-        options: ['name', '"Karin"'],
-        answer: 2
-    },
-    {
-        id: 12,
-        type: "mcq",
-        question: (
-            <>
-                <p>What’s happening in this code?</p>
-            </>
-        ),
-        // keep a count of the number of code questions
-        ide: true,
-        ide_content: (
-            <>
-                <p> <span>measurement = "average"</span> </p>
-            </>
-        ),
-        options: ['The variable measurement stores the value "average"', 'The variable "average" stores the value measurement'],
+        options: ['There\'s no difference, they are equivalent', 'Unlike codes_b, codes_a doesn\'t store a list'],
         answer: 1
     },
     {
-        id: 13,
-        type: "theory",
-        message: (
+        id: 8,
+        type: "mcq",
+        question: (
             <>
-                Lines of code are <b>instructions</b> for the computer to follow.
-                <br /><br />
-                When we run code,we tell the computer to follow the instructions we put together.
+                <p>What do we use list comprehensions for?</p>
             </>
         ),
+        ide: false,
+        options: ['For creating new lists based on existing ones in less code', 'For changing existing lists, without keeping the original'],
+        answer: 1
+    },
+    {
+        id: 9,
+        type: "mcq",
+        question: (
+            <>
+                <p>What do we use to surround the expression and loop belonging to a list comprehension?</p>
+            </>
+        ),
+        ide: false,
+        options: ['Nothing, we use indentation just like we do inside loops', 'Square brackets [ ]'],
+        answer: 2
+    },
+    {
+        id: 10,
+        type: "mcq",
+        question: (
+            <>
+                <p>What does the variable <span>km</span> store?</p>
+            </>
+        ),
+        ide: true,
+        ide_content: (
+            <>
+                <p> miles = [ 100, 57, 40, 20 ] </p>
+                <p>km = [ value * 1.609 for value in miles ]</p>
+                <p>print(km)</p>
+            </>
+        ),
+        options: ['Only the first value of the miles list, converted to kilometers', 'A list of values represented as kilometers'],
+        answer: 2
+    },
+    {
+        id: 11,
+        type: "code",
+        theory: (
+            <>
+                <p>Code an expression inside this list comprehension, so that it creates the same list as the one created by the for loop. </p>
+            </>
+        ),
+        code_num: 7,
+        ide_content: (
+            <>
+                <p>answers = [ True, False, False ]</p>
+                <p><span> opposite = [ ]</span></p>
+                <p>for answer in answers:</p>
+                <p>&emsp;opposite.append(not answer)</p>
+                <p>print(opposite)</p>
+                <br />
+                <p>
+                    <span>print([ </span>
+                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "65px" }} type="text" />
+                    <span> for price in prices ]) </span>
+                </p>
+                <p>print(halved)</p>
+
+            </>
+        ),
+        answer: ['not', 'answer']
+    },
+    {
+        id: 12,
+        type: "code",
+        theory: (
+            <>
+                <p>Create a list of booleans telling us which ages are old enough for driving by coding an expression that checks if <span>age</span> is greater than <span>17</span>.</p>
+            </>
+        ),
+        code_num: 8,
+        ide_content: (
+            <>
+                <p>ages = [ 15, 20, 19 ]</p>
+                <p>
+                    <span> can_drive = [ </span>
+                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
+                    <span> for age in ages ]</span>
+                </p>
+                <p>print(can_drive)</p>
+            </>
+        ),
+        answer: ['age', '>', '17']
+    },
+    {
+        id: 13,
+        type: "code",
+        theory: (
+            <>
+                <p>To create a copy like <span>prices_copy</span> of the original list, we set the expression to copy each element without changes, like here with <span>price</span>.</p>
+            </>
+        ),
+        code_num: 9,
+        ide_content: (
+            <>
+                <p>prices = [ 10, 38, 40, 58, 62 ]</p>
+                <p>
+                    <span> prices_copy = [ </span>
+                    <input style={{ width: "60px" }} type="text" />
+                    <span> for price in prices ]</span>
+                </p>
+                <p>print(prices_copy)</p>
+            </>
+        ),
+        answer: ['price']
     },
     {
         id: 14,
         type: "code",
         theory: (
             <>
-                <p>The order of the instruction matters because the computer follows the instructions line by line.</p>
-                <p>Arrange these lines of code in the correct order, beginning with <span>step_1</span>, followed by <span>step_2</span> and finally <span>step_3</span>.</p>
-                <p>Type these in the appropriate order <span>step_1 = "Collect pants"</span>, <span>step_3 = "Profit"</span>, <br /> <span>step_2 = "?"</span>.</p>
+                <p>List comprehensions work with list elements of any type, like numbers, booleans, tuples, or strings like those in <span>names</span>.</p>
+                <p>Hints: <span>[ "Smith", "Miller", "Brown" ]</span>&ensp;<span>names</span></p>
             </>
         ),
-        // keep a count of the number of code questions
-        code_num: 8,
-        ide_content: (
-            <>
-                <p>
-                    <input style={{ width: "150px" }} type="text" />
-                </p>
-                <p>
-                    <input style={{ width: "150px" }} type="text" />
-                </p>
-                <p>
-                    <input style={{ width: "150px" }} type="text" />
-                </p>
-            </>
-        ),
-        answer: ['step_1 = "Collect pants"', 'step_2 = "?"', 'step_3 = "Profit"']
-    },
-    {
-        id: 15,
-        type: "code",
-        theory: (
-            <>
-                <p>With the special instruction <span>print( )</span>, we tell the computer to display a value in an area called the <b>console</b>, also known as the shell.</p>
-                <p>Type <span> "Hello, World!"</span></p>
-            </>
-        ),
-        // keep a count of the number of code questions
-        code_num: 9,
-        ide_content: (
-            <>
-                <p>
-                    <span>print(</span>
-                    <input style={{ width: "120px" }} type="text" />
-                    <span>)</span>
-                </p>
-            </>
-        ),
-        answer: ['"Hello, World!"']
-    },
-    {
-        id: 16,
-        type: "code",
-        theory: (
-            <>
-                <p>We can use <span>print( )</span> to display variable like <span>greeting</span>, too.</p>
-                <p>Print <span> greeting</span></p>
-            </>
-        ),
-        // keep a count of the number of code questions
         code_num: 10,
         ide_content: (
             <>
                 <p>
-                    <span>greeting = "Hello, World!"</span>
+                    <input style={{ width: "60px" }} />
+                    <span> = </span>
+                    <input style={{ width: "200px" }} />
                 </p>
                 <p>
-                    <span>print(</span>
-                    <input style={{ width: "75px" }} type="text" />
-                    <span>)</span>
+                    <span> prefixed = [ "Mr. " + name for name in names ]</span>
                 </p>
+                <p>print(prefixed)</p>
             </>
         ),
-        answer: ['greeting']
+        answer: ['names', '[ "Smith", "Miller", "Brown" ]']
+    },
+    {
+        id: 15,
+        type: "mcq",
+        question: (
+            <>
+                <p>What does the variable <span>km</span> store?</p>
+            </>
+        ),
+        ide: true,
+        ide_content: (
+            <>
+                <p> meters = [ 100, 3800, 4000 ] </p>
+                <p>meters_copy = [ m for m in meters ]</p>
+                <p>print(meters)</p>
+                <p>print(meters_copy)</p>
+            </>
+        ),
+        options: ['Because list comprehensions can only create copies of the original lists', 'Because it uses the loop variable, m as an expression, without applying any changes'],
+        answer: 2
+    },
+    {
+        id: 16,
+        type: "mcq",
+        question: (
+            <>
+                <p>What types of elements do list comprehensions work on?</p>
+            </>
+        ),
+        ide: false,
+        options: ['Only on list elements that are numbers',
+            'Any type of list elements, like numbers, strings, booleans, tuples and more'],
+        answer: 2
     },
     {
         id: 17,
+        type: "mcq",
+        question: (
+            <>
+                <p>Can we use a boolean expression like <span>a == 13</span> with a list comprehension?</p>
+            </>
+        ),
+        ide: false,
+        options: ['Yes, we can use any type of expression',
+            'No, we can only use expressions with numbers or strings'],
+        answer: 1
+    },
+    {
+        id: 18,
         type: "code",
         theory: (
             <>
-                <p>When we display variables in the console, their values appear instead of their names.
-                    If we print <span>name</span> here, it’ll show its value.</p>
+                <p>Inside the list comprehension, iterate over the strings in the <span>words</span> list, to count the occurences of the letter <span>"a"</span>.</p>
             </>
         ),
-        // keep a count of the number of code questions
         code_num: 11,
         ide_content: (
             <>
+                <p><span>words = [ "apple", "aligator", "abracadabra", "avatar" ]</span></p>
+                <br />
                 <p>
-                    <span>name = "Daenerys"</span>
+                    <span> a_count = [ word.count("a") for word in </span>
+                    <input style={{ width: "50px" }} />
+                    <span> ]</span>
                 </p>
-                <p>
-                    <span>print(</span>
-                    <input style={{ width: "55px" }} type="text" />
-                    <span>)</span>
+                <p>print(a_count)</p>
+            </>
+        ),
+        answer: ['words']
+    },
+    {
+        id: 19,
+        type: "code",
+        theory: (
+            <>
+                <p>For this list comprehension's expression, use <span>.count()</span> to count the occurences of <span>"a"</span> in each <span>word</span>.</p>
+                <p>Hints:
+                    <span>(</span>&ensp;
+                    <span>count</span>&ensp;
+                    <span>)</span>&ensp;
+                    <span>word</span>&ensp;
+                    <span>.</span>&ensp;
+                    <span>"a"</span>&ensp;
                 </p>
             </>
         ),
-        answer: ['name']
+        code_num: 12,
+        ide_content: (
+            <>
+                <p><span>words = [ "apple", "aligator", "abracadabra", "avatar" ]</span></p>
+                <br />
+                <p>
+                    <span> a_count = [ </span>
+                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "30px" }} />
+                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "30px" }} />
+                    <input style={{ width: "30px" }} />
+                    <input style={{ width: "30px" }} />
+                    <span> for word in words ]</span>
+                </p>
+                <p>print(a_count)</p>
+            </>
+        ),
+        answer: ['word', '.', 'count', '(', '"a"', ')']
     }
+
 ];
 
 

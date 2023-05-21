@@ -344,7 +344,7 @@
 .quiz_mcq_question span {
     padding: 5px;
     border-radius: 5px;
-    background: rgb(7, 38, 63);
+    background: rgb(0, 17, 30);
     color: var(--primary);
 }
 
@@ -376,10 +376,8 @@
 }
 
 .quiz_mcq_options p:hover{
+    background: var(--bg);
     transform: scale(1.01);
-}
-.quiz_mcq_options p.selected:hover{
-    background-color: #486FCF2f;
 }
 
 .quiz_mcq_options p.selected{

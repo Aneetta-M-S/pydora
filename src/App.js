@@ -28,6 +28,7 @@ import { Quiz8 } from './pages/quiz/level2/Quiz4';
 
 import { Quiz45 } from './pages/quiz/level10/Quiz45';
 import { Quiz46 } from './pages/quiz/level10/Quiz46';
+import { Quiz47 } from './pages/quiz/level10/Quiz47';
 
 function App() {
 
@@ -75,8 +76,8 @@ function App() {
             <Route path='level10'>
               <Route path='1' element={<Quiz45 />}/>
               <Route path='2' element={<Quiz46 />}/>
+              <Route path='3' element={<Quiz47 />}/>
               {/* 
-              <Route path='3' element={<Quiz3 />}/>
               <Route path='4' element={<Quiz4 />}/> 
               */}
             </Route>

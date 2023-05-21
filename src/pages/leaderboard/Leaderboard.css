@@ -7,11 +7,13 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start !important;
     gap: 2rem !important;
+
+    padding-left: 3rem;
 }
 .leaderboard_container_title{
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     width: 700px; /*just for time being*/
 }
@@ -36,7 +38,7 @@
     color: #fff;
     font-family: "Feather";
     border-radius: 15px;
-    width: 700px;
+    width: 1000px;
     height: 90px;
     overflow: hidden;
 
@@ -85,6 +87,20 @@
     object-fit: cover;
 }
 
+.leaderboard_main_card .level{
+    flex-shrink: 0;
+    /* height: 50px; */
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.leaderboard_main_card .level img{
+    object-fit: cover;
+    width: 80%;
+}
+
 .leaderboard_right_card {
     width: 350px;
     height: 335px;
@@ -97,3 +113,4 @@
   
     overflow: hidden;
   }
+

@@ -1,7 +1,7 @@
 // change the 2 import files in lines 4, 5 accordingly
 // Lines which needs change: 52, 53, 55, 63, 64, 65, 221
 
-import "./Level1.css"
+import "./Level2.css"
 import questions from './data3'
 import images from "../bg";
 

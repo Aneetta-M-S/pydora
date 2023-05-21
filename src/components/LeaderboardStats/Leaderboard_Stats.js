@@ -16,7 +16,7 @@ export const LeaderboardStats = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const querySnapshot = await getDocs(query(collection(db, "users"), orderBy("xp", "desc"), limit(5)));
+            const querySnapshot = await getDocs(query(collection(db, "users"), orderBy("xp", "desc"), limit(10)));
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
             setLeaderboardData(newData);
         }

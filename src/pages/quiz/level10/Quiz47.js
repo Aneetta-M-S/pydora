@@ -1,7 +1,7 @@
 // change the 2 import files in lines 4, 5 accordingly
-// Lines which needs change: 52, 53, 55, 63, 64, 65, 221
+// Lines which needs change: 30, 52, 53, 55, 63, 64, 65, 221
 
-import "./Level1.css"
+import "./Level10.css"
 import questions from './data3'
 import images from "../bg";
 
@@ -27,10 +27,10 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz3 = () => {
+// change export name to filename
+export const Quiz47 = () => {
 
     const divRefs = useRef([])
-
     const navigate = useNavigate()
     const { userinfo, updateUserinfo } = useContext(AuthContext)
 
@@ -49,10 +49,10 @@ export const Quiz3 = () => {
 
 
     // total questions in sublevel(include result also)
-    const total_ques = 16
-    // const total_xp = 210 (store this value just for reference)
+    const total_ques = 17
+    // const total_xp = 230 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 120
+    const cutoff = 130
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -60,9 +60,9 @@ export const Quiz3 = () => {
 
 
     // type in the current quiz level, current sublevel and max number of sublevels of the level
-    let level = 1
+    let level = 10
     let current_sublevel = 3
-    let max_sublevel = 4
+    let max_sublevel = 5
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
     // if the quiz level is 1 set the value to 0 
@@ -219,7 +219,7 @@ export const Quiz3 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>True and False</span>
+                    <span>Filtering with if</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />

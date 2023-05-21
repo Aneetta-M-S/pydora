@@ -1,14 +1,14 @@
 // change the 2 import files in lines 4, 5 accordingly
-// Lines which needs change: 38, 55, 56, 58, 68, 69, 70, 218
+// Lines which needs change: 52, 53, 55, 63, 64, 65, 221
 
 import "./Level1.css"
 import questions from './data1'
+import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
-
 import Congrats from "../../../assets/images/prize/congrats.png"
 
 import { AuthContext } from '../../../contexts/DetailsContext';
@@ -33,9 +33,6 @@ export const Quiz1 = () => {
 
     const navigate = useNavigate()
     const { userinfo, updateUserinfo } = useContext(AuthContext)
-    let levelData = JSON.parse(localStorage.getItem("lessons"))
-    // if the quiz level is 1 set the value to 0 
-    levelData = levelData[0]
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -51,7 +48,7 @@ export const Quiz1 = () => {
     };
 
 
-    // total questions in sublevel(17 questions and 1 result section)
+    // total questions in sublevel(include result also)
     const total_ques = 18
     // const total_xp = 200 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
@@ -62,12 +59,19 @@ export const Quiz1 = () => {
     const [xp, setXp] = useState(0)
 
 
+    // type in the current quiz level, current sublevel and max number of sublevels of the level
+    let level = 1
+    let current_sublevel = 1
+    let max_sublevel = 4
+
+    let levelData = JSON.parse(localStorage.getItem("lessons"))
+    // if the quiz level is 1 set the value to 0 
+    levelData = levelData[level-1]
+
+    // let bgImage = images[level-1][current_sublevel-1]
+    let bgImage = images[level-1][current_sublevel-1]
     // result to dash
     const closeQuiz = (val) => {
-        // type in the current quiz level, current sublevel and max number of sublevels of the level
-        let level = 1
-        let current_sublevel = 1
-        let max_sublevel = 4
         let sublevel = userinfo.curr_sl
         if (val >= cutoff && userinfo.curr_level === level && sublevel[level - 1] === current_sublevel) {
             if (current_sublevel !== max_sublevel) {
@@ -225,7 +229,7 @@ export const Quiz1 = () => {
 
             <div className="quiz_section">
                 <div className="quiz-bg">
-                    <img src="https://pop-drupal.s3.amazonaws.com/blog_images/poptropolis-games-wallpaper.jpg" alt=""/>
+                    <img src={bgImage} alt=""/>
                 </div>
                 {
                     questions.map((ques) => {

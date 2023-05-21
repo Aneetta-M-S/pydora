@@ -1,8 +1,8 @@
 // change the 2 import files in lines 4, 5 accordingly
 // Lines which needs change: 52, 53, 55, 63, 64, 65, 221
 
-import "./Level1.css"
-import questions from './data3'
+import "./Level2.css"
+import questions from './data1'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz3 = () => {
+export const Quiz5 = () => {
 
     const divRefs = useRef([])
 
@@ -52,7 +52,7 @@ export const Quiz3 = () => {
     const total_ques = 16
     // const total_xp = 210 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 120
+    const cutoff = 130
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -60,8 +60,8 @@ export const Quiz3 = () => {
 
 
     // type in the current quiz level, current sublevel and max number of sublevels of the level
-    let level = 1
-    let current_sublevel = 3
+    let level = 2
+    let current_sublevel = 1
     let max_sublevel = 4
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
@@ -219,7 +219,7 @@ export const Quiz3 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>True and False</span>
+                    <span>Comparing Numbers</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />

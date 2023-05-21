@@ -4,17 +4,20 @@ import { useState, useEffect, useContext } from "react"
 import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router"
 import { db } from '../../firebaseconfig'
-import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 // import { db } from "../../firebaseconfig"
 // import { collection, getDocs } from "firebase/firestore"
 
 export const Leaderboard = () => {
 
-    const {user} = useContext(AuthContext)
+    const user = useContext(AuthContext)
     let navigate = useNavigate();
 
     let position = 1;
+
+    let levelData = JSON.parse(localStorage.getItem("lessons"))
+
     const [leaderboardData, setLeaderboardData] = useState(false);
     
     useEffect(() => {
@@ -25,7 +28,7 @@ export const Leaderboard = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const querySnapshot = await getDocs(query(collection(db, "users"), orderBy("xp", "desc"), limit(10)));
+            const querySnapshot = await getDocs(query(collection(db, "users"), orderBy("xp", "desc")));
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
             setLeaderboardData(newData);
         }
@@ -62,6 +65,10 @@ export const Leaderboard = () => {
                                         <div className="dp">
                                             <img src={user.dp} alt="" />
                                         </div>
+                                        <div className="level">
+                                            <img src={levelData[(user.curr_level)-1].text} alt="" />
+                                        </div>
+
                                     </div>
 
                                 )
@@ -71,10 +78,10 @@ export const Leaderboard = () => {
                     </div >
                 </div>
             </div>
-            <div className="right_container">
+            {/* <div className="right_container">
                 <div className="info"></div>
                 <div className="leaderboard_right_card"></div>
-            </div>
+            </div> */}
         </>
     )
 }

@@ -16,10 +16,16 @@ import { signOut } from 'firebase/auth';
 import { useEffect, useContext } from 'react';
 import { AuthContext } from './contexts/DetailsContext';
 
-import { Quiz1 } from './pages/quiz/level1/Quiz1'
+import { Quiz1 } from './pages/quiz/level1/Quiz1';
 import { Quiz2 } from './pages/quiz/level1/Quiz2';
 import { Quiz3 } from './pages/quiz/level1/Quiz3';
 import { Quiz4 } from './pages/quiz/level1/Quiz4';
+
+
+import { Quiz5 } from './pages/quiz/level2/Quiz1';
+import { Quiz6 } from './pages/quiz/level2/Quiz2';
+import { Quiz7 } from './pages/quiz/level2/Quiz3';
+import { Quiz8 } from './pages/quiz/level2/Quiz4';
 
 function App() {
 
@@ -56,6 +62,13 @@ function App() {
               <Route path='2' element={<Quiz2 />}/>
               <Route path='3' element={<Quiz3 />}/>
               <Route path='4' element={<Quiz4 />}/>
+            </Route>
+            <Route path='level2'>
+              <Route path='1' element={<Quiz5 />}/>
+              <Route path='2' element={<Quiz6 />}/>
+              <Route path='3' element={<Quiz7 />}/>
+              <Route path='4' element={<Quiz8 />}/>
+              
             </Route>
           </Route>
 

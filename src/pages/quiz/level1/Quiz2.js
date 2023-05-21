@@ -2,7 +2,7 @@
 // Lines which needs change: 38, 55, 56, 58, 68, 69, 70, 218
 
 import "./Level1.css"
-import questions from './data1'
+import questions from './data2'
 
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";

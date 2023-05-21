@@ -2,8 +2,9 @@
 // Lines which needs change: 38, 55, 56, 58, 68, 69, 70, 218
 
 import "./Level1.css"
-import questions from './data4'
+import questions from './data3'
 
+import "./Level1.css"
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +28,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz4 = () => {
+export const Quiz7 = () => {
 
     const divRefs = useRef([])
 
@@ -35,7 +36,7 @@ export const Quiz4 = () => {
     const { userinfo, updateUserinfo } = useContext(AuthContext)
     let levelData = JSON.parse(localStorage.getItem("lessons"))
     // if the quiz level is 1 set the value to 0 
-    levelData = levelData[0]
+    levelData = levelData[1]
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -51,11 +52,11 @@ export const Quiz4 = () => {
     };
 
 
-    // total questions in sublevel(16 questions and 1 result section)
-    const total_ques = 17
-    // const total_xp = 210 (store this value just for reference)
+    // total questions in sublevel(15 questions and 1 result section)
+    const total_ques = 11
+    // const total_xp = 110 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 120
+    const cutoff = 70
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -65,8 +66,8 @@ export const Quiz4 = () => {
     // result to dash
     const closeQuiz = (val) => {
         // type in the current quiz level, current sublevel and max number of sublevels of the level
-        let level = 1
-        let current_sublevel = 4
+        let level = 2
+        let current_sublevel = 3
         let max_sublevel = 4
         let sublevel = userinfo.curr_sl
         if (val >= cutoff && userinfo.curr_level === level && sublevel[level - 1] === current_sublevel) {
@@ -75,7 +76,7 @@ export const Quiz4 = () => {
             }
             else {
                 level += 1
-                if (level !== 10){
+                if (level !== 10) {
                     sublevel[level] = 1
                 }
             }
@@ -215,7 +216,7 @@ export const Quiz4 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Checking Number Equality</span>
+                    <span>Discovering Types</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />
@@ -267,69 +268,69 @@ export const Quiz4 = () => {
                                     )
                                     :
                                     ques.type === "mcq" ?
-                                    (
-                                        <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                                            <div className="quiz_content_ide_mcq">
-                                                <div className="quiz_mcq_question">
-                                                    {ques.question}
-                                                </div>
+                                        (
+                                            <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                                                <div className="quiz_content_ide_mcq">
+                                                    <div className="quiz_mcq_question">
+                                                        {ques.question}
+                                                    </div>
 
-                                                {ques.ide ?
-                                                    (
-                                                        <div className="quiz_ide">
-                                                            <div className="quiz_ide_header">
-                                                                <img src={PyLogo} alt="" />
-                                                                <span>script.py</span>
+                                                    {ques.ide ?
+                                                        (
+                                                            <div className="quiz_ide">
+                                                                <div className="quiz_ide_header">
+                                                                    <img src={PyLogo} alt="" />
+                                                                    <span>script.py</span>
+                                                                </div>
+                                                                <div className="quiz_ide_content">
+                                                                    {ques.ide_content}
+                                                                </div>
                                                             </div>
-                                                            <div className="quiz_ide_content">
-                                                                {ques.ide_content}
-                                                            </div>
+                                                        )
+                                                        :
+                                                        (
+                                                            <></>
+                                                        )
+                                                    }
+                                                    <div className="quiz_mcq_options">
+                                                        <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, ques.answer, [1, 0])}>
+                                                            <span>1</span>
+                                                            {ques.options[0]}
+                                                        </p>
+                                                        <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, ques.answer, [0, 1])}>
+                                                            <span>2</span>
+                                                            {ques.options[1]}
+                                                        </p>
+                                                    </div>
+
+                                                </div>
+                                                <div className="next_q_btn" onClick={nextQuestion}>
+                                                    <div className="next_q_btn_text">Next</div>
+                                                    <div className="next_q_btn_shadow"></div>
+                                                </div>
+                                            </div>
+                                        )
+                                        :
+                                        (
+                                            <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
+                                                <div className="quiz_content_ide">
+                                                    <div className="quiz_content_ide_theory">{ques.theory}</div>
+                                                    <div className="quiz_ide">
+                                                        <div className="quiz_ide_header">
+                                                            <img src={PyLogo} alt="" />
+                                                            <span>script.py</span>
                                                         </div>
-                                                    )
-                                                    :
-                                                    (
-                                                        <></>
-                                                    )
-                                                }
-                                                <div className="quiz_mcq_options">
-                                                    <p className={mcq[0] === 1 ? "selected" : ""} onClick={() => selectOption(1, ques.answer, [1, 0])}>
-                                                        <span>1</span>
-                                                        {ques.options[0]}
-                                                    </p>
-                                                    <p className={mcq[1] === 1 ? "selected" : ""} onClick={() => selectOption(2, ques.answer, [0, 1])}>
-                                                        <span>2</span>
-                                                        {ques.options[1]}
-                                                    </p>
-                                                </div>
-
-                                            </div>
-                                            <div className="next_q_btn" onClick={nextQuestion}>
-                                                <div className="next_q_btn_text">Next</div>
-                                                <div className="next_q_btn_shadow"></div>
-                                            </div>
-                                        </div>
-                                    )
-                                    :
-                                    (
-                                        <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                                            <div className="quiz_content_ide">
-                                                <div className="quiz_content_ide_theory">{ques.theory}</div>
-                                                <div className="quiz_ide">
-                                                    <div className="quiz_ide_header">
-                                                        <img src={PyLogo} alt="" />
-                                                        <span>script.py</span>
-                                                    </div>
-                                                    <div className="quiz_ide_content">
-                                                        {ques.ide_content}
+                                                        <div className="quiz_ide_content">
+                                                            {ques.ide_content}
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div className="next_q_btn" onClick={nextQuestion}>
+                                                    <div className="next_q_btn_text">Next</div>
+                                                    <div className="next_q_btn_shadow"></div>
+                                                </div>
                                             </div>
-                                            <div className="next_q_btn" onClick={nextQuestion}>
-                                                <div className="next_q_btn_text">Next</div>
-                                                <div className="next_q_btn_shadow"></div>
-                                            </div>
-                                        </div>
-                                    )
+                                        )
                         )
                     })
                 }

@@ -2,7 +2,7 @@
 // Lines which needs change: 38, 55, 56, 58, 68, 69, 70, 218
 
 import "./Level1.css"
-import questions from './data1'
+import questions from './data3'
 
 import "./Level1.css"
 import { useState, forwardRef, useContext, useRef } from "react";
@@ -67,7 +67,7 @@ export const Quiz3 = () => {
     const closeQuiz = (val) => {
         // type in the current quiz level, current sublevel and max number of sublevels of the level
         let level = 1
-        let current_sublevel = 1
+        let current_sublevel = 3
         let max_sublevel = 4
         let sublevel = userinfo.curr_sl
         if (val >= cutoff && userinfo.curr_level === level && sublevel[level - 1] === current_sublevel) {

@@ -2,7 +2,7 @@
 // Lines which needs change: 38, 55, 56, 58, 68, 69, 70, 218
 
 import "./Level1.css"
-import questions from './data4'
+import questions from './data1'
 
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz4 = () => {
+export const Quiz5 = () => {
 
     const divRefs = useRef([])
 
@@ -35,7 +35,7 @@ export const Quiz4 = () => {
     const { userinfo, updateUserinfo } = useContext(AuthContext)
     let levelData = JSON.parse(localStorage.getItem("lessons"))
     // if the quiz level is 1 set the value to 0 
-    levelData = levelData[0]
+    levelData = levelData[1]
 
     const [alertinfo, setAlertinfo] = useState({
         open: false,
@@ -51,11 +51,11 @@ export const Quiz4 = () => {
     };
 
 
-    // total questions in sublevel(16 questions and 1 result section)
-    const total_ques = 17
+    // total questions in sublevel(17 questions and 1 result section)
+    const total_ques = 16
     // const total_xp = 210 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 120
+    const cutoff = 130
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -65,8 +65,8 @@ export const Quiz4 = () => {
     // result to dash
     const closeQuiz = (val) => {
         // type in the current quiz level, current sublevel and max number of sublevels of the level
-        let level = 1
-        let current_sublevel = 4
+        let level = 2
+        let current_sublevel = 1
         let max_sublevel = 4
         let sublevel = userinfo.curr_sl
         if (val >= cutoff && userinfo.curr_level === level && sublevel[level - 1] === current_sublevel) {
@@ -215,7 +215,7 @@ export const Quiz4 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Checking Number Equality</span>
+                    <span>Comparing Numbers</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />

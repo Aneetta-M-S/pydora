@@ -35,10 +35,13 @@ export const Overlay = (props) => {
                 <div className="lor_levels">
                     {items}
                 </div>
-                <div className="common_btn">
+
+                {/* for now commenting out project */}
+                
+                {/* <div className="common_btn">
                     <div className="common_btn_text">Project</div>
                     <div className="common_btn_shadow"></div>
-                </div>
+                </div> */}
                 <img src={Scroll} alt="" />
             </div>
         </div>

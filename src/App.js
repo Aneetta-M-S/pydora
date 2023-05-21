@@ -20,6 +20,7 @@ import { Quiz1 } from './pages/quiz/level1/Quiz1';
 import { Quiz2 } from './pages/quiz/level1/Quiz2';
 import { Quiz3 } from './pages/quiz/level1/Quiz3';
 import { Quiz4 } from './pages/quiz/level1/Quiz4';
+import { Quiz45 } from './pages/quiz/level10/Quiz45';
 
 
 import { Quiz5 } from './pages/quiz/level2/Quiz1';
@@ -69,6 +70,12 @@ function App() {
               <Route path='3' element={<Quiz7 />}/>
               <Route path='4' element={<Quiz8 />}/>
               
+            </Route>
+            <Route path='level10'>
+              <Route path='1' element={<Quiz45 />}/>
+              {/* <Route path='2' element={<Quiz2 />}/>
+              <Route path='3' element={<Quiz3 />}/>
+              <Route path='4' element={<Quiz4 />}/> */}
             </Route>
           </Route>
 

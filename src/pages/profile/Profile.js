@@ -49,9 +49,15 @@ export const Profile = () => {
                         <div className="about">{userinfo.about}</div>
                     </div>
                 </div>
-                <div className="make_change_btn" onClick={updateData}>
-                    <div className="make_change_btn_text">Edit Profile</div>
-                    <div className="make_change_btn_shadow"></div>
+                <div className="profile_page_xp">
+                    <div className="user_xp">
+                        <span>XP Earned</span>
+                        <p>{userinfo.xp} XP</p>
+                        </div>
+                    <div className="make_change_btn" onClick={updateData}>
+                        <div className="make_change_btn_text">Edit Profile</div>
+                        <div className="make_change_btn_shadow"></div>
+                    </div>
                 </div>
             </div>
         </>

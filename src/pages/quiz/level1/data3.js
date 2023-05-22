@@ -27,7 +27,7 @@ const questions = [
             <>
                 <p>
                     <span>powered_on</span>
-                    <input style={{ width: "40px" }} type="text"  />
+                    <input style={{ width: "40px" }} type="text" />
                     <input style={{ width: "70px" }} type="text" />
                 </p>
             </>
@@ -51,7 +51,7 @@ const questions = [
                 <p><span>correct = True</span></p>
                 <p>
                     <span>print(</span>
-                    <input style={{ width: "80px" }} type="text"  />
+                    <input style={{ width: "80px" }} type="text" />
                     <span>)</span>
                 </p>
             </>
@@ -85,11 +85,11 @@ const questions = [
                 <p><span>print("Load data")</span></p>
                 <p>
                     <span>status = </span>
-                    <input style={{ width: "80px" }} type="text"  />
+                    <input style={{ width: "80px" }} type="text" />
                 </p>
                 <p>
                     <span>print( </span>
-                    <input style={{ width: "80px" }} type="text"  />
+                    <input style={{ width: "80px" }} type="text" />
                     <span>)</span>
                 </p>
             </>
@@ -166,8 +166,8 @@ const questions = [
             <>
                 <p>
                     <span>print( </span>
-                    <input style={{ width: "40px" }} type="text"  />
-                    <input style={{ width: "80px" }} type="text"  />
+                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "80px" }} type="text" />
 
                     <span>)</span>
                 </p>
@@ -192,8 +192,8 @@ const questions = [
             <>
                 <p>
                     <span>print( </span>
-                    <input style={{ width: "40px" }} type="text"  />
-                    <input style={{ width: "80px" }} type="text"  />
+                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "80px" }} type="text" />
 
                     <span>)</span>
                 </p>
@@ -218,10 +218,10 @@ const questions = [
             <>
                 <p><span>morning = True</span></p>
                 <p>
-                    <input style={{ width: "100px" }}  />
-                    <input style={{ width: "40px" }}  />
+                    <input style={{ width: "100px" }} />
                     <input style={{ width: "40px" }} />
-                    <input style={{ width: "100px" }}  />
+                    <input style={{ width: "40px" }} />
+                    <input style={{ width: "100px" }} />
                 </p>
                 <p>print(is_evening)</p>
             </>
@@ -279,10 +279,10 @@ const questions = [
             <>
                 <p><span>open_slot = True</span></p>
                 <p>
-                    <input style={{ width: "100px" }} type="text"  />
-                    <input style={{ width: "40px" }} type="text"  />
+                    <input style={{ width: "100px" }} type="text" />
+                    <input style={{ width: "40px" }} type="text" />
                     <span>not</span>
-                    <input style={{ width: "100px" }} type="text"  />
+                    <input style={{ width: "100px" }} type="text" />
                 </p>
             </>
         ),

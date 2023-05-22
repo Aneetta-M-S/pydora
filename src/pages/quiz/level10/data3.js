@@ -195,32 +195,67 @@ const questions = [
                 <p>
                     <span>french = [ website </span>
                     <input style={{ width: "160px" }} />
-                    <span>if website.count(".fr" &gt; 0) </span>
-                    <span> ] </span>
+                    <span>if website.count(".fr" &gt; 0) ] </span>
                 </p>
+                <br />
                 <p><span>print(french)</span></p>
-
             </>
         ),
-        answer: ['score', 'for score in scores', 'if score > 20']
+        answer: ['for website in websites']
+    },
+    {
+        id: 13,
+        type: "code",
+        theory: (
+            <>
+                <p>Only add french websites to the new list by coding an <span>if</span> statement that checks if <span>website</span> contains <span>".fr"</span> exactly once.</p>
+                <p>Hints: <span>==</span>&ensp;<span>website.count(".fr")</span>&ensp;<span>if</span></p>
+            </>
+        ),
+        code_num: 5,
+        ide_content: (
+            <>
+                <p>websites = [ "nytimes.com", "lemonde.fr", "economist.com" ]</p>
+                <br />
+                <p>
+                    <span>french = [ website for website in websites </span>
+                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "160px" }} />
+                    <input style={{ width: "50px" }} />
+                    <span> 1 ] </span>
+                </p>
+                <br />
+                <p><span>print(french)</span></p>
+            </>
+        ),
+        answer: ['if', 'website.count(".fr")', '==']
+    },
+    {
+        id: 14,
+        type: "code",
+        theory: (
+            <>
+                <p>Complete the conditional so that only values that are at least <span>30</span> and at most <span>50</span> are copied in the new list.</p>
+                <p>Hints: <span>and</span>&ensp;<span>level == 30</span>&ensp;<span>level &lt;= 50</span></p>
+            </>
+        ),
+        code_num: 6,
+        ide_content: (
+            <>
+                <p>humidity_percent = [ 40, 35, 20, 70 ]</p>
+                <br />
+                <p>
+                    <span>ideal = [ level for level in humidity_percent if level &gt;= 30 </span>
+                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "120px" }} />
+                    <span> ] </span>
+                </p>
+                <br />
+                <p><span>print(ideal)</span></p>
+            </>
+        ),
+        answer: ['and', 'level <= 50']
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ];

@@ -16,7 +16,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-               <p>We've learned that we can use <span>+</span> to add two strings and display them together.</p>
+                <p>We've learned that we can use <span>+</span> to add two strings and display them together.</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -71,9 +71,9 @@ const questions = [
         type: "code",
         theory: (
             <>
-               <p>Every f-string statement consists of two parts, first character <span>f</span>, then the string that we want to format.</p> 
-               <p><b>Hint:</b> output required <span>6 new messages</span></p>
-             </>
+                <p>Every f-string statement consists of two parts, first character <span>f</span>, then the string that we want to format.</p>
+                <p><b>Hint:</b> output required <span>6 new messages</span></p>
+            </>
         ),
         // keep a count of the number of code questions
         code_num: 3,
@@ -88,7 +88,7 @@ const questions = [
                 </p>
             </>
         ),
-        answer: ['f','"{6} new messages"']
+        answer: ['f', '"{6} new messages"']
 
     },
     {
@@ -96,7 +96,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-            <p>Inserting variable like <span>new_messages</span> between the curly brace displays their value too.</p>
+                <p>Inserting variable like <span>new_messages</span> between the curly brace displays their value too.</p>
             </>
 
         ),
@@ -104,7 +104,7 @@ const questions = [
         code_num: 4,
         ide_content: (
             <>
-            <p><span>new_messages = 2</span></p>
+                <p><span>new_messages = 2</span></p>
                 <p>
                     <span>print(f" </span>
                     <input style={{ width: "130px" }} type="text" />
@@ -136,7 +136,7 @@ const questions = [
                 <p><span>print ( status )</span></p>
             </>
         ),
-        answer: ['status','=','f"{new} new messages"']
+        answer: ['status', '=', 'f"{new} new messages"']
     },
     {
         id: 8,
@@ -148,7 +148,7 @@ const questions = [
         ),
         // keep a count of the number of code questions
         ide: false,
-        options: ["For displaying just string values together","For displaying different kinds of values together in a string"],
+        options: ["For displaying just string values together", "For displaying different kinds of values together in a string"],
         answer: 2
 
     },
@@ -162,7 +162,7 @@ const questions = [
         ),
         // keep a count of the number of code questions
         ide: false,
-        options: ["By the character f in front of the string","There's no differece between strings and f-strings"],
+        options: ["By the character f in front of the string", "There's no differece between strings and f-strings"],
         answer: 1
 
     },
@@ -171,7 +171,7 @@ const questions = [
         type: "mcq",
         question: (
             <>
-            <p>How do we display number values with f-strings ?</p>
+                <p>How do we display number values with f-strings ?</p>
             </>
         ),
         // keep a count of the number of code questions

@@ -23,7 +23,6 @@ const questions = [
         theory: (
             <>
                 <p>To compare if two numbers are the same, we use the <b>equality operator,</b> <span>==</span>.</p>
-
             </>
         ),
         // keep a count of the number of code questions
@@ -69,7 +68,7 @@ const questions = [
                     <input style={{ width: "50px" }} type="text" />
                     <input style={{ width: "50px" }} type="text" />
 
-                    <span>)</span>
+                    <span> )</span>
 
                 </p>
             </>

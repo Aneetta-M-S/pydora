@@ -228,7 +228,7 @@ export const Quiz45 = () => {
             </div>
 
             <div className="quiz_section">
-                <div className="quiz-bg">
+                <div className="quiz_bg">
                     <img src={bgImage} alt="" />
                 </div>
                 {

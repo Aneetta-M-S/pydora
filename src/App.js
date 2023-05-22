@@ -29,10 +29,12 @@ import { Quiz8 } from './pages/quiz/level2/Quiz4';
 import { Quiz45 } from './pages/quiz/level10/Quiz45';
 import { Quiz46 } from './pages/quiz/level10/Quiz46';
 import { Quiz47 } from './pages/quiz/level10/Quiz47';
+import { Quiz48 } from './pages/quiz/level10/Quiz48';
+import { Quiz49 } from './pages/quiz/level10/Quiz49';
 
 function App() {
 
-  const {user, logoutUser} = useContext(AuthContext)
+  const { user, logoutUser } = useContext(AuthContext)
   useEffect(() => {
     console.log(user)
   }, [user])
@@ -61,25 +63,24 @@ function App() {
           </Route>
           <Route path="quiz">
             <Route path='level1'>
-              <Route path='1' element={<Quiz1 />}/>
-              <Route path='2' element={<Quiz2 />}/>
-              <Route path='3' element={<Quiz3 />}/>
-              <Route path='4' element={<Quiz4 />}/>
+              <Route path='1' element={<Quiz1 />} />
+              <Route path='2' element={<Quiz2 />} />
+              <Route path='3' element={<Quiz3 />} />
+              <Route path='4' element={<Quiz4 />} />
             </Route>
             <Route path='level2'>
-              <Route path='1' element={<Quiz5 />}/>
-              <Route path='2' element={<Quiz6 />}/>
-              <Route path='3' element={<Quiz7 />}/>
-              <Route path='4' element={<Quiz8 />}/>
-              
+              <Route path='1' element={<Quiz5 />} />
+              <Route path='2' element={<Quiz6 />} />
+              <Route path='3' element={<Quiz7 />} />
+              <Route path='4' element={<Quiz8 />} />
+
             </Route>
             <Route path='level10'>
-              <Route path='1' element={<Quiz45 />}/>
-              <Route path='2' element={<Quiz46 />}/>
-              <Route path='3' element={<Quiz47 />}/>
-              {/* 
-              <Route path='4' element={<Quiz4 />}/> 
-              */}
+              <Route path='1' element={<Quiz45 />} />
+              <Route path='2' element={<Quiz46 />} />
+              <Route path='3' element={<Quiz47 />} />
+              <Route path='4' element={<Quiz48 />} />
+              <Route path='5' element={<Quiz49 />} />
             </Route>
           </Route>
 

@@ -89,7 +89,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-            <p>We can also compare variables that store strings with each other,like in<span>fruit_1 == fruit_2 </span></p>
+                <p>We can also compare variables that store strings with each other,like in<span>fruit_1 == fruit_2 </span></p>
             </>
         ),
         // keep a count of the number of code questions

@@ -433,6 +433,9 @@
 .quiz_content_result img.cong{
     width: 250px;
 }
+.quiz_content_result img.villain{
+    height: 250px;
+}
 
 .quiz_content_result p{
     width: 80%;

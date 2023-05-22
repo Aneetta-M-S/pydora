@@ -79,8 +79,11 @@ export const Quiz6 = () => {
             }
             else {
                 level += 1
-                if (level !== 10) {
-                    sublevel[level] = 1
+                if (level !== 11) {
+                    sublevel[level - 1] = 1
+                }
+                else{
+                    level = 10
                 }
             }
         }

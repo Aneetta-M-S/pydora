@@ -39,11 +39,11 @@ export const Dashboard = () => {
                     </div>
                     <div className="streak_item">
                         <img src={Streak} alt="" />
-                        <span>0</span>
+                        <span>3</span>
                     </div>
                     <div className="gem_item">
                         <img src={Gem} alt="" />
-                        <span>0</span>
+                        <span>30</span>
                     </div>
                     <div className="dp_item" onClick={goToProfile}>
                         <img src={userinfo && userinfo.dp} alt="" />

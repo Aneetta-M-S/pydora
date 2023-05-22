@@ -27,7 +27,7 @@ const questions = [
                     <span>special = "Today's special is pasta"</span>
                 </p>
                 <p>
-                    <span>new_special = special.</span>
+                    <span>new_special = special</span>
                     <input style={{ width: "60px" }} type="text" />
                 </p>
             </>

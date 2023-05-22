@@ -1,8 +1,6 @@
 import "./MuiAccordion.css"
 import { useState, useEffect, useContext } from 'react'
 
-import { HashLoader } from 'react-spinners';
-
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import Accordion from '@mui/material/Accordion';
@@ -30,7 +28,6 @@ export function MuiAccordion() {
     const [open, setOpen] = useState(false)
     const { userinfo } = useContext(AuthContext)
 
-    const [loading, setLoading] = useState(true)
     useEffect(() => {
         async function fetchData() {
             const querySnapshot = await getDocs(query(collection(db, "lessons"), orderBy("id")));
@@ -39,8 +36,6 @@ export function MuiAccordion() {
             setPopupLevelData(newData);
         }
         fetchData()
-        setLoading(false)
-        
     }, []);
 
 
@@ -69,45 +64,38 @@ export function MuiAccordion() {
     return (
         <div className="accordion_container">
             {
-                loading ?
-                    <HashLoader
-                        color="#12abfd"
-                        size={100}
-                        speedMultiplier={1}
-                        style={{position:"absolute", top:"40%", left:"50%", transform:"translate(-50%,-50%)"}}
-                    />
-                    :
-                    popupLevelData && popupLevelData.map((lesson, lid) => {
+                popupLevelData && popupLevelData.map((lesson, lid) => {
 
-                        let num = lesson.id
+                    let num = lesson.id
 
-                        // disabled from level 3 onwards if num > 2
-                        let isUnlocked = num > userinfo.curr_level
-                        return (
-                            <Accordion key={lid} sx={accRoot} disableGutters disabled={isUnlocked} className="mui_accordion" expanded={expanded === `panel${num}`} onChange={handleChange(`panel${num}`)}>
-                                <AccordionSummary
-                                    expandIcon={isUnlocked ? <MdLock /> : <MdExpandCircleDown />}
-                                    aria-controls={`panel${num}a-content`}
-                                    id={`panel${num}a-header`}
-                                >
-                                    <div className="mui_accordion_summary">
-                                        <h1>{`Level ${num}`}</h1>
-                                        <h2>{lesson.python_topic}</h2>
+                    // disabled from level 3 onwards if num > 2
+                    let isUnlocked = num > userinfo.curr_level
+                    return (
+                        <Accordion key={lid} sx={accRoot} disableGutters disabled={isUnlocked} className="mui_accordion" expanded={expanded === `panel${num}`} onChange={handleChange(`panel${num}`)}>
+                            <AccordionSummary
+                                expandIcon={isUnlocked ? <MdLock /> : <MdExpandCircleDown />}
+                                aria-controls={`panel${num}a-content`}
+                                id={`panel${num}a-header`}
+                            >
+                                <div className="mui_accordion_summary">
+                                    <h1>{`Level ${num}`}</h1>
+                                    <h2>{lesson.python_topic}</h2>
+                                </div>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <div className="mui_accordion_details">
+                                    <img src={lesson.image} alt="" />
+                                    <h2>{lesson.name}</h2>
+                                    <div className="explore_btn" onClick={() => { handleClickOpen(lesson.id) }}>
+                                        <div className="explore_btn_text">Explore</div>
+                                        <div className="explore_btn_shadow"></div>
                                     </div>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <div className="mui_accordion_details">
-                                        <img src={lesson.image} alt="" />
-                                        <h2>{lesson.name}</h2>
-                                        <div className="explore_btn" onClick={() => { handleClickOpen(lesson.id) }}>
-                                            <div className="explore_btn_text">Explore</div>
-                                            <div className="explore_btn_shadow"></div>
-                                        </div>
-                                    </div>
-                                </AccordionDetails>
-                            </Accordion>
-                        )
-                    })}
+                                </div>
+                            </AccordionDetails>
+                        </Accordion>
+                    )
+                })
+            }
             <Dialog
                 fullScreen
                 BackdropProps={{

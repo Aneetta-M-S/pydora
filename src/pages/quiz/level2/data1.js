@@ -6,7 +6,7 @@ const questions = [
         type: "theory",
         message: (
             <>
-            We can use comparisons to check if a number is less than or greater than another number.
+                <p>We can use comparisons to check if a number is less than or greater than another number.</p>
             </>
         ),
     },
@@ -15,8 +15,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-                     <p>       To check if a number is less than another number, we use the <b>less-than operator</b>  <span>&lt;</span>. </p>
-
+                <p>To check if a number is less than another number, we use the <b>less-than operator</b>  <span>&lt;</span>. </p>
             </>
         ),
         // keep a count of the number of code questions
@@ -53,7 +52,7 @@ const questions = [
                 </p>
             </>
         ),
-        answer: ['1','<','235']
+        answer: ['1', '<', '235']
     },
     {
         id: 4,
@@ -94,7 +93,7 @@ const questions = [
         type: "mcq",
         question: (
             <>
-<p>What does this code display in the console?</p>
+                <p>What does this code display in the console?</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -112,9 +111,9 @@ const questions = [
         type: "code",
         theory: (
             <>
-               <p>Make this code display <span>True</span> in the console.</p>
-               <p><b>Hint:</b> <span>use the greater-than operator</span></p>
-           </>
+                <p>Make this code display <span>True</span> in the console.</p>
+                <p><b>Hint:</b> <span>use the greater-than operator</span></p>
+            </>
         ),
         // keep a count of the number of code questions
         code_num: 4,
@@ -134,7 +133,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-            <p>To check if a number is less than or equal to another number, we use the <b>less-than-or-equal-to operator</b>,<span>&lt;= </span>.</p>
+                <p>To check if a number is less than or equal to another number, we use the <b>less-than-or-equal-to operator</b>,<span>&lt;= </span>.</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -144,7 +143,7 @@ const questions = [
                 <p>
                     <span>print ( 1 </span>
                     <input style={{ width: "40px" }} type="text" />
-                   <span> 3 ) </span>
+                    <span> 3 ) </span>
                 </p>
             </>
         ),
@@ -155,7 +154,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-            <p>If the number on the left is less than or equal to the number on the right, like in <span> 11 &lt;= 11</span>, the result is <span>True</span>.</p>
+                <p>If the number on the left is less than or equal to the number on the right, like in <span> 11 &lt;= 11</span>, the result is <span>True</span>.</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -171,7 +170,7 @@ const questions = [
                 </p>
             </>
         ),
-        answer: ['11','<=','11']
+        answer: ['11', '<=', '11']
     },
     {
         id: 10,
@@ -217,22 +216,22 @@ const questions = [
                 <p><span>print ( result )</span></p>
             </>
         ),
-        answer: ['=','<=']
+        answer: ['=', '<=']
     },
     {
         id: 12,
         type: "code",
         theory: (
             <>
-            <p>We can also use a comparison operator to compare a variable with another variable, like in <span> min &lt;= max</span>.</p>
+                <p>We can also use a comparison operator to compare a variable with another variable, like in <span> min &lt;= max</span>.</p>
             </>
         ),
         // keep a count of the number of code questions
         code_num: 9,
         ide_content: (
             <>
-            <p><span>min = 5</span></p>
-            <p><span>max = 10</span></p>
+                <p><span>min = 5</span></p>
+                <p><span>max = 10</span></p>
                 <p>
                     <span>result = </span>
                     <input style={{ width: "45px" }} />
@@ -242,14 +241,14 @@ const questions = [
                 <p>print ( result )</p>
             </>
         ),
-        answer: ['min','<=','max']
+        answer: ['min', '<=', 'max']
     },
     {
         id: 13,
         type: "mcq",
         question: (
             <>
-            <p>Which operator do we need to check if a number is at least <span>21</span>?</p>
+                <p>Which operator do we need to check if a number is at least <span>21</span>?</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -262,14 +261,14 @@ const questions = [
         type: "mcq",
         question: (
             <>
-            <p>What does this code display in the console?</p>
+                <p>What does this code display in the console?</p>
             </>
         ),
         // keep a count of the number of code questions
         ide: true,
         ide_content: (
             <>
-            <p><span> print ( 10 &gt;= 10 )</span></p>
+                <p><span> print ( 10 &gt;= 10 )</span></p>
             </>
         ),
         options: ['True', 'False'],
@@ -280,7 +279,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-              <p>Store the result of points <span>&gt;= 10 </span> in the <span >level_two</span> variable . </p>
+                <p>Store the result of points <span>&gt;= 10 </span> in the <span >level_two</span> variable . </p>
             </>
         ),
         // keep a count of the number of code questions
@@ -288,7 +287,7 @@ const questions = [
         ide_content: (
             <>
                 <p>
-                  <span>points = 12</span>
+                    <span>points = 12</span>
                 </p>
                 <p>
                     <span>level_two = points </span>

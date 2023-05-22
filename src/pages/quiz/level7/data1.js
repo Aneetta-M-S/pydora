@@ -7,7 +7,7 @@ const questions = [
         type: "theory",
         message: (
             <>
-                When working with different kinds of data, we'll often receive it in a format that can make it hard to work with.
+                <p>When working with different kinds of data, we'll often receive it in a format that can make it hard to work with.</p>
             </>
         )
     },
@@ -16,9 +16,9 @@ const questions = [
         type: "theory",
         message: (
             <>
-                There are three pieces of data in <span>new_users</span>, but it's challenging to work with them individually as they're inside a single string.
+                <p>There are three pieces of data in <span>new_users</span>, but it's challenging to work with them individually as they're inside a single string.</p>
                 <br /><br />
-                <span>new_users = "Ann Jon Alex"</span>
+                <p><span>new_users = "Ann Jon Alex"</span></p>
             </>
         )
     },

@@ -112,6 +112,53 @@
     text-align: justify;
   }
 
+  .profile_page_xp{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .profile_page_xp .user_xp{
+    position: relative;
+    width: 250px;
+    height: 80px;
+    border: 3px solid rgb(18, 171, 253, 0.3);
+    border-radius: 10px;
+    font-family: "Feather";
+    font-size: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-10px);
+  }
+
+  .profile_page_xp .user_xp p{
+    transform: translateY(-10px);
+  }
+
+  .profile_page_xp .user_xp span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 3px solid rgb(18, 171, 253, 0.3);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--primary);
+    background: var(--bg);
+  }
+
   .make_change_btn {
   position: relative;
   display: flex;
@@ -119,7 +166,7 @@
   height: 50px;
   width: 200px;
 
-  margin-left: auto;
+  /* margin-left: auto; */
 
   z-index: 1;
 }

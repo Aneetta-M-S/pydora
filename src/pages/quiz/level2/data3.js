@@ -16,7 +16,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-              <p>Strings are characters between quotes <span>" "</span>, like the value <span>“High”</span>.</p>
+                <p>Strings are characters between quotes <span>" "</span>, like the value <span>“High”</span>.</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -97,7 +97,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-              <p>When storing <span>False</span> in <span>is_on</span>, we say that we assign a value to a variable. </p>
+                <p>When storing <span>False</span> in <span>is_on</span>, we say that we assign a value to a variable. </p>
             </>
         ),
         // keep a count of the number of code questions
@@ -111,14 +111,14 @@ const questions = [
                 </p>
             </>
         ),
-        answer: ['is_on','=','False']
+        answer: ['is_on', '=', 'False']
     },
     {
         id: 7,
         type: "mcq",
         question: (
             <>
-               <p>What are values like booleans, strings, and numbers called?</p>
+                <p>What are values like booleans, strings, and numbers called?</p>
             </>
         ),
         // keep a count of the number of code questions
@@ -131,7 +131,7 @@ const questions = [
         type: "mcq",
         question: (
             <>
-                                <p>Which type is stored inside the <span>result</span> ?</p>
+                <p>Which type is stored inside the <span>result</span> ?</p>
 
             </>
         ),

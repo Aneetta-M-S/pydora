@@ -2,7 +2,7 @@
 // Lines which needs change: 30, 52, 53, 55, 63, 64, 65, 221
 
 import "./Level10.css"
-import questions from './data1'
+import questions from './data2'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
@@ -28,7 +28,7 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 // change export name to filename
-export const Quiz45 = () => {
+export const Quiz46 = () => {
 
     const divRefs = useRef([])
     const navigate = useNavigate()
@@ -49,10 +49,10 @@ export const Quiz45 = () => {
 
 
     // total questions in sublevel(include result also)
-    const total_ques = 20
-    // const total_xp = 310 (store this value just for reference)
+    const total_ques = 14
+    // const total_xp = 230 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 190
+    const cutoff = 130
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -61,7 +61,7 @@ export const Quiz45 = () => {
 
     // type in the current quiz level, current sublevel and max number of sublevels of the level
     let level = 10
-    let current_sublevel = 1
+    let current_sublevel = 2
     let max_sublevel = 5
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
@@ -219,7 +219,7 @@ export const Quiz45 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Using List Comprehensions</span>
+                    <span>Functions as Expressions</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />
@@ -228,7 +228,7 @@ export const Quiz45 = () => {
             </div>
 
             <div className="quiz_section">
-                <div className="quiz-bg">
+                <div className="quiz_bg">
                     <img src={bgImage} alt="" />
                 </div>
                 {

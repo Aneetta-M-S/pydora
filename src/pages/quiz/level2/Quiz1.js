@@ -79,8 +79,11 @@ export const Quiz5 = () => {
             }
             else {
                 level += 1
-                if (level !== 10) {
-                    sublevel[level] = 1
+                if (level !== 11) {
+                    sublevel[level - 1] = 1
+                }
+                else{
+                    level = 10
                 }
             }
         }
@@ -228,7 +231,7 @@ export const Quiz5 = () => {
             </div>
 
             <div className="quiz_section">
-                <div className="quiz-bg">
+                <div className="quiz_bg">
                     <img src={bgImage} alt="" />
                 </div>
                 {
@@ -349,7 +352,7 @@ export const Quiz5 = () => {
                         {xp >= cutoff ?
                             <img src={Congrats} className="cong" alt="" />
                             :
-                            <img src={levelData.villain_text} alt="" />
+                            <img src={levelData.villain_text} className="villain" alt="" />
                         }
                         <div className="quiz_content_result_title">{xp < cutoff ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < cutoff ? " only " : " "} earned {xp} XP !</p>

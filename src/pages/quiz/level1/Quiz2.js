@@ -52,7 +52,7 @@ export const Quiz2 = () => {
     const total_ques = 17
     // const total_xp = 230 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 140
+    const cutoff = 40
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -79,8 +79,11 @@ export const Quiz2 = () => {
             }
             else {
                 level += 1
-                if (level !== 10) {
-                    sublevel[level] = 1
+                if (level !== 11) {
+                    sublevel[level - 1] = 1
+                }
+                else {
+                    level = 10
                 }
             }
         }

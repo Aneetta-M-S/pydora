@@ -5,10 +5,13 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    overflow-y: scroll;
   }
   
   .profile_main_container .top {
     height: 6rem;
+    flex-shrink: 0;
     width: 100%;
   }
   
@@ -20,13 +23,14 @@
 
     margin-bottom: 5rem;
 
+
   }
 
   .profile_title{
     margin-bottom: 2rem;
     font-size: 2.2rem;
     font-weight: 700;
-    width: 700px; /*just for time being*/
+    width: 100%;
 }
 
   .profile_image{
@@ -114,6 +118,7 @@
 
   .profile_page_xp{
     width: 100%;
+    /* background: #000; */
 
     display: flex;
     align-items: center;
@@ -122,41 +127,38 @@
 
   .profile_page_xp .user_xp{
     position: relative;
+    padding-left: 1rem;
     width: 250px;
-    height: 80px;
+    height: 70px;
     border: 3px solid rgb(18, 171, 253, 0.3);
     border-radius: 10px;
     font-family: "Feather";
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 1rem;
 
-    transform: translateY(-10px);
   }
 
-  .profile_page_xp .user_xp p{
-    transform: translateY(-10px);
+  .profile_page_xp .user_xp img{
+    height: 50px;
+  }
+
+  .profile_page_xp .user_xp div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
   }
 
   .profile_page_xp .user_xp span{
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    font-weight: 400;
 
-    position: absolute;
-    bottom: 0;
-    transform: translateY(50%);
-
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    border: 3px solid rgb(18, 171, 253, 0.3);
-    font-weight: 600;
+    font-weight: 500;
+    opacity: 0.5;
     font-style: italic;
-    color: var(--primary);
-    background: var(--bg);
   }
 
   .make_change_btn {
@@ -165,8 +167,6 @@
   flex-direction: column;
   height: 50px;
   width: 200px;
-
-  /* margin-left: auto; */
 
   z-index: 1;
 }
@@ -205,6 +205,141 @@
   transform: translateY(5px);
 }
 
+.profile_line{
+  margin: 2rem 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  border-radius: 5px;
+  width: 90%;
+  
+  background: #fff;
+  z-index: 1;
+  /* opacity: 0.1; */
+}
+
+.profile_level_container{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.profile_level_title{
+  font-size: 1.8rem;
+  font-weight: 700;
+  opacity: 0.9;
+  width: 100%;
+}
+
+.profile_level_card_container{
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 3rem;
+}
+
+/* Medallion */
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+.profile_medal_card{
+  height: 350px;
+    width: 250px;
+    border-radius: 15px;
+    background: #ecbf27;
+    color: black;
+background: linear-gradient(125deg, #ecbf27 0% 15%, #eab000 15% 30%, #ecbf27 30% 46%,  #eab000 46% 65%, #ecbf27 65% 80%,  #eab000 80% 90%, #ecbf27 90% 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+  
+  font-family: 'Special Elite', cursive;
+  transition: transform 0.3s;
+  }
+
+  .profile_medal_card.inactive{
+    cursor: grab;
+    background: hsl(0, 0%, 45%);
+    color: #666;
+background: linear-gradient(125deg, hsl(46, 0%, 54%) 0% 15%, hsl(0, 0%, 45%) 15% 30%, hsl(46, 0%, 54%) 30% 46%,  hsl(0, 0%, 45%) 46% 65%, hsl(46, 0%, 54%) 65% 80%,  hsl(0, 0%, 45%) 80% 90%, hsl(46, 0%, 54%) 90% 100%);
+  }
+
+.profile_medal_card:hover{
+  transform: scale(1.05);
+}
+.profile_medal_card.inactive:hover{
+  transform: scale(1);
+}
+
+
+.profile_medal_card_content{
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+  
+  border: 3px solid #00000033;
+  
+  display: flex;
+  flex-direction: column;
+  
+  overflow: hidden;
+}
+
+.profile_medal_card_top{
+  width: 100%;
+  height: 60px;
+  background: #f3d87a66;
+  border-bottom: 3px solid #00000033;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  font-weight: 700;
+  font-size: 1.3rem;
+  
+}
+.profile_medal_card_top.inactive{
+  background: rgba(199, 199, 199, 0.4);
+}
+
+.profile_medal_card_bottom{
+  background: #f3d87add;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  
+}
+.profile_medal_card_bottom{
+  background: #d3d3d3dd;
+}
+.profile_medal_card_bottom img{
+  margin-top: 0rem;
+  width: 140px;
+}
+.profile_medal_card_bottom span{
+  text-align: center;
+  width: 90%;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0.5;
+  line-height: 1.5rem;
+  
+}
+.profile_medal_card_bottom.inactive span{
+  width: 95%;
+  opacity: 0.7;
+  
+}
   
   
   @media (max-width: 700px) {

@@ -1,6 +1,6 @@
 import { MuiAccordion } from "../../components/MuiAccordion/MuiAccordion"
 import { LeaderboardStats } from "../../components/LeaderboardStats/Leaderboard_Stats"
-import TempXP from "../../assets/images/temp_xp.png"
+import { ChartXP } from "../../components/chart/ChartXP"
 import PyLogo from "../../assets/images/pylogo.png"
 import Streak from "../../assets/images/streak.png"
 import Gem from "../../assets/images/gem.png"
@@ -50,9 +50,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
                 <LeaderboardStats />
-                <div className="chart">
-                    <img src={TempXP} alt="" />
-                </div>
+                <ChartXP />
             </div>
         </>
     )

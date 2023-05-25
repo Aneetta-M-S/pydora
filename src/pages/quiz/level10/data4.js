@@ -133,7 +133,7 @@ const questions = [
         code_num: 4,
         ide_content: (
             <>
-                <p>products = { "category": 'book', 'price': 4.99, 'in_shop': True }</p>
+                <p>products = &lcub; "category": 'book', 'price': 4.99, 'in_shop': True &rcub; </p>
 
             </>
         ),

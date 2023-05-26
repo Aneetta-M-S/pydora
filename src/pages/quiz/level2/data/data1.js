@@ -120,7 +120,7 @@ export const questions = [
             <>
                 <p>
                     <span>print ( 10</span>
-                    <input style={{ width: "20px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
                     <span> 9 )</span>
                 </p>
             </>

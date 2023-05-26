@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 // change the export value in the format QuizL1S1 (Level 1, Sublevel 1)
-export const QuizL1SL1S1 = () => {
+export const QuizL1S1 = () => {
 
     const divRefs = useRef([])
     const navigate = useNavigate()

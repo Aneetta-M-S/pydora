@@ -1,5 +1,4 @@
-import React from "react";
-
+export 
 const questions = [
     {
         id: 1,
@@ -248,6 +247,35 @@ const questions = [
     },    
 ];
 
+// total number of questions (plus one is for the result page)
+let total_ques = questions.length + 1
+let total_xp = 0
 
-export default questions;
+// calculate total xp
+questions.forEach(element => {
+    if (element.type === "mcq") {
+        total_xp += 10
+    }
+    else if (element.type === "code") {
+        let array = element.answer
+        total_xp += (10 * array.length)
+    }
+});
+
+// right now it is set to 60%, can change this value if difficulty changes
+let cutoff = (60 / 100) * total_xp
+
+export const quizDetails = {
+    level: 3,
+    current_sublevel: 4,
+    max_sublevel: 5,
+    total_ques: total_ques,
+    total_xp: total_xp,
+    cutoff: cutoff,
+    topic: "Incorporating Elif",
+
+}
+
+// console.log(quizDetails)
+
 

@@ -12,13 +12,13 @@
     justify-content: center;
 }
 
-.quiz_bg{
+.quiz_bg {
     z-index: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     width: 100%;
     height: 100%;
     display: flex;
@@ -26,7 +26,8 @@
     justify-content: center;
     opacity: 0.1;
 }
-.quiz_bg img{
+
+.quiz_bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -42,7 +43,7 @@
     padding: 0 1rem;
 
     z-index: 100;
-    background: var(--bg);
+    background: #141823bb;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -50,7 +51,7 @@
 
 }
 
-.quiz_island_text{
+.quiz_island_text {
     z-index: 90;
     position: absolute;
     top: 100%;
@@ -63,7 +64,8 @@
     cursor: pointer;
     width: 200px;
 }
-.quiz_island_text img{
+
+.quiz_island_text img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -79,7 +81,8 @@
 .quiz_header_left:hover {
     background-color: rgb(7, 38, 63);
 }
-.quiz_header_left a{
+
+.quiz_header_left a {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -162,13 +165,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -30%);
     display: flex;
     gap: 2rem;
     align-items: flex-end;
 }
 
-.quiz_content_theory_only .pharoah_message {
+.quiz_content_theory_only .hero_message {
     position: relative;
     width: 500px;
     padding: 1rem;
@@ -180,7 +183,7 @@
 
 }
 
-.quiz_content_theory_only .pharoah_message::after {
+.quiz_content_theory_only .hero_message::after {
     position: absolute;
     transform: translate(99%, 2.5px);
     border-radius: 10px 100px 30px 0;
@@ -197,7 +200,7 @@
 
 /* IDE Content */
 
-.quiz_content_ide{
+.quiz_content_ide {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -216,7 +219,8 @@
     flex-direction: column;
     gap: 1rem;
 }
-.quiz_content_ide_theory p{
+
+.quiz_content_ide_theory p {
     line-height: 1.8rem;
 }
 
@@ -238,7 +242,7 @@
     flex-direction: column;
 }
 
-.quiz_ide .run{
+.quiz_ide .run {
     position: absolute;
     bottom: 6px;
     right: 6px;
@@ -256,10 +260,12 @@
     background-color: var(--primary);
     transition: opacity 0.2s;
 }
-.quiz_ide .run:hover{
+
+.quiz_ide .run:hover {
     opacity: 1;
 }
-.quiz_ide .run i{
+
+.quiz_ide .run i {
     margin-bottom: -5px;
     font-size: 1.3rem;
 }
@@ -299,6 +305,7 @@
 .quiz_ide_content p span {
     margin-right: 5px;
 }
+
 .quiz_ide_content p input {
     border: none;
     line-height: 1.5;
@@ -320,7 +327,7 @@
 
 /* MCQ with IDE */
 
-.quiz_content_ide_mcq{
+.quiz_content_ide_mcq {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -339,7 +346,8 @@
     flex-direction: column;
     gap: 1rem;
 }
-.quiz_mcq_question p{
+
+.quiz_mcq_question p {
     line-height: 1.8rem;
 }
 
@@ -350,13 +358,14 @@
     color: var(--primary);
 }
 
-.quiz_mcq_options{
+.quiz_mcq_options {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
 }
-.quiz_mcq_options p{
+
+.quiz_mcq_options p {
     width: 100%;
     min-height: 50px;
     border-radius: 8px;
@@ -370,25 +379,25 @@
 
     background: var(--bg);
     color: var(--dark-primary);
-    
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.3),
-    -3px -3px 6px rgba(255,255,255,0.05);
+
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3),
+        -3px -3px 6px rgba(255, 255, 255, 0.05);
 
     transition: all 0.2s;
 }
 
-.quiz_mcq_options p:hover{
+.quiz_mcq_options p:hover {
     background: var(--bg);
     transform: scale(1.01);
 }
 
-.quiz_mcq_options p.selected{
+.quiz_mcq_options p.selected {
     border: 2px solid var(--primary);
     background-color: #486FCF2f;
     color: var(--primary);
 }
 
-.quiz_mcq_options p span{
+.quiz_mcq_options p span {
     opacity: 0.5;
     font-weight: 600;
     padding: 2px 6px;
@@ -411,7 +420,7 @@
 
 /* RESULT */
 
-.quiz_content_result{
+.quiz_content_result {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -427,17 +436,19 @@
     justify-content: center;
 }
 
-.quiz_content_result img{
+.quiz_content_result img {
     margin-bottom: 2rem;
 }
-.quiz_content_result img.cong{
+
+.quiz_content_result img.cong {
     width: 250px;
 }
-.quiz_content_result img.villain{
+
+.quiz_content_result img.villain {
     height: 250px;
 }
 
-.quiz_content_result p{
+.quiz_content_result p {
     width: 80%;
     text-align: center;
     font-weight: 500;
@@ -445,7 +456,7 @@
     opacity: 0.7;
 }
 
-.quiz_content_result_title{
+.quiz_content_result_title {
     font-family: "Feather";
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
@@ -501,132 +512,137 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-.medal_card{
+.medal_card {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -48%);
 
-  height: 450px;
+    height: 450px;
     width: 320px;
     border-radius: 15px;
     background: #ecbf27;
     color: black;
-background: linear-gradient(125deg, #ecbf27 0% 15%, #eab000 15% 30%, #ecbf27 30% 46%,  #eab000 46% 65%, #ecbf27 65% 80%,  #eab000 80% 90%, #ecbf27 90% 100%);
+    background: linear-gradient(125deg, #ecbf27 0% 15%, #eab000 15% 30%, #ecbf27 30% 46%, #eab000 46% 65%, #ecbf27 65% 80%, #eab000 80% 90%, #ecbf27 90% 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
-  
-  font-family: 'Special Elite', cursive;
 
-  animation: moveUpDown 2s infinite ease-in-out both;
+    font-family: 'Special Elite', cursive;
+
+    animation: moveUpDown 2s infinite ease-in-out both;
 }
+
 @keyframes moveUpDown {
     0% {
         transform: translate(-50%, -48%);
     }
-    50%{
+
+    50% {
         transform: translate(-50%, -50%);
     }
+
     100% {
         transform: translate(-50%, -48%);
     }
-  }
-
-
-.medal_card_content{
-  width: 85%;
-  height: 85%;
-  border-radius: 10px;
-  
-  border: 3px solid #00000033;
-  
-  display: flex;
-  flex-direction: column;
-  
-  overflow: hidden;
 }
 
-.medal_card_top{
-  width: 100%;
-  height: 60px;
-  background: #f3d87a66;
-  border-bottom: 3px solid #00000033;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  
-  font-weight: 700;
-  font-size: 1.7rem;
-  
+
+.medal_card_content {
+    width: 85%;
+    height: 85%;
+    border-radius: 10px;
+
+    border: 3px solid #00000033;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 }
 
-.medal_card_bottom{
-  background: #f3d87add;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  
-}
-.medal_card_bottom img{
-  margin-top: -1rem;
-  width: 180px;
-}
-.medal_card_bottom span{
-  text-align: center;
-  width: 80%;
-  font-size: 1.2rem;
-  font-weight: bold;
-  opacity: 0.5;
-  line-height: 1.5rem;
-  
-}
+.medal_card_top {
+    width: 100%;
+    height: 60px;
+    background: #f3d87a66;
+    border-bottom: 3px solid #00000033;
 
-.medal_btn{
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  background: #fff;
-  cursor: pointer;
-  
-  width: 200px;
-  height: 50px;
-  border-radius: 10px;
-  border: 3px solid #00000099;
-  box-shadow: 0 3px 6px #00000066;
-  
-  font-size: 1.3rem;
-  text-align: center;
-  letter-spacing: 0.1rem;
-  font-weight: 700;
-  
-  transform: translateY(-10px);
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-  transition: transform 0.3s;
+    font-weight: 700;
+    font-size: 1.7rem;
 
 }
 
-.medal_btn:hover{
+.medal_card_bottom {
+    background: #f3d87add;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+}
+
+.medal_card_bottom img {
+    margin-top: -1rem;
+    width: 180px;
+}
+
+.medal_card_bottom span {
+    text-align: center;
+    width: 80%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.5;
+    line-height: 1.5rem;
+
+}
+
+.medal_btn {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background: #fff;
+    cursor: pointer;
+
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid #00000099;
+    box-shadow: 0 3px 6px #00000066;
+
+    font-size: 1.3rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+
+    transform: translateY(-10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.3s;
+
+}
+
+.medal_btn:hover {
     transform: translateY(-10px) scale(1.02);
 }
 
-.medal_btn span{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(3px);
+.medal_btn span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(3px);
 }
 
 

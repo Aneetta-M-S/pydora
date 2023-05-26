@@ -1,8 +1,7 @@
-// change the 2 import files in lines 4, 5 accordingly
-// Lines which needs change: 52, 53, 55, 63, 64, 65, 221
+// change the 2 import files in lines 4, 5 accordingly and export quizname in line 30
 
-import "./Level2.css"
-import questions from './data4'
+import "../Level.css"
+import { questions, quizDetails } from './data/data4'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
@@ -26,10 +25,11 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz8 = () => {
+
+// change the export value in the format QuizL1S1 (Level 1, Sublevel 1)
+export const QuizL2S4 = () => {
 
     const divRefs = useRef([])
-
     const navigate = useNavigate()
     const { userinfo, updateUserinfo } = useContext(AuthContext)
 
@@ -47,21 +47,17 @@ export const Quiz8 = () => {
     };
 
 
-    // total questions in sublevel(include result also)
-    const total_ques = 12
-    // const total_xp = 120 (store this value just for reference)
-    // set cutoff to some value above 50% of total_xp
-    const cutoff = 70
+    const total_ques = quizDetails.total_ques
+    const cutoff = quizDetails.cutoff
     const [currQuestion, setCurrQuestion] = useState(1)
+
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
     const [xp, setXp] = useState(0)
 
-
-    // type in the current quiz level, current sublevel and max number of sublevels of the level
-    let level = 2
-    let current_sublevel = 4
-    let max_sublevel = 4
+    let level = quizDetails.level
+    let current_sublevel = quizDetails.current_sublevel
+    let max_sublevel = quizDetails.max_sublevel
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
     // if the quiz level is 1 set the value to 0 
@@ -218,7 +214,7 @@ export const Quiz8 = () => {
                         </div>
                         <div className="medal_card_bottom">
                             <img src={levelData.medal} alt="" />
-                            <span>Congratulations! You have completed this island's quest.</span>
+                                <span>Congratulations! You have completed this island's quest.</span>
                         </div>
                     </div>
                     <div className="medal_btn" onClick={() => closeQuiz(xp)}>
@@ -256,7 +252,7 @@ export const Quiz8 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Formatting Strings</span>
+                    <span>{quizDetails.topic}</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />
@@ -275,8 +271,8 @@ export const Quiz8 = () => {
                                 (
                                     <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                                         <div className="quiz_content_theory_only">
-                                            <div className="pharoah_message">{ques.message}</div>
-                                            <div className="pharoah_illus">
+                                            <div className="hero_message">{ques.message}</div>
+                                            <div className="hero_illus">
                                                 <img src={levelData.hero} alt="" />
                                             </div>
                                         </div>
@@ -381,8 +377,7 @@ export const Quiz8 = () => {
 
                 {/* RESULT */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    {resultSection()}
+                    { resultSection() }
                 </div>
 
             </div>

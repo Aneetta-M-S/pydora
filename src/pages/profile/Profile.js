@@ -26,7 +26,7 @@ export const Profile = () => {
             index[i-1] = 0
         }
     }
-    if (userinfo.curr_level === 10 && userinfo.curr_sl[9] === 5){
+    if (userinfo.curr_level === 10 && userinfo.curr_sl[9] >= 5){
         index[9] = 1;
     }
 

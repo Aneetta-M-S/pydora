@@ -229,4 +229,34 @@ const questions = [
 ];
 
 
-export default questions;
+
+// total number of questions (plus one is for the result page)
+let total_ques = questions.length + 1
+let total_xp = 0
+
+// calculate total xp
+questions.forEach(element => {
+    if (element.type === "mcq") {
+        total_xp += 10
+    }
+    else if (element.type === "code") {
+        let array = element.answer
+        total_xp += (10 * array.length)
+    }
+});
+
+// right now it is set to 60%, can change this value if difficulty changes
+let cutoff = (60 / 100) * total_xp
+
+export const quizDetails = {
+    level: 1,
+    current_sublevel: 4,
+    max_sublevel: 4,
+    total_ques: total_ques,
+    total_xp: total_xp,
+    cutoff: cutoff,
+    topic: "Checking Number Equality",
+
+}
+
+// console.log(quizDetails)

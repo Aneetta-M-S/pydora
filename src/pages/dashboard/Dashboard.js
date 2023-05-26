@@ -3,7 +3,7 @@ import { LeaderboardStats } from "../../components/LeaderboardStats/Leaderboard_
 import { ChartXP } from "../../components/chart/ChartXP"
 import PyLogo from "../../assets/images/pylogo.png"
 import Streak from "../../assets/images/streak.png"
-import Gem from "../../assets/images/gem.png"
+import XPImage from '../../assets/images/xp.png'
 import "./Dashboard.css"
 
 import { useEffect, useContext } from "react"
@@ -41,9 +41,9 @@ export const Dashboard = () => {
                         <img src={Streak} alt="" />
                         <span>3</span>
                     </div>
-                    <div className="gem_item">
-                        <img src={Gem} alt="" />
-                        <span>30</span>
+                    <div className="xp_item">
+                        <img src={XPImage} alt="" />
+                        <span>{userinfo.xp}</span>
                     </div>
                     <div className="dp_item" onClick={goToProfile}>
                         <img src={userinfo && userinfo.dp} alt="" />

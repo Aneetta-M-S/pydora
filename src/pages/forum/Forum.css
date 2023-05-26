@@ -47,8 +47,8 @@
   width: 100%;
   padding: 1rem;
   border-radius: 15px;
-  background: var(--primary);
-  color: var(--bg);
+  background: #093a5f;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

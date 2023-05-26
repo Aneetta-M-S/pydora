@@ -31,7 +31,7 @@ const questions = [
             <>
                 <p>
                     <span>print ( "apple" </span>
-                    <input style={{ width: "40px" }} />
+                    <input style={{ width: "30px" }} />
                     <span>"apple" )</span>
                 </p>
             </>
@@ -100,9 +100,9 @@ const questions = [
                 <p><span>fruit_2 = "orange"</span></p>
                 <p>
                     <span>print ( </span>
-                    <input style={{ width: "70px" }} />
-                    <input style={{ width: "70px" }} />
-                    <input style={{ width: "70px" }} />
+                    <input style={{ width: "60px" }} />
+                    <input style={{ width: "30px" }} />
+                    <input style={{ width: "60px" }} />
                     <span>)</span>
                 </p>
 
@@ -144,7 +144,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-                <p>Check if <span>my_answer</span>is equa to <span>solution</span>.</p>
+                <p>Check if <span>my_answer</span>is equal to <span>solution</span>.</p>
 
             </>
         ),
@@ -156,7 +156,7 @@ const questions = [
                 <p><span>solution = "ace"</span></p>
                 <p>
                     <span>print ( my_answer </span>
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "30px" }} />
                     <span>solution )</span>
                 </p>
             </>
@@ -178,8 +178,8 @@ const questions = [
             <>
                 <p>
                     <span>print ("subscribed" </span>
-                    <input style={{ width: "50px" }} />
-                    <span>"rejecte" )</span>
+                    <input style={{ width: "30px" }} />
+                    <span>"rejected" )</span>
                 </p>
             </>
         ),

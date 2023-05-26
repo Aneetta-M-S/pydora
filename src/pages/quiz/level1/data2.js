@@ -19,7 +19,7 @@ const questions = [
                 <p>
                     <span>status</span>
 
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
 
                     <span>"Relaxing at the beach"</span>
                 </p>
@@ -45,7 +45,7 @@ const questions = [
                 <p><span>new_status = “download”</span></p>
                 <p>
                     <span>new_status = </span>
-                    <input style={{ width: "150px" }} />
+                    <input style={{ width: "120px" }} />
                 </p>
                 <p><span>print(new_status)</span></p>
             </>
@@ -68,7 +68,7 @@ const questions = [
                 <p><span>status = "Playing Footbal"</span></p>
                 <p>
                     <span>print(</span>
-                    <input style={{ width: "70px" }} />
+                    <input style={{ width: "60px" }} />
                     <span>)</span>
                 </p>
                 <p><span>status = "Walking the dog"</span></p>
@@ -105,7 +105,7 @@ const questions = [
             <>
                 <p><span>temperature = "0 degree"</span></p>
                 <p>
-                    <input style={{ width: "150px" }} />
+                    <input style={{ width: "110px" }} />
                     <span>= "100 degrees"</span>
                 </p>
                 <p><span>print(temperature)</span></p>
@@ -129,7 +129,7 @@ const questions = [
             <>
                 <p>
                     <span>"Followers:" </span>
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "20px" }} />
                     <span>"55"</span>
                 </p>
             </>
@@ -152,8 +152,8 @@ const questions = [
             <>
                 <p>
                     <span>print("Followers:" </span>
-                    <input style={{ width: "50px" }} />
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "20px" }} />
+                    <input style={{ width: "40px" }} />
                     <span>)</span>
                 </p>
             </>
@@ -177,8 +177,8 @@ const questions = [
 
                 <p>
                     <span>print("Followers:" </span>
-                    <input style={{ width: "50px" }} />
-                    <input style={{ width: "100px" }} />
+                    <input style={{ width: "20px" }} />
+                    <input style={{ width: "80px" }} />
                     <span>)</span>
                 </p>
             </>
@@ -220,7 +220,7 @@ const questions = [
             <>
                 <p>
                     <span>active_user =  </span>
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "20px" }} />
                 </p>
             </>
         ),
@@ -240,9 +240,9 @@ const questions = [
         ide_content: (
             <>
                 <p>
-                    <input style={{ width: "150px" }} />
-                    <input style={{ width: "50px" }} />
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "110px" }} />
+                    <input style={{ width: "20px" }} />
+                    <input style={{ width: "20px" }} />
 
                 </p>
             </>
@@ -264,8 +264,8 @@ const questions = [
             <>
                 <p>
                     <span>number_of_applications = 5 </span>
-                    <input style={{ width: "50px" }} />
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "20px" }} />
+                    <input style={{ width: "20px" }} />
 
                 </p>
                 <p><span>print(number_of_applications)</span></p>
@@ -288,7 +288,7 @@ const questions = [
             <>
                 <p>
                     <span>percent = 0.5</span>
-                    <input style={{ width: "50px" }} />
+                    <input style={{ width: "20px" }} />
                     <span>100</span>
                 </p>
                 <p><span>print(percent)</span></p>
@@ -351,9 +351,9 @@ const questions = [
                 <p><span>students = 5</span></p>
                 <p>
                     <span>print(</span>
-                    <input style={{ width: "150px" }} />
-                    <input style={{ width: "50px" }} />
-                    <input style={{ width: "100px" }} />
+                    <input style={{ width: "130px" }} />
+                    <input style={{ width: "20px" }} />
+                    <input style={{ width: "80px" }} />
                     <span>)</span>
 
                 </p>

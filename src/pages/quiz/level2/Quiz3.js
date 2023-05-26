@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz7 = () => {
+export const QuizL2S3 = () => {
 
     const divRefs = useRef([])
 

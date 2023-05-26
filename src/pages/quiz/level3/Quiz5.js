@@ -1,15 +1,14 @@
 // change the 2 import files in lines 4, 5 accordingly
 // Lines which needs change: 52, 53, 55, 63, 64, 65, 221
 
-import "./Level2.css"
-import questions from './data2'
+import "./Level3.css"
+import questions from './data5'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
-import Congrats from "../../../assets/images/prize/congrats.png"
 
 import { AuthContext } from '../../../contexts/DetailsContext';
 
@@ -27,7 +26,7 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const QuizL2S2 = () => {
+export const QuizL3S5 = () => {
 
     const divRefs = useRef([])
 
@@ -49,10 +48,10 @@ export const QuizL2S2 = () => {
 
 
     // total questions in sublevel(include result also)
-    const total_ques = 15
-    // const total_xp = 210 (store this value just for reference)
+    const total_ques = 16
+    // const total_xp = 170 (store this value just for reference)
     // set cutoff to some value above 50% of total_xp
-    const cutoff = 130
+    const cutoff = 110
     const [currQuestion, setCurrQuestion] = useState(1)
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
@@ -60,9 +59,9 @@ export const QuizL2S2 = () => {
 
 
     // type in the current quiz level, current sublevel and max number of sublevels of the level
-    let level = 2
-    let current_sublevel = 2
-    let max_sublevel = 4
+    let level = 3
+    let current_sublevel = 5
+    let max_sublevel = 5
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
     // if the quiz level is 1 set the value to 0 
@@ -195,6 +194,41 @@ export const QuizL2S2 = () => {
         setMcq([0, 0])
     }
 
+    const resultSection = () => {
+        if (xp < cutoff) {
+            return (
+                <div className="quiz_content_result">
+                    <img src={levelData.villain_text} alt="" />
+                    <div className="quiz_content_result_title">Almost there</div>
+                    <p>You have only earned {xp} XP !</p>
+
+                    <div className="result_btn" onClick={() => closeQuiz(xp)}>
+                        <div className="result_btn_text">Try Again</div>
+                        <div className="result_btn_shadow"></div>
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="medal_card">
+                    <div className="medal_card_content">
+                        <div className="medal_card_top">
+                            Island Medallion
+                        </div>
+                        <div className="medal_card_bottom">
+                            <img src={levelData.medal} alt="" />
+                            <span>Congratulations! You have completed this island's quest.</span>
+                        </div>
+                    </div>
+                    <div className="medal_btn" onClick={() => closeQuiz(xp)}>
+                        <span>CONTINUE</span>
+                    </div>
+                </div>
+            )
+        }
+    }
+
 
     return (
         <div className="quiz_page">
@@ -222,7 +256,7 @@ export const QuizL2S2 = () => {
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
                     {/* Sublevel Topic */}
-                    <span>Comparing Strings</span>
+                    <span>Using Complex Decisions</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />
@@ -348,21 +382,7 @@ export const QuizL2S2 = () => {
                 {/* RESULT */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                     {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
-                    <div className="quiz_content_result">
-                        {xp >= cutoff ?
-                            <img src={Congrats} className="cong" alt="" />
-                            :
-                            <img src={levelData.villain_text} alt="" />
-                        }
-                        <div className="quiz_content_result_title">{xp < cutoff ? "Almost there" : "Congratulations"}</div>
-                        <p>You have {xp < cutoff ? " only " : " "} earned {xp} XP !</p>
-
-                        {/* On clicking the continue button, xp is updated and we return to home */}
-                        <div className="result_btn" onClick={() => closeQuiz(xp)}>
-                            <div className="result_btn_text">{xp < cutoff ? "Try Again" : "Continue"}</div>
-                            <div className="result_btn_shadow"></div>
-                        </div>
-                    </div>
+                    {resultSection()}
                 </div>
 
             </div>

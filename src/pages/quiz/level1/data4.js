@@ -56,6 +56,7 @@ const questions = [
         theory: (
             <>
                 <p>When we compare the same numbers with the equality operator, the result is <span>True</span> .</p>
+                <p><b>Hint:</b> <span>print ( 10 == 10)</span>.</p>
 
             </>
         ),
@@ -65,8 +66,8 @@ const questions = [
             <>
                 <p>
                     <span>print( 10 </span>
-                    <input style={{ width: "50px" }} type="text" />
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
 
                     <span> )</span>
 
@@ -82,7 +83,7 @@ const questions = [
         theory: (
             <>
                 <p>When we compare the different numbers with the equality operator, the result is <span>False</span>. Like here with the <span>9</span> to <span>10</span> comparison.</p>
-                <p><span>9=10</span> or <span>9==10</span>  </p>            </>
+                <p><span>9 = 10</span> or <span>9 == 10</span>  </p>            </>
         ),
         // keep a count of the number of code questions
         code_num: 3,
@@ -90,14 +91,14 @@ const questions = [
             <>
                 <p>
                     <span>print( </span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "60px" }} type="text" />
 
                     <span>)</span>
 
                 </p>
             </>
         ),
-        answer: ["9==10"]
+        answer: ["9 == 10"]
 
     },
     {
@@ -166,7 +167,7 @@ const questions = [
             <>
                 <p>
                     <span>print( 1 </span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
 
                     <span> 10 )</span>
 
@@ -189,9 +190,9 @@ const questions = [
             <>
                 <p>
                     <span>result </span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span>1</span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
                     <span>2</span>
                 </p>
             </>
@@ -211,10 +212,10 @@ const questions = [
         ide_content: (
             <>
                 <p>
-                    <input style={{ width: "90px" }} type="text" />
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "60px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span>1</span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "40px" }} type="text" />
                     <span>2</span>
                 </p>
             </>
@@ -298,10 +299,10 @@ const questions = [
                 <p><span>answer = 16</span></p>
                 <p>
                     <span>correct_answer</span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span>answer</span>
-                    <input style={{ width: "50px" }} type="text" />
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
 
                 </p>
             </>
@@ -323,7 +324,7 @@ const questions = [
                 <p><span>letter = 12</span></p>
                 <p>
                     <span>valid_answer = letter</span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
 
                     <span>0</span>
 

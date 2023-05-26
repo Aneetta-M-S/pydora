@@ -24,7 +24,7 @@ const questions = [
             <>
                 <p>
                     <span>1</span>
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span>90</span>
                 </p>
             </>
@@ -45,8 +45,8 @@ const questions = [
             <>
                 <p>
                     <span>print(</span>
-                    <input style={{ width: "40px" }} type="text" />
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <input style={{ width: "40px" }} type="text" />
                     <span>)</span>
                 </p>
@@ -68,7 +68,7 @@ const questions = [
             <>
                 <p>
                     <span>print( 101 </span>
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span>90 )</span>
                 </p>
             </>
@@ -121,7 +121,7 @@ const questions = [
             <>
                 <p>
                     <span>print ( 10</span>
-                    <input style={{ width: "50px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span> 9 )</span>
                 </p>
             </>
@@ -142,7 +142,7 @@ const questions = [
             <>
                 <p>
                     <span>print ( 1 </span>
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
                     <span> 3 ) </span>
                 </p>
             </>

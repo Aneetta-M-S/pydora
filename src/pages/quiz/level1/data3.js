@@ -27,8 +27,8 @@ const questions = [
             <>
                 <p>
                     <span>powered_on</span>
-                    <input style={{ width: "40px" }} type="text" />
-                    <input style={{ width: "70px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
+                    <input style={{ width: "45px" }} type="text" />
                 </p>
             </>
         ),
@@ -51,7 +51,7 @@ const questions = [
                 <p><span>correct = True</span></p>
                 <p>
                     <span>print(</span>
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "70px" }} type="text" />
                     <span>)</span>
                 </p>
             </>
@@ -85,11 +85,11 @@ const questions = [
                 <p><span>print("Load data")</span></p>
                 <p>
                     <span>status = </span>
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "50px" }} type="text" />
                 </p>
                 <p>
                     <span>print( </span>
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "60px" }} type="text" />
                     <span>)</span>
                 </p>
             </>
@@ -167,7 +167,7 @@ const questions = [
                 <p>
                     <span>print( </span>
                     <input style={{ width: "40px" }} type="text" />
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "50px" }} type="text" />
 
                     <span>)</span>
                 </p>
@@ -193,7 +193,7 @@ const questions = [
                 <p>
                     <span>print( </span>
                     <input style={{ width: "40px" }} type="text" />
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "50px" }} type="text" />
 
                     <span>)</span>
                 </p>
@@ -218,10 +218,10 @@ const questions = [
             <>
                 <p><span>morning = True</span></p>
                 <p>
-                    <input style={{ width: "100px" }} />
+                    <input style={{ width: "90px" }} />
+                    <input style={{ width: "20px" }} />
                     <input style={{ width: "40px" }} />
-                    <input style={{ width: "40px" }} />
-                    <input style={{ width: "100px" }} />
+                    <input style={{ width: "80px" }} />
                 </p>
                 <p>print(is_evening)</p>
             </>
@@ -269,7 +269,7 @@ const questions = [
         type: "code",
         theory: (
             <>
-                <p> Create a variable <span>is_Available</span>and save the negated value in it.</p>
+                <p> Create a variable <span>is_Available</span> and save the negated value in it.</p>
 
             </>
         ),
@@ -280,9 +280,9 @@ const questions = [
                 <p><span>open_slot = True</span></p>
                 <p>
                     <input style={{ width: "100px" }} type="text" />
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "20px" }} type="text" />
                     <span>not</span>
-                    <input style={{ width: "100px" }} type="text" />
+                    <input style={{ width: "80px" }} type="text" />
                 </p>
             </>
         ),

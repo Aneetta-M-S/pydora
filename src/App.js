@@ -21,10 +21,17 @@ import { QuizL1S2 } from './pages/quiz/level1/Quiz2';
 import { QuizL1S3 } from './pages/quiz/level1/Quiz3';
 import { QuizL1S4 } from './pages/quiz/level1/Quiz4';
 
-import { QuizL2S1 } from './pages/quiz/level2/Quiz1';
+import { QuizL2S1} from './pages/quiz/level2/Quiz1';
 import { QuizL2S2 } from './pages/quiz/level2/Quiz2';
 import { QuizL2S3 } from './pages/quiz/level2/Quiz3';
 import { QuizL2S4 } from './pages/quiz/level2/Quiz4';
+
+import { QuizL3S1 } from './pages/quiz/level3/Quiz1';
+import { QuizL3S2 } from './pages/quiz/level3/Quiz2';
+import { QuizL3S3} from './pages/quiz/level3/Quiz3';
+import { QuizL3S4} from './pages/quiz/level3/Quiz4';
+import { QuizL3S5 } from './pages/quiz/level3/Quiz5'
+
 
 import { QuizL7S1 } from './pages/quiz/level7/Quiz1';
 import { QuizL7S2 } from './pages/quiz/level7/Quiz2';
@@ -76,6 +83,13 @@ function App() {
               <Route path='2' element={<QuizL2S2 />} />
               <Route path='3' element={<QuizL2S3 />} />
               <Route path='4' element={<QuizL2S4 />} />
+            </Route>
+            <Route path='level3'>
+              <Route path='1' element={<QuizL3S1 />} />
+              <Route path='2' element={<QuizL3S2 />} />
+              <Route path='3' element={<QuizL3S3 />} />
+              <Route path='4' element={<QuizL3S4 />} />
+              <Route path='5' element={<QuizL3S5 />} />
             </Route>
             <Route path='level7'>
               <Route path='1' element={<QuizL7S1 />} />

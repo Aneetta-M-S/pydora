@@ -23,7 +23,7 @@ export const questions = [
             <>
                 <p>
                     <span>sugar_content = </span>
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "60px" }} type="text" />
                 </p>
             </>
         ),
@@ -44,7 +44,7 @@ export const questions = [
             <>
                 <p>
                     <span>score = </span>
-                    <input style={{ width: "40px" }} type="text" />
+                    <input style={{ width: "30px" }} type="text" />
                 </p>
             </>
         ),
@@ -64,7 +64,7 @@ export const questions = [
             <>
                 <p>
                     <span>pi = </span>
-                    <input style={{ width: "80px" }} type="text" />
+                    <input style={{ width: "60px" }} type="text" />
                 </p>
             </>
         ),
@@ -103,9 +103,9 @@ export const questions = [
         ide_content: (
             <>
                 <p>
-                    <input style={{ width: "60px" }} type="text" />
+                    <input style={{ width: "50px" }} type="text" />
                     <input style={{ width: "20px" }} type="text" />
-                    <input style={{ width: "60px" }} type="text" />
+                    <input style={{ width: "50px" }} type="text" />
                 </p>
             </>
         ),

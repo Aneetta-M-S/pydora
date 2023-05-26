@@ -1,8 +1,7 @@
-// change the 2 import files in lines 4, 5 accordingly
-// Lines which needs change: 52, 53, 55, 63, 64, 65, 221
+// change the 2 import files in lines 4, 5 accordingly and export quizname in line 30
 
-import "./Level2.css"
-import questions from './data1'
+import "../Level.css"
+import { questions, quizDetails } from './data/data1'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
@@ -27,10 +26,10 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const Quiz5 = () => {
+// change the export value in the format QuizL1S1 (Level 1, Sublevel 1)
+export const QuizL2S1 = () => {
 
     const divRefs = useRef([])
-
     const navigate = useNavigate()
     const { userinfo, updateUserinfo } = useContext(AuthContext)
 
@@ -48,28 +47,23 @@ export const Quiz5 = () => {
     };
 
 
-    // total questions in sublevel(include result also)
-    const total_ques = 16
-    // const total_xp = 210 (store this value just for reference)
-    // set cutoff to some value above 50% of total_xp
-    const cutoff = 130
+    const total_ques = quizDetails.total_ques
+    const cutoff = quizDetails.cutoff
     const [currQuestion, setCurrQuestion] = useState(1)
+
     // keeps track of questions already done
     const [done, setDone] = useState(Array(total_ques).fill(0))
     const [xp, setXp] = useState(0)
 
-
-    // type in the current quiz level, current sublevel and max number of sublevels of the level
-    let level = 2
-    let current_sublevel = 1
-    let max_sublevel = 4
+    let level = quizDetails.level
+    let current_sublevel = quizDetails.current_sublevel
+    let max_sublevel = quizDetails.max_sublevel
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
-    // if the quiz level is 1 set the value to 0 
     levelData = levelData[level - 1]
 
-    // let bgImage = images[level-1][current_sublevel-1]
     let bgImage = images[level - 1][current_sublevel - 1]
+
     // result to dash
     const closeQuiz = (val) => {
         let sublevel = userinfo.curr_sl
@@ -82,7 +76,7 @@ export const Quiz5 = () => {
                 if (level !== 11) {
                     sublevel[level - 1] = 1
                 }
-                else{
+                else {
                     level = 10
                 }
             }
@@ -103,11 +97,9 @@ export const Quiz5 = () => {
     const selectOption = (opt, ans, arr) => {
         setMcq(arr);
 
-        let score = 10
-
         if (done[currQuestion - 1] === 0) {
             if (opt === ans) {
-                updateXp(xp + score);
+                updateXp(xp + 10);
                 setAlertinfo({
                     open: true,
                     msg: "Correct answer",
@@ -125,7 +117,6 @@ export const Quiz5 = () => {
             const temp = [...done]
             temp[currQuestion - 1] += 1
             setDone(temp)
-            console.log(temp)
             setTimeout(nextQuestion, 1600);
         }
     }
@@ -221,13 +212,11 @@ export const Quiz5 = () => {
                 </div>
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
-                    {/* Sublevel Topic */}
-                    <span>Comparing Numbers</span>
+                    <span>{quizDetails.topic}</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />
                 </div>
-
             </div>
 
             <div className="quiz_section">
@@ -241,8 +230,8 @@ export const Quiz5 = () => {
                                 (
                                     <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                                         <div className="quiz_content_theory_only">
-                                            <div className="pharoah_message">{ques.message}</div>
-                                            <div className="pharoah_illus">
+                                            <div className="hero_message">{ques.message}</div>
+                                            <div className="hero_illus">
                                                 <img src={levelData.hero} alt="" />
                                             </div>
                                         </div>
@@ -347,12 +336,11 @@ export const Quiz5 = () => {
 
                 {/* RESULT */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    {/* This consists of a paragraph and an IDE below where the input fields should be filled */}
                     <div className="quiz_content_result">
                         {xp >= cutoff ?
                             <img src={Congrats} className="cong" alt="" />
                             :
-                            <img src={levelData.villain_text} className="villain" alt="" />
+                            <img src={levelData.villain_text} alt="" />
                         }
                         <div className="quiz_content_result_title">{xp < cutoff ? "Almost there" : "Congratulations"}</div>
                         <p>You have {xp < cutoff ? " only " : " "} earned {xp} XP !</p>

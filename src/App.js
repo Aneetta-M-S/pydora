@@ -16,24 +16,24 @@ import { signOut } from 'firebase/auth';
 import { useEffect, useContext } from 'react';
 import { AuthContext } from './contexts/DetailsContext';
 
-import { Quiz1 } from './pages/quiz/level1/Quiz1';
-import { Quiz2 } from './pages/quiz/level1/Quiz2';
-import { Quiz3 } from './pages/quiz/level1/Quiz3';
-import { Quiz4 } from './pages/quiz/level1/Quiz4';
+import { QuizL1S1 } from './pages/quiz/level1/Quiz1';
+import { QuizL1S2 } from './pages/quiz/level1/Quiz2';
+import { QuizL1S3 } from './pages/quiz/level1/Quiz3';
+import { QuizL1S4 } from './pages/quiz/level1/Quiz4';
 
-import { Quiz5 } from './pages/quiz/level2/Quiz1';
-import { Quiz6 } from './pages/quiz/level2/Quiz2';
-import { Quiz7 } from './pages/quiz/level2/Quiz3';
-import { Quiz8 } from './pages/quiz/level2/Quiz4';
+import { QuizL2S1 } from './pages/quiz/level2/Quiz1';
+import { QuizL2S2 } from './pages/quiz/level2/Quiz2';
+import { QuizL2S3 } from './pages/quiz/level2/Quiz3';
+import { QuizL2S4 } from './pages/quiz/level2/Quiz4';
 
 import { QuizL7S1 } from './pages/quiz/level7/Quiz1';
 import { QuizL7S2 } from './pages/quiz/level7/Quiz2';
 
-import { Quiz45 } from './pages/quiz/level10/Quiz1';
-import { Quiz46 } from './pages/quiz/level10/Quiz2';
-import { Quiz47 } from './pages/quiz/level10/Quiz3';
-import { Quiz48 } from './pages/quiz/level10/Quiz4';
-import { Quiz49 } from './pages/quiz/level10/Quiz5';
+import { QuizL10S1 } from './pages/quiz/level10/Quiz1';
+import { QuizL10S2 } from './pages/quiz/level10/Quiz2';
+import { QuizL10S3 } from './pages/quiz/level10/Quiz3';
+import { QuizL10S4 } from './pages/quiz/level10/Quiz4';
+import { QuizL10S5 } from './pages/quiz/level10/Quiz5';
 
 function App() {
 
@@ -66,27 +66,27 @@ function App() {
           </Route>
           <Route path="quiz">
             <Route path='level1'>
-              <Route path='1' element={<Quiz1 />} />
-              <Route path='2' element={<Quiz2 />} />
-              <Route path='3' element={<Quiz3 />} />
-              <Route path='4' element={<Quiz4 />} />
+              <Route path='1' element={<QuizL1S1 />} />
+              <Route path='2' element={<QuizL1S2 />} />
+              <Route path='3' element={<QuizL1S3 />} />
+              <Route path='4' element={<QuizL1S4 />} />
             </Route>
             <Route path='level2'>
-              <Route path='1' element={<Quiz5 />} />
-              <Route path='2' element={<Quiz6 />} />
-              <Route path='3' element={<Quiz7 />} />
-              <Route path='4' element={<Quiz8 />} />
+              <Route path='1' element={<QuizL2S1 />} />
+              <Route path='2' element={<QuizL2S2 />} />
+              <Route path='3' element={<QuizL2S3 />} />
+              <Route path='4' element={<QuizL2S4 />} />
             </Route>
             <Route path='level7'>
               <Route path='1' element={<QuizL7S1 />} />
               <Route path='2' element={<QuizL7S2 />} />
             </Route>
             <Route path='level10'>
-              <Route path='1' element={<Quiz45 />} />
-              <Route path='2' element={<Quiz46 />} />
-              <Route path='3' element={<Quiz47 />} />
-              <Route path='4' element={<Quiz48 />} />
-              <Route path='5' element={<Quiz49 />} />
+              <Route path='1' element={<QuizL10S1 />} />
+              <Route path='2' element={<QuizL10S2 />} />
+              <Route path='3' element={<QuizL10S3 />} />
+              <Route path='4' element={<QuizL10S4 />} />
+              <Route path='5' element={<QuizL10S5 />} />
             </Route>
           </Route>
 

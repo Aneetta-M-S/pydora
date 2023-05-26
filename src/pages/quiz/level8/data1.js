@@ -1,7 +1,4 @@
-import React from "react";
-
-
-const questions = [
+export const questions = [
     {
         id: 1,
         type: "theory",
@@ -62,7 +59,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 1,
+        code_num: 1,
         ide_content: (
             <>
                 <p>
@@ -86,14 +83,14 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 2,
+        code_num: 2,
         ide_content: (
             <>
                 <p>
                     <span>def greet_user():</span>
                 </p>
                 <p>
-                    <span>  print("Weather update")</span>
+                    <span>&emsp;print("Weather update")</span>
                 </p>
                 <p>
                     <input style={{ width: "60px" }} type="text" />
@@ -133,7 +130,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 2,
+        code_num: 3,
         ide_content: (
             <>
                 <p>
@@ -142,7 +139,7 @@ const questions = [
                     <span>):</span>
                 </p>
                 <p>
-                    <span>&emsp;print(f"Bob: {status}")</span>
+                    <span>&emsp;print(f"Bob: &#123;status&#125;")</span>
                 </p>
                 <p>
                     <span>user_status("Active")</span>
@@ -200,13 +197,13 @@ questions.forEach(element => {
 let cutoff = (60 / 100) * total_xp
 
 export const quizDetails = {
-    level: 1,
-    current_sublevel: 4,
+    level: 8,
+    current_sublevel: 1,
     max_sublevel: 4,
     total_ques: total_ques,
     total_xp: total_xp,
     cutoff: cutoff,
-    topic: "Checking Number Equality",
+    topic: "",
 
 }
 

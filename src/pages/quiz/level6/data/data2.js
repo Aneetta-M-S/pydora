@@ -18,7 +18,7 @@ export const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 1,
+        code_num: 1,
         ide_content: (
             <>
                 <p>

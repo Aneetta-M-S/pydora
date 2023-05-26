@@ -1,7 +1,4 @@
-import React from "react";
-
-
-const questions = [
+export const questions = [
     {
         id: 1,
         type: "theory",
@@ -20,7 +17,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 1,
+        code_num: 1,
         ide_content: (
             <>
                 <p>
@@ -55,7 +52,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 2,
+        code_num: 2,
         ide_content: (
             <>
                 <p>
@@ -81,7 +78,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 3,
+        code_num: 3,
         ide_content: (
             <>
                 <p>
@@ -153,7 +150,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 4,
+        code_num: 4,
         ide_content: (
             <>
                 <p>
@@ -181,7 +178,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 5,
+        code_num: 5,
         ide_content: (
             <>
                 <p>
@@ -249,13 +246,13 @@ questions.forEach(element => {
 let cutoff = (60 / 100) * total_xp
 
 export const quizDetails = {
-    level: 1,
-    current_sublevel: 4,
+    level: 8,
+    current_sublevel: 2,
     max_sublevel: 4,
     total_ques: total_ques,
     total_xp: total_xp,
     cutoff: cutoff,
-    topic: "Checking Number Equality",
+    topic: "",
 
 }
 

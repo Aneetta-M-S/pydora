@@ -1,30 +1,17 @@
 import "./Leaderboard.css"
 
-import { useState, useEffect, useContext } from "react"
-import { AuthContext } from '../../contexts/DetailsContext';
-import { useNavigate } from "react-router"
+import { useState, useEffect } from "react"
 import { db } from '../../firebaseconfig'
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
-// import { db } from "../../firebaseconfig"
-// import { collection, getDocs } from "firebase/firestore"
-
 export const Leaderboard = () => {
-
-    const user = useContext(AuthContext)
-    let navigate = useNavigate();
 
     let position = 1;
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
 
     const [leaderboardData, setLeaderboardData] = useState(false);
-    
-    useEffect(() => {
-        if (!user) {
-            navigate("/");
-        }
-    }, [user, navigate]);
+
 
     useEffect(() => {
         async function fetchData() {

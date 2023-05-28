@@ -1,5 +1,5 @@
 import "./Profile.css"
-import { useEffect, useContext } from "react"
+import { useContext } from "react"
 
 import XPImage from '../../assets/images/xp.png'
 import Medal from '../../assets/images/unmedal.png'
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
 
-    const { user, userinfo } = useContext(AuthContext)
+    const { userinfo } = useContext(AuthContext)
     const navigate = useNavigate();
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
@@ -29,12 +29,6 @@ export const Profile = () => {
     if (userinfo.curr_level === 10 && userinfo.curr_sl[9] >= 5){
         index[9] = 1;
     }
-
-    useEffect(() => {
-        if (!user) {
-            navigate("/");
-        }
-    }, [user, navigate]);
 
     function updateData() {
         navigate('/profile/edit')
@@ -76,9 +70,9 @@ export const Profile = () => {
                             <span>XP Earned</span>
                         </div>
                     </div>
-                    <div className="make_change_btn" onClick={updateData}>
-                        <div className="make_change_btn_text">Edit Profile</div>
-                        <div className="make_change_btn_shadow"></div>
+                    <div className="edit_profile_btn" onClick={updateData}>
+                        <div className="edit_profile_btn_text">Edit Profile</div>
+                        <div className="edit_profile_btn_shadow"></div>
                     </div>
                 </div>
                 <div className="profile_line"></div>

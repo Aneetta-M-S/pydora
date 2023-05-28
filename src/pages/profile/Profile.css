@@ -21,7 +21,7 @@
     display: flex;
     gap: 3rem;
 
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 
 
   }
@@ -110,6 +110,7 @@
     font-weight: 600;
   }
   .profile_details .about{
+    white-space: pre-line;
     font-weight: 500;
     opacity: 0.8;
     /* width: 700px; */
@@ -161,8 +162,9 @@
     font-style: italic;
   }
 
-  .make_change_btn {
+  .edit_profile_btn {
   position: relative;
+  transform: translateY(-5%);
   display: flex;
   flex-direction: column;
   height: 50px;
@@ -170,7 +172,7 @@
 
   z-index: 1;
 }
-.make_change_btn_text {
+.edit_profile_btn_text {
     background: var(--primary);
   color: #fff;
   height: 100%;
@@ -189,7 +191,7 @@
   transition: all 0.2s ease;
 }
 
-.make_change_btn_shadow {
+.edit_profile_btn_shadow {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -201,21 +203,18 @@
   transform: translateY(5px);
 }
 
-.make_change_btn_text:hover {
+.edit_profile_btn_text:hover {
   transform: translateY(5px);
 }
 
 .profile_line{
   margin: 2rem 0;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 3px;
+  height: 10px;
   border-radius: 5px;
   width: 90%;
   
-  background: #fff;
-  z-index: 1;
+  background: #ff0000;
+  z-index: 10;
   /* opacity: 0.1; */
 }
 
@@ -234,7 +233,7 @@
 
 .profile_level_card_container{
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
   padding-bottom: 3rem;
@@ -305,12 +304,12 @@ background: linear-gradient(125deg, hsl(46, 0%, 54%) 0% 15%, hsl(0, 0%, 45%) 15%
   font-size: 1.3rem;
   
 }
-.profile_medal_card_top.inactive{
+.profile_medal_card.inactive .profile_medal_card_top{
   background: rgba(199, 199, 199, 0.4);
 }
 
 .profile_medal_card_bottom{
-  background: #f3d87add;
+  background: #fbe8a1dd;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -319,7 +318,7 @@ background: linear-gradient(125deg, hsl(46, 0%, 54%) 0% 15%, hsl(0, 0%, 45%) 15%
   gap: 0.8rem;
   
 }
-.profile_medal_card_bottom{
+.profile_medal_card.inactive .profile_medal_card_bottom{
   background: #d3d3d3dd;
 }
 .profile_medal_card_bottom img{
@@ -335,7 +334,7 @@ background: linear-gradient(125deg, hsl(46, 0%, 54%) 0% 15%, hsl(0, 0%, 45%) 15%
   line-height: 1.5rem;
   
 }
-.profile_medal_card_bottom.inactive span{
+.profile_medal_card.inactive .profile_medal_card_bottom span{
   width: 95%;
   opacity: 0.7;
   

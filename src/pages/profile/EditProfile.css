@@ -2,32 +2,17 @@
 
 .profile_edit_main_container {
     flex: 1;
-    padding-right: 1rem;
     display: flex;
     flex-direction: column;
-  }
-  
-  .profile_edit_main_container .top {
-    height: 6rem;
-    width: 100%;
-  }
-  
-  .profile_edit_main_container .content {
-    flex-shrink: 0;
-    flex: 1;
-    width: 100%;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 2rem;
+    margin-top: 5%;
 
+    padding-left: 5%;
   }
 
   .profile_edit_title{
     font-size: 2.2rem;
     font-weight: 700;
-    width: 700px; /*just for time being*/
   }
 
   .profile_edit_container{
@@ -62,7 +47,8 @@
     
   }
   .profile_edit_input textarea{
-    min-height: 130px;
+    min-height: 150px;
+    resize: none;
   }
 
   .profile_edit_input input:focus, .profile_edit_input textarea:focus {
@@ -74,31 +60,21 @@
   .profile_edit_input input::placeholder, .profile_edit_input textarea::placeholder {
     color: #ffffff99;
   }
-
-  
-  /* profile_edit_main_container css ends */
-  
-  /* profile_edit_right_container css begins */
   
   .profile_edit_right_container {
-    /*   background: #ffffff66; */
+    /* padding-right: 10%; */
     height: 100%;
-    width: 400px;
+    width: 450px;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    padding-bottom: 9rem;
-  }
-  
-  .profile_edit_right_container .info {
-    height: 6rem;
-    width: 100%;
+    justify-content: center;
+    gap: 2rem;
   }
   
   /* TEMP */
   
   .profile_edit_right_container .dp_option {
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: 350px;
     height: 350px;
     border: 3px solid rgba(102, 102, 102, 0.3);
@@ -158,7 +134,6 @@
   }
 
   .save_change_btn {
-    margin-top: auto;
   position: relative;
   display: flex;
   flex-direction: column;

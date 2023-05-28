@@ -6,19 +6,13 @@ import Streak from "../../assets/images/streak.png"
 import XPImage from '../../assets/images/xp.png'
 import "./Dashboard.css"
 
-import { useEffect, useContext } from "react"
+import { useContext } from "react"
 import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router"
 
 export const Dashboard = () => {
-    const {user, userinfo} = useContext(AuthContext)
+    const { userinfo } = useContext(AuthContext)
     let navigate = useNavigate();
-    
-    useEffect(() => {
-        if (!user) {
-            navigate("/");
-        }
-    }, [user, navigate]);
 
     function goToProfile(){
         navigate('/profile')

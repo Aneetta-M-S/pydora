@@ -65,7 +65,7 @@ const images =
     [BG3_1, BG3_2, BG3_3, BG3_4, BG3_5],
     [BG4_1, BG4_2, BG4_3, BG4_4, BG4_5],
     [BG5_1, BG5_2, BG5_3, BG5_4, BG5_5],
-    [BG6_1, BG6_2, BG6_3, BG6_4, BG6_5, BG6_6, BG6_7],
+    [BG6_1, BG6_2, BG6_3, BG6_4, BG6_5, BG6_6, BG6_7, BG6_5],
     [BG7_1, BG7_2],
     [BG8_1, BG8_2, BG8_3, BG8_4, BG8_5, BG8_6],
     [BG9_1, BG9_2, BG9_3, BG9_4, BG9_5, BG9_6, BG9_7],

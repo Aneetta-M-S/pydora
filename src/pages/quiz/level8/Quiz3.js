@@ -1,13 +1,14 @@
 // change the 2 import files in lines 4, 5 accordingly and export quizname in line 30
 
 import "../Level.css"
-import { questions, quizDetails } from './data/data5'
+import { questions, quizDetails } from './data/data3'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PyLogo from "../../../assets/images/pylogo.png"
+import Congrats from "../../../assets/images/prize/congrats.png"
 
 import { AuthContext } from '../../../contexts/DetailsContext';
 
@@ -25,9 +26,8 @@ const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-
 // change the export value in the format QuizL1S1 (Level 1, Sublevel 1)
-export const QuizL3S5 = () => {
+export const QuizL8S3 = () => {
 
     const divRefs = useRef([])
     const navigate = useNavigate()
@@ -60,11 +60,10 @@ export const QuizL3S5 = () => {
     let max_sublevel = quizDetails.max_sublevel
 
     let levelData = JSON.parse(localStorage.getItem("lessons"))
-    // if the quiz level is 1 set the value to 0 
     levelData = levelData[level - 1]
 
-    // let bgImage = images[level-1][current_sublevel-1]
     let bgImage = images[level - 1][current_sublevel - 1]
+
     // result to dash
     const closeQuiz = (val) => {
         let sublevel = userinfo.curr_sl
@@ -77,7 +76,7 @@ export const QuizL3S5 = () => {
                 if (level !== 11) {
                     sublevel[level - 1] = 1
                 }
-                else{
+                else {
                     level = 10
                 }
             }
@@ -98,11 +97,9 @@ export const QuizL3S5 = () => {
     const selectOption = (opt, ans, arr) => {
         setMcq(arr);
 
-        let score = 10
-
         if (done[currQuestion - 1] === 0) {
             if (opt === ans) {
-                updateXp(xp + score);
+                updateXp(xp + 10);
                 setAlertinfo({
                     open: true,
                     msg: "Correct answer",
@@ -189,41 +186,6 @@ export const QuizL3S5 = () => {
         setMcq([0, 0])
     }
 
-    const resultSection = () => {
-        if (xp < cutoff) {
-            return (
-                <div className="quiz_content_result">
-                    <img src={levelData.villain_text} alt="" />
-                    <div className="quiz_content_result_title">Almost there</div>
-                    <p>You have only earned {xp} XP !</p>
-
-                    <div className="result_btn" onClick={() => closeQuiz(xp)}>
-                        <div className="result_btn_text">Try Again</div>
-                        <div className="result_btn_shadow"></div>
-                    </div>
-                </div>
-            )
-        }
-        else {
-            return (
-                <div className="medal_card">
-                    <div className="medal_card_content">
-                        <div className="medal_card_top">
-                            Island Medallion
-                        </div>
-                        <div className="medal_card_bottom">
-                            <img src={levelData.medal} alt="" />
-                                <span>Congratulations! You have completed this island's quest.</span>
-                        </div>
-                    </div>
-                    <div className="medal_btn" onClick={() => closeQuiz(xp)}>
-                        <span>CONTINUE</span>
-                    </div>
-                </div>
-            )
-        }
-    }
-
 
     return (
         <div className="quiz_page">
@@ -250,13 +212,11 @@ export const QuizL3S5 = () => {
                 </div>
                 <div className="quiz_header_right">
                     <i><SiBookstack /></i>
-                    {/* Sublevel Topic */}
                     <span>{quizDetails.topic}</span>
                 </div>
                 <div className="quiz_island_text">
                     <img src={levelData.text} alt="" />
                 </div>
-
             </div>
 
             <div className="quiz_section">
@@ -269,7 +229,7 @@ export const QuizL3S5 = () => {
                             ques.type === "theory" ?
                                 (
                                     <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                                        <div className="quiz_content_theory_only">
+                                        <div className="quiz_content_theory_only pharoah">
                                             <div className="hero_message">{ques.message}</div>
                                             <div className="hero_illus">
                                                 <img src={levelData.hero} alt="" />
@@ -376,7 +336,21 @@ export const QuizL3S5 = () => {
 
                 {/* RESULT */}
                 <div className="quiz_section_content" style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                    { resultSection() }
+                    <div className="quiz_content_result">
+                        {xp >= cutoff ?
+                            <img src={Congrats} className="cong" alt="" />
+                            :
+                            <img src={levelData.villain_text} alt="" />
+                        }
+                        <div className="quiz_content_result_title">{xp < cutoff ? "Almost there" : "Congratulations"}</div>
+                        <p>You have {xp < cutoff ? " only " : " "} earned {xp} XP !</p>
+
+                        {/* On clicking the continue button, xp is updated and we return to home */}
+                        <div className="result_btn" onClick={() => closeQuiz(xp)}>
+                            <div className="result_btn_text">{xp < cutoff ? "Try Again" : "Continue"}</div>
+                            <div className="result_btn_shadow"></div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

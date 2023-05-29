@@ -1,5 +1,5 @@
 import "./EditProfile.css"
-import { useState, useEffect, useContext } from "react"
+import { useState, useContext } from "react"
 import { dpArray } from "./avatars"
 
 import { AuthContext } from '../../contexts/DetailsContext';

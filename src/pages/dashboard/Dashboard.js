@@ -11,12 +11,52 @@ import { AuthContext } from '../../contexts/DetailsContext';
 import { useNavigate } from "react-router"
 
 export const Dashboard = () => {
+    // const { user, userinfo, updateUserinfo } = useContext(AuthContext)
     const { userinfo } = useContext(AuthContext)
     let navigate = useNavigate();
 
-    function goToProfile(){
+    function goToProfile() {
         navigate('/profile')
     }
+
+    // function formattedDate(date) {
+    //     const year = date.getFullYear();
+    //     const month = date.getMonth() + 1; // Months are zero-based, so we add 1
+    //     const day = date.getDate();
+
+    //     return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+
+    // }
+
+    // useEffect(() => {
+    //     let s = userinfo.streak
+    //     let now = new Date(user.lastLoginAt)
+    //     now = formattedDate(now)
+    //     let yday = new Date(user.lastLoginAt)
+    //     yday.setDate(yday.getDate() - 1);
+    //     // returns the date format of yesterday
+    //     yday = formattedDate(yday)
+    //     let lastLoginAt = s.lastLoginAt
+    //     if (yday === lastLoginAt) {
+    //         s = {
+    //             lastLoginAt: now,
+    //             streak: userinfo.streak.count + 1
+    //         }
+    //     }
+    //     else if (now !== lastLoginAt) {
+    //         s = {
+    //             lastLoginAt: now,
+    //             streak: 1
+    //         }
+    //     }
+    //     else{
+    //         s = userinfo.streak
+    //     }
+    //     updateUserinfo({
+    //         ...userinfo,
+    //         streak: s
+    //     });
+    // }, [user, userinfo, updateUserinfo]);
 
     return (
         <>
@@ -33,7 +73,7 @@ export const Dashboard = () => {
                     </div>
                     <div className="streak_item">
                         <img src={Streak} alt="" />
-                        <span>3</span>
+                        <span>1</span>
                     </div>
                     <div className="xp_item">
                         <img src={XPImage} alt="" />

@@ -37,6 +37,11 @@ import { QuizL3S5 } from './pages/quiz/level3/Quiz5'
 import { QuizL7S1 } from './pages/quiz/level7/Quiz1';
 import { QuizL7S2 } from './pages/quiz/level7/Quiz2';
 
+import { QuizL8S1 } from './pages/quiz/level8/Quiz1';
+import { QuizL8S2 } from './pages/quiz/level8/Quiz2';
+import { QuizL8S3 } from './pages/quiz/level8/Quiz3';
+import { QuizL8S4 } from './pages/quiz/level8/Quiz4';
+
 import { QuizL9S1 } from './pages/quiz/level9/Quiz1';
 import { QuizL9S2 } from './pages/quiz/level9/Quiz2';
 import { QuizL9S3 } from './pages/quiz/level9/Quiz3';
@@ -99,6 +104,12 @@ function App() {
               <Route path='level7'>
                 <Route path='1' element={<QuizL7S1 />} />
                 <Route path='2' element={<QuizL7S2 />} />
+              </Route>
+              <Route path='level8'>
+                <Route path='1' element={<QuizL8S1 />} />
+                <Route path='2' element={<QuizL8S2 />} />
+                <Route path='3' element={<QuizL8S3 />} />
+                <Route path='4' element={<QuizL8S4 />} />
               </Route>
               <Route path='level9'>
                 <Route path='1' element={<QuizL9S1 />} />

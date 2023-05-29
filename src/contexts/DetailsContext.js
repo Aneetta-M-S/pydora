@@ -28,8 +28,6 @@ export default function Context({children}) {
             localStorage.setItem("userinfo", JSON.stringify(i))
             const docRef = doc(db, "users", user.uid)
             await setDoc(docRef, i)
-            console.log("Success")
-            
         }
         catch(err){
             console.log(err)

@@ -378,7 +378,7 @@ export const quizDetails = {
     total_ques: total_ques,
     total_xp: total_xp,
     cutoff: cutoff,
-    topic: "",
+    topic: "Understanding Variable Scope",
 
 }
 

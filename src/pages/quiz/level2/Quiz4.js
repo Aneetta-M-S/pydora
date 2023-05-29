@@ -120,7 +120,6 @@ export const QuizL2S4 = () => {
             const temp = [...done]
             temp[currQuestion - 1] += 1
             setDone(temp)
-            console.log(temp)
             setTimeout(nextQuestion, 1600);
         }
     }

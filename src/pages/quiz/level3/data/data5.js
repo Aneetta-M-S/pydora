@@ -353,7 +353,7 @@ questions.forEach(element => {
 let cutoff = (60 / 100) * total_xp
 
 export const quizDetails = {
-    level: 1,
+    level: 3,
     current_sublevel: 5,
     max_sublevel: 5,
     total_ques: total_ques,

@@ -25,14 +25,14 @@ export const Login = () => {
         }
     }, [user, userinfo, navigate]);
 
-    function formattedDate(date){
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1; // Months are zero-based, so we add 1
-        const day = date.getDate();
+    // function formattedDate(date){
+    //     const year = date.getFullYear();
+    //     const month = date.getMonth() + 1; // Months are zero-based, so we add 1
+    //     const day = date.getDate();
     
-        return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+    //     return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
     
-    }
+    // }
 
 
     async function redirectLogin(res) {
@@ -64,11 +64,7 @@ export const Login = () => {
                 email: res.email,
                 xp: 0,
                 curr_level: 1,
-                curr_sl: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                streak: {
-                    count: 1,
-                    lastLoginAt: formattedDate(res.lastLoginAt)
-                }
+                curr_sl: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             })
             // navigate('/profile/edit')
         }

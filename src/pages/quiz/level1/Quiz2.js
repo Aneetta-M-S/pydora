@@ -1,5 +1,4 @@
 // change the 2 import files in lines 4, 5 accordingly and export quizname in line 30
-
 import "../Level.css"
 import { questions, quizDetails } from './data/data2'
 import images from "../bg";
@@ -15,6 +14,7 @@ import { AuthContext } from '../../../contexts/DetailsContext';
 import { FaArrowLeft } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
 import { BsFillPlayFill } from "react-icons/bs";
+import { RiVolumeUpFill } from "react-icons/ri";
 
 import { Link } from "react-router-dom";
 
@@ -30,6 +30,10 @@ const Alert = forwardRef(function Alert(props, ref) {
 export const QuizL1S2 = () => {
 
     const divRefs = useRef([])
+
+    const speechMsg = new SpeechSynthesisUtterance()
+    const speechRefs = useRef([])
+
     const navigate = useNavigate()
     const { userinfo, updateUserinfo } = useContext(AuthContext)
 
@@ -179,13 +183,18 @@ export const QuizL1S2 = () => {
 
     }
 
+    // convert the message to speech
+    const textToSpeech = (i) => {
+        const speechText = speechRefs.current[i].innerText;
+        speechMsg.text = speechText
+        window.speechSynthesis.speak(speechMsg)
+    }
 
     const nextQuestion = () => {
         setCurrQuestion(currQuestion + 1)
         inputvalue = []
         setMcq([0, 0])
     }
-
 
     return (
         <div className="quiz_page">
@@ -230,8 +239,11 @@ export const QuizL1S2 = () => {
                                 (
                                     <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
                                         <div className="quiz_content_theory_only pharoah">
-                                            <div className="hero_message">{ques.message}</div>
-                                            <div className="hero_illus">
+                                            <div className="hero_message" ref={(el) => (speechRefs.current[ques.id] = el)}>
+                                                {ques.message}
+                                            </div>
+                                            <div className="hero_illus" onClick={() => textToSpeech(ques.id)}>
+                                                <i><RiVolumeUpFill /></i>
                                                 <img src={levelData.hero} alt="" />
                                             </div>
                                         </div>

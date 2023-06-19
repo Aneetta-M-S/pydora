@@ -202,6 +202,30 @@
     height: 10px;
 }
 
+.hero_illus {
+    position: relative;
+}
+
+.hero_illus i{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--primary);
+
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.hero_illus i:hover{
+    opacity: 1;
+}
 
 /* IDE Content */
 

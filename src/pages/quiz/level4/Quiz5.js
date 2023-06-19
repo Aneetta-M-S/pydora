@@ -1,6 +1,6 @@
 // change the 2 import files in lines 4, 5 accordingly and export quizname in line 30
 import "../Level.css"
-import { questions, quizDetails } from './data/data3'
+import { questions, quizDetails } from './data/data5'
 import images from "../bg";
 
 import { useState, forwardRef, useContext, useRef } from "react";
@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 // change the export value in the format QuizL1S1 (Level 1, Sublevel 1)
-export const QuizL1S3 = () => {
+export const QuizL4S5 = () => {
 
     const divRefs = useRef([])
 
@@ -238,7 +238,7 @@ export const QuizL1S3 = () => {
                             ques.type === "theory" ?
                                 (
                                     <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                                        <div className="quiz_content_theory_only pharoah">
+                                        <div className="quiz_content_theory_only">
                                             <div className="hero_message" ref={(el) => (speechRefs.current[ques.id] = el)}>
                                                 {ques.message}
                                             </div>

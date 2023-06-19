@@ -27,7 +27,7 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 // change the export value in the format QuizL1S1 (Level 1, Sublevel 1)
-export const QuizL1S3 = () => {
+export const QuizL5S3 = () => {
 
     const divRefs = useRef([])
 
@@ -238,7 +238,7 @@ export const QuizL1S3 = () => {
                             ques.type === "theory" ?
                                 (
                                     <div className="quiz_section_content" key={ques.id} style={{ transform: `translateY(-${(currQuestion - 1) * 100}%)` }}>
-                                        <div className="quiz_content_theory_only pharoah">
+                                        <div className="quiz_content_theory_only">
                                             <div className="hero_message" ref={(el) => (speechRefs.current[ques.id] = el)}>
                                                 {ques.message}
                                             </div>

@@ -1,7 +1,4 @@
-import React from "react";
-
-
-const questions = [
+export const questions = [
     {
         id: 1,
         type: "theory",
@@ -19,7 +16,7 @@ const questions = [
                 When we create a variable, we assign it a value, like assigning 3 to wallet.
             </>
         ),
-        ide_num: 1,
+        code_num: 1,
         ide_content: (
             <>
                 <p>
@@ -48,7 +45,7 @@ const questions = [
                 For example, we can set wallet to its value 3 with wallet = wallet.
             </>
         ),
-        ide_num:2,
+        code_num:2,
         ide_content: (
             <>
             <p>
@@ -80,7 +77,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 3,
+        code_num: 3,
         ide_content: (
             <>
             <p>
@@ -115,7 +112,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 4,
+        code_num: 4,
         ide_content: (
             <>
             <p>
@@ -159,7 +156,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 5,
+        code_num: 5,
         ide_content: (
             <>
             <p>
@@ -248,7 +245,7 @@ const questions = [
             <p>Assign 15 to the wallet variable.</p>
             </>
         ),
-        ide_num: 6,
+        code_num: 6,
         ide_content: (
            <>
            <p>
@@ -273,7 +270,7 @@ const questions = [
             </p>
             </>
         ),
-        ide_num: 7,
+        code_num: 7,
         ide_content: (
             <>
             <p>
@@ -308,7 +305,7 @@ const questions = [
             </p>
             </>
         ),
-        ide_num: 8,
+        code_num: 8,
         ide_content: (
             <>
             <p>
@@ -341,7 +338,7 @@ const questions = [
             </p>
             </>
         ),
-        ide_num: 9,
+        code_num: 9,
         ide_content: (
             <>
             <p>
@@ -424,7 +421,7 @@ const questions = [
             </p>
             </>
         ),
-        ide_num: 10,
+        code_num: 10,
         ide_content: (
             <>
             <p>
@@ -447,5 +444,34 @@ const questions = [
 
 ];
 
+// total number of questions (plus one is for the result page)
+let total_ques = questions.length + 1
+let total_xp = 0
 
-export default questions;
+// calculate total xp
+questions.forEach(element => {
+    if (element.type === "mcq") {
+        total_xp += 10
+    }
+    else if (element.type === "code") {
+        let array = element.answer
+        total_xp += (10 * array.length)
+    }
+});
+
+// right now it is set to 60%, can change this value if difficulty changes
+let cutoff = (60 / 100) * total_xp
+
+export const quizDetails = {
+    level: 4,
+    current_sublevel: 1,
+    max_sublevel: 5,
+    total_ques: total_ques,
+    total_xp: total_xp,
+    cutoff: cutoff,
+    topic: "Self-assigning and Operators",
+
+}
+
+// console.log(quizDetails)
+

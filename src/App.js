@@ -31,8 +31,19 @@ import { QuizL3S1 } from './pages/quiz/level3/Quiz1';
 import { QuizL3S2 } from './pages/quiz/level3/Quiz2';
 import { QuizL3S3} from './pages/quiz/level3/Quiz3';
 import { QuizL3S4} from './pages/quiz/level3/Quiz4';
-import { QuizL3S5 } from './pages/quiz/level3/Quiz5'
+import { QuizL3S5 } from './pages/quiz/level3/Quiz5';
 
+import { QuizL4S1 } from './pages/quiz/level4/Quiz1';
+import { QuizL4S2 } from './pages/quiz/level4/Quiz2';
+import { QuizL4S3} from './pages/quiz/level4/Quiz3';
+import { QuizL4S4} from './pages/quiz/level4/Quiz4';
+import { QuizL4S5 } from './pages/quiz/level4/Quiz5';
+
+import { QuizL5S1 } from './pages/quiz/level5/Quiz1';
+import { QuizL5S2 } from './pages/quiz/level5/Quiz2';
+import { QuizL5S3} from './pages/quiz/level5/Quiz3';
+import { QuizL5S4} from './pages/quiz/level5/Quiz4';
+import { QuizL5S5 } from './pages/quiz/level5/Quiz5';
 
 import { QuizL7S1 } from './pages/quiz/level7/Quiz1';
 import { QuizL7S2 } from './pages/quiz/level7/Quiz2';
@@ -100,6 +111,20 @@ function App() {
                 <Route path='3' element={<QuizL3S3 />} />
                 <Route path='4' element={<QuizL3S4 />} />
                 <Route path='5' element={<QuizL3S5 />} />
+              </Route>
+              <Route path='level4'>
+                <Route path='1' element={<QuizL4S1 />} />
+                <Route path='2' element={<QuizL4S2 />} />
+                <Route path='3' element={<QuizL4S3 />} />
+                <Route path='4' element={<QuizL4S4 />} />
+                <Route path='5' element={<QuizL4S5 />} />
+              </Route>
+              <Route path='level5'>
+                <Route path='1' element={<QuizL5S1 />} />
+                <Route path='2' element={<QuizL5S2 />} />
+                <Route path='3' element={<QuizL5S3 />} />
+                <Route path='4' element={<QuizL5S4 />} />
+                <Route path='5' element={<QuizL5S5 />} />
               </Route>
               <Route path='level7'>
                 <Route path='1' element={<QuizL7S1 />} />

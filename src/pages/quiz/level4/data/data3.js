@@ -1,7 +1,4 @@
-import React from "react";
-
-
-const questions = [
+export const questions = [
     {
         id: 1,
         type: "theory",
@@ -19,7 +16,7 @@ const questions = [
                 To stop a loop, we start by creating a variable outside of the loop.
             </>
         ),
-        ide_num: 1,
+        code_num: 1,
         ide_content: (
             <>
             <p>
@@ -51,7 +48,7 @@ const questions = [
                 We use the variable in the condition to decide whether or not the loop should run its code block. For example, keep_going == True.
             </>
         ),
-        ide_num: 2,
+        code_num: 2,
         ide_content: (
             <>
             <p>
@@ -88,7 +85,7 @@ const questions = [
                 Inside the code block, we stop the loop by setting keep_going to False so that the condition returns False.
             </>
         ),
-        ide_num: 3,
+        code_num: 3,
         ide_content: (
             <>
             <p>
@@ -157,7 +154,7 @@ const questions = [
     },
     {
         id: 6,
-        type: mcq,
+        type: "mcq",
         question: (
             <>
             How do we know this loop runs and never stops repeating its code block?
@@ -258,7 +255,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 4,
+        code_num: 4,
         ide_content: (
             <>
             <p>
@@ -310,7 +307,7 @@ const questions = [
             </>
         ),
         // keep a count of the number of code questions
-        ide_num: 5,
+        code_num: 5,
         ide_content: (
             <>
                 <p>
@@ -346,5 +343,33 @@ const questions = [
 
 ];
 
+// total number of questions (plus one is for the result page)
+let total_ques = questions.length + 1
+let total_xp = 0
 
-export default questions;
+// calculate total xp
+questions.forEach(element => {
+    if (element.type === "mcq") {
+        total_xp += 10
+    }
+    else if (element.type === "code") {
+        let array = element.answer
+        total_xp += (10 * array.length)
+    }
+});
+
+// right now it is set to 60%, can change this value if difficulty changes
+let cutoff = (60 / 100) * total_xp
+
+export const quizDetails = {
+    level: 4,
+    current_sublevel: 3,
+    max_sublevel: 5,
+    total_ques: total_ques,
+    total_xp: total_xp,
+    cutoff: cutoff,
+    topic: "Stopping While Loops",
+
+}
+
+// console.log(quizDetails)

@@ -18,11 +18,18 @@ export const ChartXP = () => {
     const data = [
         { day: "M", xp: 0 },
         { day: "T", xp: 0 },
-        { day: "W", xp: 120 },
-        { day: "T", xp: 30 },
-        { day: "F", xp: 150 },
-        { day: "S", xp: 250 },
-        { day: "S", xp: 200 }
+        { day: "W", xp: 0 },
+        { day: "T", xp: 0 },
+        { day: "F", xp: 0 },
+        { day: "S", xp: 0 },
+        { day: "S", xp: 0 }
+        // { day: "M", xp: 0 },
+        // { day: "T", xp: 0 },
+        // { day: "W", xp: 120 },
+        // { day: "T", xp: 30 },
+        // { day: "F", xp: 150 },
+        // { day: "S", xp: 250 },
+        // { day: "S", xp: 200 }
     ];
 
     return (

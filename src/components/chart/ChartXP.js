@@ -1,6 +1,10 @@
 import "./ChartXP.css";
 import Target from "../../assets/images/target.png"
 
+import { useContext } from "react"
+import { AuthContext } from '../../contexts/DetailsContext';
+
+
 import {
     LineChart,
     Line,
@@ -10,14 +14,17 @@ import {
 } from "recharts";
 
 export const ChartXP = () => {
-    let currXP = 60;
-    if (currXP > 100) {
-        currXP = 100
+
+    const { userinfo } = useContext(AuthContext)
+
+    let currXP = userinfo.xp;
+    if (currXP > 400) {
+        currXP = 400
     }
 
     const data = [
         { day: "M", xp: 0 },
-        { day: "T", xp: 0 },
+        { day: "T", xp: currXP },
         { day: "W", xp: 0 },
         { day: "T", xp: 0 },
         { day: "F", xp: 0 },
@@ -49,10 +56,10 @@ export const ChartXP = () => {
                             <div className="daily_goal_progress_xp">
                                 <div
                                     className="daily_goal_progress_xp_completed"
-                                    style={{ width: `${(currXP * 100) / 100}%` }}
+                                    style={{ width: `${(currXP * 100) / 400}%` }}
                                 ></div>
                             </div>
-                            <span> {currXP}/100 XP</span>
+                            <span> {currXP}/400 XP</span>
                         </div>
                     </div>
                 </div>
